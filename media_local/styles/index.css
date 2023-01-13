@@ -1,0 +1,22 @@
+body {
+  margin: 0; 
+}
+
+.header {
+  position: relative;
+}
+
+.menu-container {
+  padding-left: 70px;
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+}
+
+.title {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
