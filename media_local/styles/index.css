@@ -7,16 +7,76 @@ body {
 }
 
 .menu-container {
-  padding-left: 70px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 15px auto;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .photo {
   width: 100%;
-  height: auto;
+  height: 50%;
 }
 
-.title {
+/* .title {
   position: absolute;
   top: 0;
   left: 0;
+} */
+
+.menu-bar {
+  list-style: none;
+  float: right;
+  display: flex;
+  margin: 0;
+}
+
+.menu {
+  
+}
+
+.menu::before {
+  content: "|";
+  color : white;
+}
+
+.menu-link {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  padding:0 8px;
+}
+
+.search-box {
+  display: flex;
+  position: absolute;
+  top: 45%;
+  left: 3%;
+  width: 90%;
+  border: solid 2px;
+  background-color: white;
+  padding: 2%;
+}
+
+.search-sentence {
+  width: 18%;
+}
+.search-criteria {
+  width: 26%;
+}
+
+.search-date {
+  width: 13%;
+}
+
+.search-time {
+  width: 9%;
+}
+
+.search-button {
+  width: 8%;
+  padding: 0;
 }
