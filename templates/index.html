@@ -77,5 +77,10 @@
         </div>
       </div>
     </div> 
+    <ul>
+      {% for obj in object_list%}
+      <li>{{obj.name}}</li>
+      {% endfor %}
+    </ul>
   </body>
 </html>
