@@ -59,8 +59,8 @@ body {
   display: flex;
   position: absolute;
   top: 45%;
-  left: 3%;
-  width: 90%;
+  left: 8%;
+  width: 80%;
   height:7%;
   border: solid 2px;
   background-color: white;
@@ -69,6 +69,7 @@ body {
 
 .search-sentence {
   width: 18%;
+  text-align: center;
 }
 .search-criteria {
   width: 26%;
@@ -87,29 +88,52 @@ body {
   padding: 0;
 }
 
+.about-website-headline {
+  text-align: center;
+  font-size: 30px;
+}
+
+.about-website-sentence {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.search-aria-sentence {
+  text-align: center;
+}
+
+.popular-arias {
+  width: 86%;
+}
 
 .aria-info-wrapper {
-  position: absolute;
+  /* position: absolute; */
   border: solid 1px;
   width: 100%;
-  left: 3%;
+  margin-left: 78px;
+  margin-bottom: 80px;
 }
 
 .aria-info-list {
   display: flex;
   width: 86%;
   list-style: none;
+  margin: auto;
+  margin-top: 30px;
 }
 
 .aria-info-list-2 {
   display: flex;
   width: 86%;
   list-style: none;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom:30px;
 }
 
 .aria-info {
   display: flex;
-  width: 100%;
+  width: 80%;
   border: solid 1px;
   margin-right: 34px; 
 }
@@ -118,4 +142,95 @@ body {
   width:60%;
   height: 100%;
   margin-right :10px;
+}
+
+.search-character-sentence {
+  text-align: center;
+}
+.character-info-wrapper {
+  /* position: absolute; */
+  border: solid 1px;
+  width: 86%;
+  margin-left: 78px;
+  margin-bottom: 80px;
+
+}
+
+.character-info-list {
+  display: flex;
+  width: 86%;
+  list-style: none;
+  margin: auto;
+  margin-top:30px;
+}
+
+.character-info-list-2 {
+  display: flex;
+  width: 86%;
+  list-style: none;
+  margin: auto;
+  margin-top: 0px;
+
+}
+
+.character-info {
+  display: flex;
+  width: 80%;
+  height: 65%;
+  border: solid 1px;
+  margin-right: 34px; 
+}
+
+.character-image {
+  width:60%;
+  height: 100%;
+}
+
+.character-name {
+  margin-top: 35px;
+  margin-left: 63px;
+
+}
+
+.search-popular-space-sentence {
+  text-align: center;
+}
+
+.popular-space-wrapper {
+  border: solid 1px;
+  width: 100%;
+  left: 3%;
+}
+
+.popular-space-info-list {
+  width: 86%;
+  list-style: none;
+}
+
+.popular-space-info-item {
+  display: flex;
+  height: 25%;
+  margin-top: 30px;
+}
+
+.popular-space-info {
+  display: flex;
+  width: 80%;
+  border: solid 1px;
+  margin-right: 34px; 
+}
+
+.popular-space-image {
+  width:40%;
+  height: 100%;
+  margin-right :10px;
+}
+
+.character-image {
+  width: 100%;
+
+}
+
+.character-name  {
+  position: absolute;
 }
