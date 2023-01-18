@@ -23,7 +23,7 @@ body {
 
 .photo {
   width: 100%;
-  height: calc(50% * 5 / 3);
+  height: 140%;
 }
 
 /* .title {
@@ -58,9 +58,9 @@ body {
 .search-box {
   display: flex;
   position: absolute;
-  top: 45%;
-  left: 8%;
-  width: 80%;
+  top: 78%;
+  left: 15%;
+  width: 70%;
   height:7%;
   border: solid 2px;
   background-color: white;
@@ -90,27 +90,40 @@ body {
 
 .about-website-headline {
   text-align: center;
-  font-size: 30px;
+  font-size: 55px;
+  margin-top: 400px;
 }
 
 .about-website-sentence {
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 150px;
+  font-size: 22px;
 }
 
 .search-aria-sentence {
   text-align: center;
+  font-size: 15pt;
+  margin-top: 150px;
 }
 
 .popular-arias {
   width: 86%;
 }
 
+.aria-name {
+  width: 48px;
+  font-size: 11pt;
+}
+
+.aria-longname {
+  font-size: 9.8pt;
+}
+
 .aria-info-wrapper {
   /* position: absolute; */
   border: solid 1px;
-  width: 100%;
-  margin-left: 78px;
+  width: 80%;
+  margin-left: 230px;
   margin-bottom: 80px;
 }
 
@@ -194,6 +207,8 @@ body {
 
 .search-popular-space-sentence {
   text-align: center;
+  font-size: 15pt;
+  margin-top: 150px;
 }
 
 .popular-space-wrapper {
@@ -205,12 +220,15 @@ body {
 .popular-space-info-list {
   width: 86%;
   list-style: none;
+  margin-left: 175px;
 }
 
 .popular-space-info-item {
   display: flex;
   height: 25%;
   margin-top: 30px;
+  height: 23%;
+  width: 87%;
 }
 
 .popular-space-info {
@@ -220,8 +238,12 @@ body {
   margin-right: 34px; 
 }
 
+.space-rank {
+  height:80%;
+}
+
 .popular-space-image {
-  width:40%;
+  width:25%;
   height: 100%;
   margin-right :10px;
 }
