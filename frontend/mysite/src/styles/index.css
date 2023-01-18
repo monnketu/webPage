@@ -1,7 +1,9 @@
 body {
   margin: 0; 
 }
-
+html {
+  background-color: antiquewhite;
+}
 
 .main-search-container {
   height:60%;
@@ -12,6 +14,10 @@ body {
   height: 60vh;
 }
 
+.about-website {
+  /* background-color: #EEE0C0; */
+}
+
 .menu-container {
   display: flex;
   justify-content: space-between;
@@ -20,6 +26,13 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.message-wrapper {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  border: solid 2px;
 }
 
 .photo {
@@ -34,8 +47,10 @@ body {
 } */
 
 .menu-bar {
+  position: absolute;
+  top: 10px;
+  left: 65%;
   list-style: none;
-  float: right;
   display: flex;
   margin: 0;
 }
@@ -89,6 +104,12 @@ body {
   padding: 0;
 }
 
+.message {
+  display: flex;
+  top: 100px;
+}
+
+
 .about-website-headline {
   text-align: center;
   font-size: 55px;
@@ -105,6 +126,7 @@ body {
   text-align: center;
   font-size: 15pt;
   margin-top: 150px;
+  font-weight: bold;
 }
 
 .popular-arias {
@@ -126,6 +148,7 @@ body {
   width: 80%;
   margin-left: 230px;
   margin-bottom: 80px;
+  background-color: white
 }
 
 .aria-info-list {
@@ -160,6 +183,7 @@ body {
 
 .search-character-sentence {
   text-align: center;
+  font-weight: bold;
 }
 .character-info-wrapper {
   /* position: absolute; */
@@ -210,6 +234,7 @@ body {
   text-align: center;
   font-size: 15pt;
   margin-top: 150px;
+  font-weight: bold;
 }
 
 .popular-space-wrapper {
@@ -237,6 +262,7 @@ body {
   width: 80%;
   border: solid 1px;
   margin-right: 34px; 
+  background-color: white;
 }
 
 .space-rank {

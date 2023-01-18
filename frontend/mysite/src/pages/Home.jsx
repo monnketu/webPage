@@ -5,6 +5,25 @@ import image1 from '../img/image2.jpeg';
 import shibuya from "../img/shibuya.jpeg";
 import shinjuku from '../img/shinnjuku.jpeg';
 import ikebukuro from "../img/shinnjuku.jpeg";
+import tokyo     from "../img/tokyo.jpeg";
+import shinagawa     from "../img/shinagawa.jpeg";
+import others     from "../img/others.jpeg";
+import wifi  from "../img/wifi.jpeg";
+import money  from "../img/money.jpeg";
+import meetingroom from "../img/meetingroom.jpeg";
+import printer from "../img/printer.jpeg";
+import dropin from "../img/dropin.jpeg";
+import clock from "../img/clock.jpeg";
+import first from "../img/1rd_image.jpeg";
+import second from "../img/2rd_image.jpeg";
+import third from "../img/3rd_image.jpeg";
+import space from "../img/image1.jpeg";
+
+
+
+
+
+
 import '../styles/index.css';
 const Home = () => {
   return (
@@ -12,6 +31,12 @@ const Home = () => {
       <div className = "main-search-container">
         <div className = "header">
           <img className = "photo" src={image1} />
+          <div className = "message-wrapper">
+            <div className = "message">
+              <p className = "key-message" >いつでも、どこでも</p>
+            </div>
+          </div>
+
           <div className = "menu-container">
             <span className = "title">もんけつ</span>
             <div>
@@ -67,20 +92,20 @@ const Home = () => {
             <ul className = "aria-info-list-2"> 
               <li className='aria-info-item'>
                 <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src="../img/tokyo.jpeg" />
+                  <img className = "aria-image" src={tokyo} />
                   <p className = "aria-name">東京</p>
                 </a>
               </li>
               <li className='aria-info-item'>
                 <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src="../img/shinagawa.jpeg" />
+                  <img className = "aria-image" src={shinagawa} />
                   <p className = "aria-name">品川</p>
                 </a>  
               </li>
                 
               <li className='aria-info-item'>
                 <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src="../img/others.jpeg" />
+                  <img className = "aria-image" src={others}  />
                   <p className = "aria-name">その他</p>
                 </a> 
               </li>
@@ -96,20 +121,20 @@ const Home = () => {
             <ul className = "aria-info-list"> 
               <li className='aria-info-item'>
                 <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src="../img/wifi.jpeg" />
+                  <img className = "aria-image" src = {wifi} />
                   <p className = "aria-name">高速Wi-Fi</p>
                 </a> 
               </li>
               <li className='aria-info-item'>
                 <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src="../img/money.jpeg" />
+                  <img className = "aria-image" src={money}/>
                   <p className = "aria-name">低価格</p>
                 </a>  
               </li>
               
               <li className='aria-info-item'>
                 <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src="../img/meetingroom.jpeg" />
+                  <img className = "aria-image" src={meetingroom} />
                   <p className = "aria-name">広々会議室</p>
                 </a> 
               </li>
@@ -118,20 +143,20 @@ const Home = () => {
             <ul className = "aria-info-list-2"> 
               <li className='aria-info-item'>
                 <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src="../img/printer.jpeg" />
+                  <img className = "aria-image" src={printer} />
                   <p className = "aria-longname">充実オプション</p>
                 </a>
               </li>
               <li className='aria-info-item'>
                 <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src="../img/dropin.jpeg" />
+                  <img className = "aria-image" src={dropin} />
                   <p className = "aria-longname">ドロップイン可能</p>
                 </a>  
               </li>
                 
               <li className='aria-info-item'>
                 <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src="../img/clock.jpeg" />
+                  <img className = "aria-image" src={clock} />
                   <p className = "aria-name">24時間制</p>
                 </a> 
               </li>
@@ -145,24 +170,24 @@ const Home = () => {
             <div className = "popular-space-info-wrapper">
               <ul className = "popular-space-info-list"> 
                 <li className='popular-space-info-item'>
-                  <img className = "space-rank" src="../img/1rd_image.jpeg" />
+                  <img className = "space-rank" src={first} />
                   <a className = "popular-space-info" href = "/polls">
-                    <img className = "popular-space-image" src="../img/image1.jpeg" />
+                    <img className = "popular-space-image" src={space} />
                     <p className = "popular-space-name">space1</p>
                   </a> 
                 </li>
                 <li className='popular-space-info-item'>
-                  <img className = "space-rank" src="../img/2rd_image.jpeg" />
+                  <img className = "space-rank" src={second}/>
                   <a className = "popular-space-info" href = "/polls">
-                    <img className = "popular-space-image" src="../img/image1.jpeg" />
+                    <img className = "popular-space-image" src={space} />
                     <p className = "popular-space-name">space2</p>
                   </a>  
                 </li>
                 
                 <li className='popular-space-info-item'>
-                  <img className = "space-rank" src="../img/3rd_image.jpeg" />
+                  <img className = "space-rank" src={third} />
                   <a className = "popular-space-info" href = "/polls">
-                    <img className = "popular-space-image" src="../img/image1.jpeg" />
+                    <img className = "popular-space-image" src={space} />
                     <p className = "popular-space-name">space3</p>
                   </a> 
                 </li>
