@@ -1,15 +1,13 @@
 import React from 'react';
 import image1 from '../img/image2.jpeg';
-
-
 import shibuya from "../img/shibuya.jpeg";
 import shinjuku from '../img/shinnjuku.jpeg';
 import ikebukuro from "../img/shinnjuku.jpeg";
-import tokyo     from "../img/tokyo.jpeg";
-import shinagawa     from "../img/shinagawa.jpeg";
-import others     from "../img/others.jpeg";
-import wifi  from "../img/wifi.jpeg";
-import money  from "../img/money.jpeg";
+import tokyo from "../img/tokyo.jpeg";
+import shinagawa from "../img/shinagawa.jpeg";
+import others from "../img/others.jpeg";
+import wifi from "../img/wifi.jpeg";
+import money from "../img/money.jpeg";
 import meetingroom from "../img/meetingroom.jpeg";
 import printer from "../img/printer.jpeg";
 import dropin from "../img/dropin.jpeg";
@@ -19,12 +17,8 @@ import second from "../img/2rd_image.jpeg";
 import third from "../img/3rd_image.jpeg";
 import space from "../img/image1.jpeg";
 
-
-
-
-
-
 import '../styles/index.css';
+
 const Home = () => {
   return (
     <>

@@ -261,23 +261,23 @@ html {
   display: flex;
   width: 80%;
   border: solid 1px;
-  margin-right: 34px; 
+  margin-right: 34px;
   background-color: white;
 }
 
 .space-rank {
-  height:80%;
+  width: 10%;
+  height: 80%;
 }
 
 .popular-space-image {
-  width:25%;
+  width: 25%;
   height: 100%;
-  margin-right :10px;
+  margin-right: 10px;
 }
 
 .character-image {
   width: 100%;
-
 }
 
 .character-name  {
