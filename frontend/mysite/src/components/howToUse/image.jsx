@@ -1,11 +1,12 @@
 import React from "react";
-
-const Header = () => {
+import headerImage from './../../img/image1.jpeg'
+import '../../styles/HowToUse/image.css';
+const Image = () => {
   return (
       <div>
-        これがコンポーネント作成の見本
+        <img src={headerImage} alt='ヘッダーイメージ' className="header-image"/>
       </div>
   )
 }
 
-export default Header;
+export default Image;

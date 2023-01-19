@@ -1,0 +1,51 @@
+.body{
+  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  
+}
+
+
+
+.header {
+  position:absolute;
+  font-size:55pt;
+  background-color: black;
+  color: white;
+  padding-left: 100px;
+  padding-right: 2%;
+  width: fit-content;
+  /* transition: all 2s 0.5s; */
+  animation: 3s ease-in 1s infinite reverse both running slidein;
+}
+.header:hover {
+  background-color: honeydew;
+}
+.big-title {
+  font-size: 50pt;
+  background-color: black;
+  color: white;
+  width: fit-content;
+  padding-left: 100px;
+  padding-right: 2%;
+  top: 110px;
+  
+}
+
+.title {
+  font-size:35pt;
+  background-color: black;
+  color: white;
+  width: fit-content;
+  padding-left: 100px;
+  padding-right: 2%;
+}
+
+.subtitle {
+  font-weight: bold;
+  font-size: 15pt;
+  padding-left: 100pt;
+}
+
+.sentence {
+  font-size: 13pt;
+  padding-left: 100pt;
+}

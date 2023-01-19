@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <>
       <div className = "main-search-container">
-        <div className = "header">
+        <div className = "secondheader">
           <img className = "photo" src={image1} />
           <div className = "message-wrapper">
             <div className = "message">
@@ -45,8 +45,13 @@ const Home = () => {
 
         <div className= "search-box">
           <p className = "search-sentence" >場所、日時から探す</p>
-          <input className = "search-criteria" type = "text" />
-          <input className = "search-criteria" type = "text" />
+          <input class = "search-criteria" type = "text" placeholder="エリア・駅"/>
+          <input class = "search-criteria" type = "text" placeholder="キーワード・名前" />
+          <select class = "search-option" name="example">
+            <option value="">選択して下さい</option>
+            <option>月額契約</option>
+            <option>ドロップイン可能</option>
+          </select>
           <input className = "search-date" type = "date" />
           <input className = "search-time" type = "time" />
           <button className ="search-button">検索</button>

@@ -1,9 +1,11 @@
 import React from "react";
-
+import Image from "./image";
+import headerImage from './../../img/image1.jpeg'
 const Header = () => {
   return (
       <div>
-        これがコンポーネント作成の見本
+        <img src={headerImage} className='header-image'/>
+        <Image />
       </div>
   )
 }

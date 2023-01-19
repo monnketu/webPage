@@ -9,7 +9,7 @@ html {
   height:60%;
 }
 
-.header {
+.secondheader {
   position: relative;
   height: 60vh;
 }
@@ -48,8 +48,8 @@ html {
 
 .menu-bar {
   position: absolute;
-  top: 10px;
-  left: 65%;
+  top: 29px;
+  left: 70%;
   list-style: none;
   display: flex;
   margin: 0;
@@ -89,20 +89,75 @@ html {
 }
 .search-criteria {
   width: 26%;
+  webkit-appearance: none;
+  border-radius: 0;
+  outline: 0;
+  border:1px solid grey;
+  
+}
+
+.search-criteria:focus {
+  border-bottom:3px solid brown;
 }
 
 .search-date {
   width: 13%;
+  webkit-appearance: none;
+  border-radius: 0;
+  outline: 0;
+  border:1px solid grey;
 }
+
+.search-date:focus {
+  border-bottom:3px solid brown;
+}
+
+.search-option {
+  webkit-appearance: none;
+  border-radius: 0;
+  outline: 0;
+  border:1px solid grey;
+}
+
+.search-option:focus {
+  border-bottom:3px solid brown;
+}
+
+
 
 .search-time {
   width: 9%;
+  webkit-appearance: none;
+  border-radius: 0;
+  outline: 0;
+  border:1px solid grey;
+}
+
+.search-time:focus {
+  border-bottom:3px solid brown;
 }
 
 .search-button {
   width: 8%;
   padding: 0;
+  webkit-appearance: none;
+  border-radius: 0;
+  outline: 0;
+  border:1px solid grey;
+  color:white;
+  background-color:brown;
+  
 }
+
+.search-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+
+
+
+
 
 .message {
   display: flex;
@@ -244,7 +299,7 @@ html {
 }
 
 .popular-space-info-list {
-  width: 86%;
+  width: 84%;
   list-style: none;
   margin-left: 175px;
 }
@@ -266,7 +321,7 @@ html {
 }
 
 .space-rank {
-  width: 10%;
+  width: 14%;
   height: 80%;
 }
 
