@@ -3,6 +3,25 @@
   
 }
 
+.main-search-container {
+  position: relative;
+}
+
+.menu-bar {
+  position: absolute;
+  list-style: none;
+  display: flex;
+  top: 40px;
+  left: 70%;
+  
+}
+
+.menu-link {
+  color: white;
+  border-bottom: none;
+}
+
+
 
 
 .header {
@@ -10,15 +29,28 @@
   font-size:55pt;
   background-color: black;
   color: white;
+  width: fit-content;
   padding-left: 100px;
   padding-right: 2%;
-  width: fit-content;
-  /* transition: all 2s 0.5s; */
-  animation: 3s ease-in 1s infinite reverse both running slidein;
+  animation: fadeIn 1s ease 0.5s 1 normal backwards;
 }
-.header:hover {
-  background-color: honeydew;
+ 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
+
+
+.photo {
+  width: 100%;
+}
+
 .big-title {
   font-size: 50pt;
   background-color: black;
@@ -27,8 +59,21 @@
   padding-left: 100px;
   padding-right: 2%;
   top: 110px;
-  
+  animation: fadeIn 1s ease 0.5s 1 normal backwards;
 }
+ 
+/* @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+} */
+
+  
 
 .title {
   font-size:35pt;
@@ -37,7 +82,24 @@
   width: fit-content;
   padding-left: 100px;
   padding-right: 2%;
+  animation: fadeIn 1s ease 0.5s 1 normal backwards;
 }
+
+ 
+/* @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+} */
+
+
+
+
 
 .subtitle {
   font-weight: bold;

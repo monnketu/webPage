@@ -17,7 +17,7 @@ import second from "../img/2rd_image.jpeg";
 import third from "../img/3rd_image.jpeg";
 import space from "../img/image1.jpeg";
 
-import '../styles/index.css';
+// import '../styles/index.css';
 
 const Home = () => {
   return (
