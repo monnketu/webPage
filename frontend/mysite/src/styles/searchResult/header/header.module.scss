@@ -1,0 +1,17 @@
+.header {
+  position: relative;
+  .headerImage {
+    width: 100%;
+    height: 20vh;
+  }
+  .searchAria {
+    position: absolute;
+    text-align: center;
+    line-height:20vh;
+    width: 50%;
+    top: 0;
+    left: 25%;
+    margin: 0;
+    vertical-align: middle;
+  }
+}
