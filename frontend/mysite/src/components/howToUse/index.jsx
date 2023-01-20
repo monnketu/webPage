@@ -1,20 +1,23 @@
 import React from "react";
-// import './../../styles/HowToUse/index.css'
+import { Reveal } from 'react-genie';
+import './../../styles/HowToUse/index.css'
+
 const index = () => {
   return (
     <>
+      
       <div className = "main-search-container">
         <p className = "header">特徴と使い方</p>
         <img className = "photo" src = "/media/image2.jpeg" />
-     
         <ul className = "menu-bar">
-          <li className = "menu-start"><a class = "menu-link" href = "/polls">特徴と使い方</a></li>
-          <li className = "menu"><a class = "menu-link" href = "/polls">お気に入り</a></li>
-          <li className = "menu"><a class = "menu-link" href = "/polls">会員登録/ログイン</a></li>
-        </ul>
-          <p className = "big-title">フリースタイルとは</p>
-          <p className = "title">特徴</p>
-          <p className = "sentence">関東エリアコワーキングスペースのまとめサイトです。<br></br>口コミや投稿機能を使って、ユーザー同士でおすすめの場所を共有することができます。<br></br>リモートワーク、リモート授業が増える中、家だとなかなか集中できない…
+          <li className = "menu-start"><a className = "menu-link" href = "/polls">特徴と使い方&nbsp;|&nbsp;</a></li>
+          <li className = "menu"><a className = "menu-link" href = "/polls">お気に入り&nbsp;|&nbsp;</a></li>
+          <li className = "menu"><a className = "menu-link" href = "/polls">会員登録/ログイン&emsp;</a></li>
+          </ul>
+      </div>
+        <p className = "big-title">フリースタイルとは</p>
+        <p className = "title">特徴</p>
+        <p className = "sentence">関東エリアコワーキングスペースのまとめサイトです。<br></br>口コミや投稿機能を使って、ユーザー同士でおすすめの場所を共有することができます。<br></br>リモートワーク、リモート授業が増える中、家だとなかなか集中できない…
 <br></br>移動中の空き時間にサクッと作業したい…<br></br>そんな悩みはありませんか？<br></br>フリースタイルを使えば、あなたにぴったりのコワーキングスペースを探せます。
           </p>
           <p className = "title">使い方</p>
@@ -29,7 +32,7 @@ const index = () => {
           <p className = "subtitle">おすすめから探す</p>
           <p className = "sentence">場所選びに失敗したくない<br></br>みんながおすすめしている場所で作業したい<br></br>そんな希望がある方は、みんなのおすすめのランキングを見てみましょう。</p>
           <p className = "header">さあ、使ってみましょう</p>
-      </div>
+      
       
 
     </>
