@@ -32,8 +32,9 @@
   width: fit-content;
   padding-left: 100px;
   padding-right: 2%;
-  animation: fadeIn 1s ease 0.5s 1 normal backwards;
+  animation: fadeIn 1s ease 0s 1 normal backwards;
 }
+
  
 @keyframes fadeIn {
   from {
@@ -59,7 +60,9 @@
   padding-left: 100px;
   padding-right: 2%;
   top: 110px;
-  animation: fadeIn 1s ease 0.5s 1 normal backwards;
+}
+.is-animated-big-title {
+  animation: fadeIn 1s ease 0s 1 normal backwards;
 }
  
 /* @keyframes fadeIn {
@@ -82,9 +85,10 @@
   width: fit-content;
   padding-left: 100px;
   padding-right: 2%;
-  animation: fadeIn 1s ease 0.5s 1 normal backwards;
 }
-
+.is-animated-title {
+  animation: fadeIn 1s ease 0s 1 normal backwards;
+}
  
 /* @keyframes fadeIn {
   from {
@@ -110,4 +114,16 @@
 .sentence {
   font-size: 13pt;
   padding-left: 100pt;
+}
+.footer {
+  position:absolute;
+  font-size:55pt;
+  background-color: black;
+  color: white;
+  width: fit-content;
+  padding-left: 100px;
+  padding-right: 2%;
+}
+.is-animated-footer {
+  animation: fadeIn 1s linear 0s 1 normal backwards;
 }

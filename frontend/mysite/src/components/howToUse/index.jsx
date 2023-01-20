@@ -1,5 +1,4 @@
 import React from "react";
-import { Reveal } from 'react-genie';
 import './../../styles/HowToUse/index.css'
 
 const index = () => {
@@ -31,10 +30,7 @@ const index = () => {
 ましょう。</p>
           <p className = "subtitle">おすすめから探す</p>
           <p className = "sentence">場所選びに失敗したくない<br></br>みんながおすすめしている場所で作業したい<br></br>そんな希望がある方は、みんなのおすすめのランキングを見てみましょう。</p>
-          <p className = "header">さあ、使ってみましょう</p>
-      
-      
-
+          <p className = "footer">さあ、使ってみましょう</p>
     </>
   )
 }
