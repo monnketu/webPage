@@ -1,0 +1,9 @@
+.menuLink {
+  text-decoration: none;
+  &:visited {
+    color : white;
+  }
+  &:hover {
+    opacity: 0.5;
+  }
+}

@@ -16,8 +16,6 @@ const SearchResult = () => {
         <Results />
       </div>
     </div>
-
-    
   )
 }
 export default SearchResult;
