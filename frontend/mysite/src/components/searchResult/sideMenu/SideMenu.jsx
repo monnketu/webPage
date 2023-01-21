@@ -4,10 +4,7 @@ import SearchBox from './SearchBox';
 const SideMenu = () => {
   return (
     <div className={styles.sideMenuContainer}>
-      <SearchBox  label={'キーワード'}/>
-      <SearchBox  label={'特徴'}/>
-      <SearchBox  label={'価格'}/>
-      <SearchBox  label={'おすすめ'}/>
+        <SearchBox  label1={'キーワード'}/>
     </div>
   )
 }
