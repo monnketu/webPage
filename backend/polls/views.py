@@ -17,7 +17,21 @@ def coupon(request):
             # 'coupon_store':str(data[0].store),
             # 'coupon_start':str(data[0].start),
             # 'coupon_deadline':str(data[0].deadline),
-            'coupon_status':str(data[i].name),
+            
+            'coupon_spaceID':str(data[i].spaceID),
+            'coupon_aria':str(data[i].aria),
+            'coupon_name':str(data[i].name),
+            'coupon_address':str(data[i].address),
+            'coupon_station':str(data[i].station),
+            'coupon_wi-fi':str(data[i].wifi),
+            'coupon_isBattery':str(data[i].isBattery),
+            'coupon_isMeetingRoom':str(data[i].isMeetingRoom),
+            'coupon_isDropIn':str(data[i].isDropIn),
+            'coupon_price':str(data[i].price),
+            'coupon_startTime':str(data[i].startTime),
+            'coupon_endTime':str(data[i].endTime),
+            'coupon_favorite':str(data[i].favorite),
+            'coupon_jurisdiction':str(data[i].jurisdiction),
             }
         l['param' + str(i)] = json.dumps(params, ensure_ascii=False, indent=2)
 
