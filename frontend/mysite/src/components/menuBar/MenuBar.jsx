@@ -4,9 +4,9 @@ import styles from './../../styles/menuBar/menuBar.module.scss';
 const MenuBar = () => {
   return (
     <ul className = "menu-bar">
-      <li className = {styles.menuStart}><Menu To='/' name='特徴と使い方'/></li>
-      <li className = {styles.menu}><Menu To='/favorite' name='お気に入り' /></li>
-      <li className = {styles.menu}><Menu To='/login' name='会員登録/ログイン' last={true}/></li>
+      <li className = {styles.menuStart}><Menu To='/' name='特徴と使い方 '/></li>
+      <li className = {styles.menu}><Menu To='/favorite' name='お気に入り ' /></li>
+      <li className = {styles.menu}><Menu To='/login' name=' 会員登録/ログイン' last={true}/></li>
     </ul>
     // <ul className = "menu-bar">
     //   <li><Menu MenuClassName='menu-link-start' To = 'how_to_use' /></li>

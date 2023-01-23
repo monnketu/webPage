@@ -1,8 +1,7 @@
 .menuLink {
   text-decoration: none;
-  &:visited {
-    color : white;
-  }
+  color : white;
+  margin-right: 3px;
   &:hover {
     opacity: 0.5;
   }

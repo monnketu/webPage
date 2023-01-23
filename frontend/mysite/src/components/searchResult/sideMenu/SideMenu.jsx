@@ -5,9 +5,9 @@ import SearchOptionBox from './SearchOptionBox';
 const SideMenu = () => {
   return (
     <div className={styles.sideMenuContainer}>
-        <SearchBox  label1={'キーワード'}/>
-        <SearchOptionBox label1={'リスト1'}  options={['選択肢1','選択肢2','選択肢3','選択肢4',]}/>
-        <SearchOptionBox label1={'リスト2'}  options={['wi-fi','電源','個室','ドリンクバー',]}/>
+        <SearchBox  label1={'キーワード'}/><br></br>
+        <SearchOptionBox label1={'特徴'}  options={['高速wi-fi','低価格','広々会議室','充実オプション','24時間制']}/><br></br>
+        <SearchOptionBox label1={'価格'}  options={['~10,000円','10,000円〜20,000円','20,0000円〜40,000円','40,000円〜60,000円','60,000円〜']}/>
     </div>
   )
 }

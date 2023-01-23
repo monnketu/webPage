@@ -7,6 +7,10 @@
   position: relative;
 }
 
+.photo {
+  height: 70vh;
+}
+
 .menu-bar {
   position: absolute;
   list-style: none;
@@ -17,14 +21,18 @@
 }
 
 .menu-link {
+  text-decoration: none;
   color: white;
   border-bottom: none;
+  
+  
 }
 
 
 
 
 .header {
+  top: 50px;
   position:absolute;
   font-size:55pt;
   background-color: black;

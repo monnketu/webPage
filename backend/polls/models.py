@@ -18,6 +18,8 @@ class coWorkingSpace(models.Model):
     isBattery = models.BooleanField()
     # 会議室 : BOOLEAN型 無:False 有:True
     isMeetingRoom = models.BooleanField()
+    # ドロップイン可能
+    isDropIn = models.BooleanField()
     # 価格/月 : INTEGER型
     price = models.IntegerField()
     # 開始時間 : datetime型
@@ -28,7 +30,7 @@ class coWorkingSpace(models.Model):
     favorite = models.IntegerField()
     # 管轄 : 文字列50桁
     jurisdiction = models.CharField(max_length=50)
-
+    
     def __str__(self):
       return self.name
 
