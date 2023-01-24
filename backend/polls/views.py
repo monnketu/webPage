@@ -5,57 +5,52 @@ import json
 
 
 def coupon(request):
-    data = coWorkingSpace.objects.all() # テーブルにある全てのレコードを取得
 
-    l = {}
+  # 以下のdata変数をすべてのデータを取得から与えられた条件に一致するものを検索して取得に変更
+  data = coWorkingSpace.objects.all() # テーブルにある全てのレコードを取得
 
-    for i in range(17):
-        params = {
-            # 'coupon_code':str(data[0].code), # 個々のレコードはdata型なのでString型にキャストする
-            # 'coupon_benefits':str(data[0].benefit),
-            # 'coupon_explanation':str(data[0].explanation),
-            # 'coupon_store':str(data[0].store),
-            # 'coupon_start':str(data[0].start),
-            # 'coupon_deadline':str(data[0].deadline),
-            
-            'coupon_spaceID':str(data[i].spaceID),
-            'coupon_aria':str(data[i].aria),
-            'coupon_name':str(data[i].name),
-            'coupon_address':str(data[i].address),
-            'coupon_station':str(data[i].station),
-            'coupon_wi-fi':str(data[i].wifi),
-            'coupon_isBattery':str(data[i].isBattery),
-            'coupon_isMeetingRoom':str(data[i].isMeetingRoom),
-            'coupon_isDropIn':str(data[i].isDropIn),
-            'coupon_price':str(data[i].price),
-            'coupon_startTime':str(data[i].startTime),
-            'coupon_endTime':str(data[i].endTime),
-            'coupon_favorite':str(data[i].favorite),
-            'coupon_jurisdiction':str(data[i].jurisdiction),
-            }
-        l['param' + str(i)] = json.dumps(params, ensure_ascii=False, indent=2)
+  l = {}
 
-    
-        
+  for i in range(17):
+    params = {      
+      'coupon_spaceID':str(data[i].spaceID),
+      'coupon_aria':str(data[i].aria),
+      'coupon_name':str(data[i].name),
+      'coupon_address':str(data[i].address),
+      'coupon_station':str(data[i].station),
+      'coupon_wi-fi':str(data[i].wifi),
+      'coupon_isBattery':str(data[i].isBattery),
+      'coupon_isMeetingRoom':str(data[i].isMeetingRoom),
+      'coupon_isDropIn':str(data[i].isDropIn),
+      'coupon_price':str(data[i].price),
+      'coupon_startTime':str(data[i].startTime),
+      'coupon_endTime':str(data[i].endTime),
+      'coupon_favorite':str(data[i].favorite),
+      'coupon_jurisdiction':str(data[i].jurisdiction),
+    }
+    l['param' + str(i)] = json.dumps(params, ensure_ascii=False, indent=2)
+
+  
+      
 
 
-    json_str = json.dumps(l, ensure_ascii=False, indent=2)
-    return HttpResponse(json_str)
+  json_str = json.dumps(l, ensure_ascii=False, indent=2)
+  return HttpResponse(json_str)
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+  return HttpResponse("Hello, world. You're at the polls index.")
 def index_template(request):
-    print(request)
-    ctx = {}
-    qs = coWorkingSpace.objects.all()
-    ctx["object_list"] = qs
-    return render(request, 'index.html', ctx)
+  print(request)
+  ctx = {}
+  qs = coWorkingSpace.objects.all()
+  ctx["object_list"] = qs
+  return render(request, 'index.html', ctx)
 def index_template_test1(request):
-    return render(request, 'index_test1.html')
+  return render(request, 'index_test1.html')
 
 def search_result(request):
-    # データベースなどからとってきた情報を格納しhtmlファイルに渡す
-    ctx = {}
-    print(request)
-    return render(request, 'search_result.html', ctx)
+  # データベースなどからとってきた情報を格納しhtmlファイルに渡す
+  ctx = {}
+  print(request)
+  return render(request, 'search_result.html', ctx)
 # Create your views here.
