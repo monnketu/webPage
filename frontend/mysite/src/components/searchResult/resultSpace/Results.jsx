@@ -14,7 +14,11 @@ const Results = () => {
   const [ data, setData ] = useState({a:'null',b:'null'});
   useEffect(() => {
     try {
-      fetch("http://localhost:8000/polls/coupon/")
+      fetch("http://localhost:8000/polls/coupon/",{
+        headers: {
+          
+        }
+      })
       .then(response => {
         return response.json();
       })

@@ -27,6 +27,7 @@ const SearchResult = () => {
       console.log("失敗しました");
     };
     console.log('OK');
+    
   },[])
 
   const location = useLocation();

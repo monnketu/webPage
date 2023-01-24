@@ -15,7 +15,7 @@ function App() {
           <Route exact path='/how_to_use' element={<HowToUse />} />
           <Route exact path='/search_result' element={<SearchResult />} />
           <Route exact path='/favorite' element={<Favorite />} />
-          <Route exact path='/login' element={<Login />} />
+          <Route path='/login' element={<Login />} />
           <Route path = '*' element={<ErrorPage />} />
         </Routes>
       </>
