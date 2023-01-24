@@ -4,6 +4,7 @@ import HowToUse from './pages/HowToUse';
 import SearchResult from './pages/SearchResult';
 import Favorite from './pages/Favorite';
 import ErrorPage from './pages/404';
+import Login from './pages/Login';
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +15,7 @@ function App() {
           <Route exact path='/how_to_use' element={<HowToUse />} />
           <Route exact path='/search_result' element={<SearchResult />} />
           <Route exact path='/favorite' element={<Favorite />} />
+          <Route exact path='/login' element={<Login />} />
           <Route path = '*' element={<ErrorPage />} />
         </Routes>
       </>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import image1 from '../img/image2.jpeg';
 import shibuya from "../img/shibuya.jpeg";
 import shinjuku from '../img/shinnjuku.jpeg';
@@ -89,10 +90,11 @@ const Home = () => {
           <div className = "aria-info-wrapper">
             <ul className = "aria-info-list"> 
               <li className='aria-info-item'>
-                <a className = "aria-info" href = "/polls">
+                {/* 陶子へ　ここでSearchResult.jsxへ渋谷って値を渡す */}
+                <Link className = "aria-info" to = "/search_result" state={{aria: '渋谷'}}>
                   <img className = "aria-image" src={shibuya} />
                   <p className = "aria-name">渋谷</p>
-                </a> 
+                </Link> 
               </li>
               <li className='aria-info-item'>
                 <a className = "aria-info" href = "/polls">

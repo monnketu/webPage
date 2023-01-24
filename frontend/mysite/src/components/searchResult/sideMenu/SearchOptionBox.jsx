@@ -8,7 +8,7 @@ import styles from './../../../styles/searchResult/sideMenu/searchOptionBox.modu
 const SearchOptionBox = (props) => {
   return (
     <div className={styles.searchBoxContainer}>
-      <label for={styles.keyWordSearch}>{props.label1}から探す</label><br />
+      <label htmlFor={styles.keyWordSearch}>{props.label1}から探す</label><br />
       <select id ={styles.keyWordSearch}>
         {props.options.map((option, index) => {
           // options[index] == option

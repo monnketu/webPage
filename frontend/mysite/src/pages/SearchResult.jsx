@@ -7,7 +7,8 @@ import SideMenu from '../components/searchResult/sideMenu/SideMenu';
 import styles from './../styles/searchResult/searchResult.module.scss'
 const SearchResult = () => {
   const location = useLocation();
-  // const { test } = location.state;
+  const ariaName = location.state.aria;
+  console.log(ariaName)
   return(
     <div>
       <Header />
