@@ -39,6 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'corsheaders',
+
+    # 新たにCORS_ORIGIN_WHITELIST変数を記述して、その中にアクセスを許可したいURL（アクセス元）を追加する
+]
+
+CORS_ORIGIN_WHITELIST = [
+'http://127.0.0.1:3000',
+'http://localhost:3000',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +58,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'

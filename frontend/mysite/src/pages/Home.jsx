@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import image1 from '../img/image2.jpeg';
 import shibuya from "../img/shibuya.jpeg";
 import shinjuku from '../img/shinnjuku.jpeg';
@@ -17,9 +17,30 @@ import second from "../img/2rd_image.jpeg";
 import third from "../img/3rd_image.jpeg";
 import space from "../img/image1.jpeg";
 
-// import '../styles/index.css';
-
+import '../styles/index.css';
 const Home = () => {
+  useEffect(() => {
+    console.log('useEffect!!');
+    try {
+      fetch("http://localhost:8000/polls/coupon/")
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        // for key in data:
+          // 
+        for(let key in data) { 
+          data[key] = JSON.parse(data[key]);
+        } // ['param0', 'param1', ... , 'param17'];
+        console.log(data);
+      })
+    } catch (error) {
+      console.log("失敗しました");
+  };
+  console.log('OK');
+},[])
+
+
   return (
     <>
       <div className = "main-search-container">

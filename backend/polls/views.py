@@ -9,7 +9,7 @@ def coupon(request):
 
     l = {}
 
-    for i in range(18):
+    for i in range(17):
         params = {
             # 'coupon_code':str(data[0].code), # 個々のレコードはdata型なのでString型にキャストする
             # 'coupon_benefits':str(data[0].benefit),
