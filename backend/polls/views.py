@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import coWorkingSpace # Couponクラスをインポート
+import requests
 import json
 
 
@@ -36,8 +37,19 @@ def coupon(request):
   json_str = json.dumps(l, ensure_ascii=False, indent=2)
   return HttpResponse(json_str)
 
+def getLineAccessToken(request):
+  print(request)
+  if (request.method == 'POST'): 
+    print('POST')
+  return HttpResponse(request)
+
 def index(request):
   return HttpResponse("Hello, world. You're at the polls index.")
+
+def getSimData(request):
+  # とーこへ　ここの関数の中に、データをとってくる処理、類似度を測定する処理を書いて欲しい
+  return HttpResponse("Hello, world. You're at the polls index.")
+
 def index_template(request):
   print(request)
   ctx = {}
