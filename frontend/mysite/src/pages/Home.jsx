@@ -23,16 +23,16 @@ const Home = () => {
   useEffect(() => {
     console.log('useEffect!!');
     try {
-      fetch("http://localhost:8000/polls/coupon/")
+      fetch("http://localhost:8000/polls/getSimData/")
       .then(response => {
         return response.json();
       })
       .then(data => {
         // for key in data:
           // 
-        for(let key in data) { 
-          data[key] = JSON.parse(data[key]);
-        } // ['param0', 'param1', ... , 'param17'];
+        // for(let key in data) { 
+        //   data[key] = JSON.parse(data[key]);
+        // } // ['param0', 'param1', ... , 'param17'];
         console.log(data);
       })
     } catch (error) {
