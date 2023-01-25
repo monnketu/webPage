@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import ResultSpace from './ResultSpace';
 import styles from './../../../styles/searchResult/results/results.module.scss'
 const Results = () => {
@@ -16,7 +16,7 @@ const Results = () => {
     try {
       fetch("http://localhost:8000/polls/coupon/",{
         headers: {
-          
+
         }
       })
       .then(response => {

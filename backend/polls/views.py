@@ -8,7 +8,6 @@ def coupon(request):
 
   # 以下のdata変数をすべてのデータを取得から与えられた条件に一致するものを検索して取得に変更
   data = coWorkingSpace.objects.all() # テーブルにある全てのレコードを取得
-
   l = {}
 
   for i in range(17):
