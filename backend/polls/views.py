@@ -48,7 +48,7 @@ def index(request):
 
 def getSimData(request):
   # とーこへ　ここの関数の中に、データをとってくる処理、類似度を測定する処理を書いて欲しい
-  return HttpResponse("Hello, world. You're at the polls index.")
+  return HttpResponse("Hello, world. You're at the polls getSimData.")
 
 def index_template(request):
   print(request)
