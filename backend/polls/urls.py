@@ -1,9 +1,10 @@
 from django.urls import path
 from rest_framework import routers
-from .views import coWorkingViewSet_ikebukuro, coWorkingViewSet_shibuya, coWorkingViewSet_sinagawa, coWorkingViewSet_tokyo, coWorkingViewSet_shinjuku, coWorkingViewSet_others
+from .views import coWorkingViewSet_ikebukuro, coWorkingViewSet_shibuya, coWorkingViewSet_sinagawa, coWorkingViewSet_tokyo, coWorkingViewSet_shinjuku, coWorkingViewSet_others, coWorkingViewSet
 from . import views
 
 router = routers.DefaultRouter()
+router.register('coWorkingSpace/all', coWorkingViewSet)
 router.register('coWorkingSpace/shibuya', coWorkingViewSet_shibuya)
 router.register('coWorkingSpace/shinjuku', coWorkingViewSet_shinjuku)
 router.register('coWorkingSpace/ikebukuro', coWorkingViewSet_ikebukuro)

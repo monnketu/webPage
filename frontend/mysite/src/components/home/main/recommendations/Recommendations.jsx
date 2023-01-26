@@ -10,7 +10,7 @@ export default function Recommendations() {
       <div className = {styles.popular_space}>
         <div className = {styles.popular_space_info_wrapper}>
           <ul className = {styles.popular_space_info_list}> 
-            {params.map((param, index) => <li className={styles.popular_space_item}><Recommendation img={param} rank={index+1}/></li>)}
+            {params.map((param, index) => <li className={styles.popular_space_item} key={index}><Recommendation img={param} rank={index+1}/></li>)}
           </ul>
         </div>
       </div>

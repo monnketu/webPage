@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
-import Header from '../components/header/Header';
+import Header from '../components/searchResult/header/Header';
 import Results from '../components/searchResult/resultSpace/Results';
 import SideMenu from '../components/searchResult/sideMenu/SideMenu';
 

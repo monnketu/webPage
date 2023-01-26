@@ -11,7 +11,7 @@ const Form = (props) => {
       <input id='coWorkingSpace' type='radio' name='cafeORcoWokingSpace'/>
       {/* <input class = {styles.search_criteria} type = "text" placeholder="エリア・駅"/>
       <input class = {styles.search_criteria} type = "text" placeholder="キーワード・名前" /> */}
-      <select class = {styles.search_option} name="example">
+      <select className = {styles.search_option} name="example">
         <option value="">選択して下さい</option>
         <option>月額契約</option>
         <option>ドロップイン可能</option>

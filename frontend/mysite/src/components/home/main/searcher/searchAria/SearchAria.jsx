@@ -38,11 +38,11 @@ export default function SearchAria() {
       <div className = {styles.popular_arias}>
         <div className = {styles.aria_info_wrapper}>
           <ul className = {styles.aria_info_list}>
-            {arias1.map((aria) => <li><Aria aria={aria}/></li>)}
+            {arias1.map((aria, index) => <li key={index}><Aria aria={aria}/></li>)}
           </ul>
       
           <ul className = {styles.aria_info_list2}>
-            {arias2.map((aria) => <li><Aria aria={aria}/></li>)}
+            {arias2.map((aria, index) => <li key={index}><Aria aria={aria}/></li>)}
           </ul>
         </div>
       </div>

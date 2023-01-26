@@ -11,6 +11,9 @@ from urllib.parse import urlencode
 from urllib.request import urlopen, Request
 
 logger = logging.getLogger('development')
+class coWorkingViewSet(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.all()
+  serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_shibuya(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(aria = "渋谷")
   serializer_class = coWorkingSpaceSerializer

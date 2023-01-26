@@ -36,11 +36,11 @@ export default function SearchCharacters() {
       <div className = {styles.popular_characters}>
         <div className = {styles.character_info_wrapper}>
           <ul className = {styles.character_info_list}> 
-            {params1.map(param => <li><Character info={param}/></li>)}
+            {params1.map((param, index) => <li key={index}><Character info={param}/></li>)}
           </ul>
       
           <ul className = {styles.character_info_list2}> 
-            {params2.map(param => <li><Character info={param}/></li>)}
+            {params2.map((param, index) => <li key={index}><Character info={param}/></li>)}
           </ul>
         </div>
       </div>

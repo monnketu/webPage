@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './../../styles/HowToUse/index.css'
 
 const index = () => {
@@ -7,11 +8,12 @@ const index = () => {
       
       <div className = "main-search-container">
         <p className = "header">特徴と使い方</p>
-        <img className = "photo" src = "/media/image2.jpeg" />
+        <img className = "photo" src = "/media/image2.jpeg" alt='ヘッダー画像'/>
         <ul className = "menu-bar">
-          <li className = "menu-start"><a className = "menu-link" href = "/polls">特徴と使い方&nbsp;|&nbsp;</a></li>
-          <li className = "menu"><a className = "menu-link" href = "/polls">お気に入り&nbsp;|&nbsp;</a></li>
-          <li className = "menu"><a className = "menu-link" href = "/polls">会員登録/ログイン&emsp;</a></li>
+          <li className = "menu-start"><Link className = "menu-link" to = "/">Top&nbsp;|&nbsp;</Link></li>
+          <li className = "menu-start"><Link className = "menu-link" to = "/how_to_use">特徴と使い方</Link></li>
+          {/* <li className = "menu"><a className = "menu-link" href = "/polls">お気に入り&nbsp;|&nbsp;</a></li>
+          <li className = "menu"><a className = "menu-link" href = "/polls">会員登録/ログイン&emsp;</a></li> */}
           </ul>
       </div>
         <p className = "big-title">フリースタイルとは</p>

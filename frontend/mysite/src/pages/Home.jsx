@@ -28,7 +28,7 @@ const Home = () => {
 
 
   return (
-    <div className>
+    <div>
       <Header />
       <Introduction />
       <Searcher />
