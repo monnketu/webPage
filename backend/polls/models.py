@@ -12,14 +12,6 @@ class coWorkingSpace(models.Model):
     address = models.CharField(max_length=100)
     # 最寄駅 : 文字列50桁
     station = models.CharField(max_length=50)
-    # wi-fi : INTEGER型 無:0 有:1 強:2
-    wifi = models.IntegerField()
-    # 電源 : BOOLEAN型 無:False 有:True
-    isBattery = models.BooleanField()
-    # 会議室 : BOOLEAN型 無:False 有:True
-    isMeetingRoom = models.BooleanField()
-    # ドロップイン可能
-    isDropIn = models.BooleanField()
     # 価格/月 : INTEGER型
     price = models.IntegerField()
     # 開始時間 : datetime型
@@ -30,6 +22,19 @@ class coWorkingSpace(models.Model):
     favorite = models.IntegerField()
     # 管轄 : 文字列50桁
     jurisdiction = models.CharField(max_length=50)
+    # wi-fi : INTEGER型 無:0 有:1 強:2
+    wifi = models.IntegerField()
+    # 電源 : BOOLEAN型 無:False 有:True
+    isBattery = models.BooleanField()
+    # 会議室 : BOOLEAN型 無:False 有:True
+    isMeetingRoom = models.IntegerField()
+    # ドロップイン可能
+    isDropIn = models.BooleanField()
+    # 充実オプション: BOOLEAN型 無:False 有:True
+    isEnhancedOptions = models.BooleanField()
+    #カフェなのかどうか: BOOLEAN型 コワーキングスペース:False カフェ:True
+    isCafe = models.BooleanField()
+
     
     def __str__(self):
       return self.name
