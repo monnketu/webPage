@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './../../../styles/searchResult/sideMenu/sideMenu.module.scss';
 import SearchBox from './SearchBox';
 import SearchOptionBox from './SearchOptionBox';
-import Input from './Input'
+// import Input from './Input'
 const SideMenu = () => {
   return (
     <div className={styles.sideMenuContainer}>

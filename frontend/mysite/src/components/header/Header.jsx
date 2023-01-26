@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './../../../styles/searchResult/header/header.module.scss';
-import MenuBar from '../../menuBar/MenuBar';
+import styles from './../../styles/header/header.module.scss';
+import MenuBar from '../menuBar/MenuBar';
 const Header = (props) => {
   return ( 
     <div className={styles.header}>

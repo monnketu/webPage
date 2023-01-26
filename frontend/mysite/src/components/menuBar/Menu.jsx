@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import styles from './../../styles/menuBar/menu.module.scss';
 const Menu = (props) => {
   // 三項演算子 (変数名) = (条件) ? (条件がtrueのときの値) : (条件がfalseの時の値)
@@ -15,7 +16,7 @@ const Menu = (props) => {
 
 
   return(
-    <a className = {styles.menuLink} href = {props.To}>{props.name}{props.last ? null : '|'}</a>
+    <Link className = {styles.menuLink} to = {props.To}>{props.name}{props.last ? null : '|'}</Link>
   )
 }
 

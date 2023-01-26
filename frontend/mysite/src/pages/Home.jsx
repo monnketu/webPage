@@ -18,6 +18,7 @@ import second from "../img/2rd_image.jpeg";
 import third from "../img/3rd_image.jpeg";
 import space from "../img/image1.jpeg";
 
+import Form from './../components/home/Form/Form';
 import '../styles/index.css';
 const Home = () => {
   useEffect(() => {
@@ -46,7 +47,7 @@ const Home = () => {
     <>
       <div className = "main-search-container">
         <div className = "secondheader">
-          <img className = "photo" src={image1} />
+          <img className = "photo" src={image1} alt='header画像'/>
           <div className = "message-wrapper">
             <div className = "message">
               <p className = "key-message" >いつでも、どこでも</p>
@@ -57,27 +58,15 @@ const Home = () => {
             <span className = "title">もんけつ</span>
             <div>
               <ul className = "menu-bar">
-                <li className = "menu-start"><a className = "menu-link" href = "/polls">特徴と使い方</a></li>
-                <li className = "menu"><a className = "menu-link" href = "/polls">お気に入り</a></li>
-                <li className = "menu"><a className = "menu-link" href = "/polls">会員登録/ログイン</a></li>
+                <li className = "menu-start"><Link className = "menu-link" href = "/polls">特徴と使い方</Link></li>
+                <li className = "menu"><Link className = "menu-link" href = "/polls">お気に入り</Link></li>
+                <li className = "menu"><Link className = "menu-link" href = "/polls">会員登録/ログイン</Link></li>
               </ul>
             </div>
           </div>
         </div>
 
-        <div className= "search-box">
-          <p className = "search-sentence" >場所、日時から探す</p>
-          <input class = "search-criteria" type = "text" placeholder="エリア・駅"/>
-          <input class = "search-criteria" type = "text" placeholder="キーワード・名前" />
-          <select class = "search-option" name="example">
-            <option value="">選択して下さい</option>
-            <option>月額契約</option>
-            <option>ドロップイン可能</option>
-          </select>
-          <input className = "search-date" type = "date" />
-          <input className = "search-time" type = "time" />
-          <button className ="search-button">検索</button>
-        </div>
+        <Form />
       </div>
 
       <div className = "about-website">
@@ -90,22 +79,21 @@ const Home = () => {
           <div className = "aria-info-wrapper">
             <ul className = "aria-info-list"> 
               <li className='aria-info-item'>
-                {/* 陶子へ　ここでSearchResult.jsxへ渋谷って値を渡す */}
                 <Link className = "aria-info" to = "/search_result" state={{aria: 'shibuya'}}>
-                  <img className = "aria-image" src={shibuya} />
+                  <img className = "aria-image" src={shibuya} alt='渋谷の写真'/>
                   <p className = "aria-name">渋谷</p>
                 </Link>
               </li>
               <li className='aria-info-item'>
                 <Link className = "aria-info" to = "/search_result" state={{aria: 'shinjuku'}}>
-                  <img className = "aria-image" src={shinjuku} />
+                  <img className = "aria-image" src={shinjuku} alt='新宿の写真'/>
                   <p className = "aria-name">新宿</p>
                 </Link>
               </li>
               
               <li className='aria-info-item'>
                 <Link className = "aria-info" to = "/search_result" state={{aria: 'ikebukuro'}}>
-                  <img className = "aria-image" src={ikebukuro} />
+                  <img className = "aria-image" src={ikebukuro} alt='池袋の写真'/>
                   <p className = "aria-name">池袋</p>
                 </Link>
               </li>
@@ -114,22 +102,22 @@ const Home = () => {
             <ul className = "aria-info-list-2"> 
               <li className='aria-info-item'>
                 <Link className = "aria-info" to = "/search_result" state={{aria: 'tokyo'}}>
-                  <img className = "aria-image" src={tokyo} />
+                  <img className = "aria-image" src={tokyo} alt='東京'/>
                   <p className = "aria-name">東京</p>
                 </Link>
               </li>
               <li className='aria-info-item'>
                 <Link className = "aria-info" to = "/search_result" state={{aria: 'sinagawa'}}>
-                  <img className = "aria-image" src={tokyo} />
+                  <img className = "aria-image" src={tokyo} alt='品川'/>
                   <p className = "aria-name">品川</p>
                 </Link>
               </li>
                 
               <li className='aria-info-item'>
-                <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src={others}  />
+                <Link className = "aria-info" to = "/search_result" state={{aria: 'sinagawa'}}>
+                  <img className = "aria-image" src={others} alt='その他'/>
                   <p className = "aria-name">その他</p>
-                </a> 
+                </Link>
               </li>
             </ul>
           </div>
@@ -143,20 +131,20 @@ const Home = () => {
             <ul className = "aria-info-list"> 
               <li className='aria-info-item'>
                 <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src = {wifi} />
+                  <img className = "aria-image" src = {wifi} alt='高速wi-fi'/>
                   <p className = "aria-name">高速Wi-Fi</p>
                 </a> 
               </li>
               <li className='aria-info-item'>
                 <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src={money}/>
+                  <img className = "aria-image" src={money} alt='低価格'/>
                   <p className = "aria-name">低価格</p>
                 </a>  
               </li>
               
               <li className='aria-info-item'>
                 <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src={meetingroom} />
+                  <img className = "aria-image" src={meetingroom} alt='広々会議室'/>
                   <p className = "aria-name">広々会議室</p>
                 </a> 
               </li>
@@ -165,20 +153,20 @@ const Home = () => {
             <ul className = "aria-info-list-2"> 
               <li className='aria-info-item'>
                 <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src={printer} />
+                  <img className = "aria-image" src={printer} alt='充実オプション'/>
                   <p className = "aria-longname">充実オプション</p>
                 </a>
               </li>
               <li className='aria-info-item'>
                 <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src={dropin} />
+                  <img className = "aria-image" src={dropin} alt='ドロップイン可能'/>
                   <p className = "aria-longname">ドロップイン可能</p>
                 </a>  
               </li>
                 
               <li className='aria-info-item'>
                 <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src={clock} />
+                  <img className = "aria-image" src={clock} alt='24時間制'/>
                   <p className = "aria-name">24時間制</p>
                 </a> 
               </li>
@@ -192,24 +180,24 @@ const Home = () => {
             <div className = "popular-space-info-wrapper">
               <ul className = "popular-space-info-list"> 
                 <li className='popular-space-info-item'>
-                  <img className = "space-rank" src={first} />
+                  <img className = "space-rank" src={first} alt='一位'/>
                   <a className = "popular-space-info" href = "/polls">
-                    <img className = "popular-space-image" src={space} />
+                    <img className = "popular-space-image" src={space} alt='space1'/>
                     <p className = "popular-space-name">space1</p>
                   </a> 
                 </li>
                 <li className='popular-space-info-item'>
-                  <img className = "space-rank" src={second}/>
+                  <img className = "space-rank" src={second} alt='二位'/>
                   <a className = "popular-space-info" href = "/polls">
-                    <img className = "popular-space-image" src={space} />
+                    <img className = "popular-space-image" src={space} alt='space'/>
                     <p className = "popular-space-name">space2</p>
                   </a>  
                 </li>
                 
                 <li className='popular-space-info-item'>
-                  <img className = "space-rank" src={third} />
+                  <img className = "space-rank" src={third} alt='三位'/>
                   <a className = "popular-space-info" href = "/polls">
-                    <img className = "popular-space-image" src={space} />
+                    <img className = "popular-space-image" src={space} alt='space'/>
                     <p className = "popular-space-name">space3</p>
                   </a> 
                 </li>
