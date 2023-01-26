@@ -42,7 +42,7 @@ const Results = (props) => {
       {/* <h2 className={styles.resultsLength}>1~4件を表示</h2> */}
       {/* Object.keys(props.data) = ['props0', 'props1',...,'props17'] */}
       {/* {Array(Object.keys(props.data).length).fill(0).map(() => <ResultSpace ex1={txt1} ex2={txt2} ex3={txt3} ex4={txt4} ex5={txt5} ex6={txt6} />)} */}
-      {props.data ? props.data.map((data, index) => <ResultSpace ex1={data.name} ex2={data.isBattery} ex3={data.price} ex4={data.station} ex5={data.startTime} ex6={data.endTime}  ex7={data.wifi} ex8={data.address} ex9={txt8} key={index}/> ): null}
+      {props.data ? props.data.map((data, index) => <ResultSpace ex1={data.name} ex2={data.isBattery} ex3={data.price} ex4={data.station} ex5={data.startTime} ex6={data.endTime}  ex7={data.wifi} ex8={data.address} ex9={txt8} data={data} key={index}/> ): null}
     </div>
   )
 }
