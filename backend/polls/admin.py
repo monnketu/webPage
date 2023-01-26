@@ -3,5 +3,9 @@ from .models import test
 from .models import coWorkingSpace
 
 # Register your models here.
-admin.site.register(test)
-admin.site.register(coWorkingSpace)
+@admin.register(coWorkingSpace)
+class coWorkingSpaceAdmin(admin.ModelAdmin):
+  pass
+@admin.register(test)
+class test(admin.ModelAdmin):
+  pass

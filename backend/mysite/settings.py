@@ -32,52 +32,59 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    
-    'corsheaders',
+  # 'polls.apps.PollsConfig',
+  'django.contrib.admin',
+  'django.contrib.auth',
+  'django.contrib.contenttypes',
+  'django.contrib.sessions',
+  'django.contrib.messages',
+  'django.contrib.staticfiles',
+  
+  'corsheaders',
+  'rest_framework',
+  'django_filters',  # 追加
+  'polls',
 
-    # 新たにCORS_ORIGIN_WHITELIST変数を記述して、その中にアクセスを許可したいURL（アクセス元）を追加する
+  # 新たにCORS_ORIGIN_WHITELIST変数を記述して、その中にアクセスを許可したいURL（アクセス元）を追加する
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 2
+}
 
 CORS_ORIGIN_WHITELIST = [
-'http://127.0.0.1:3000',
-'http://localhost:3000',
+  'http://127.0.0.1:3000',
+  'http://localhost:3000',
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
-    'corsheaders.middleware.CorsMiddleware',
+  'django.middleware.security.SecurityMiddleware',
+  'django.contrib.sessions.middleware.SessionMiddleware',
+  'django.middleware.common.CommonMiddleware',
+  # 'django.middleware.csrf.CsrfViewMiddleware',
+  'django.contrib.auth.middleware.AuthenticationMiddleware',
+  'django.contrib.messages.middleware.MessageMiddleware',
+  'django.middleware.clickjacking.XFrameOptionsMiddleware',
+  
+  'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
 
 TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
+  {
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': [os.path.join(BASE_DIR, 'templates'),],
+    'APP_DIRS': True,
+    'OPTIONS': {
+      'context_processors': [
+        'django.template.context_processors.debug',
+        'django.template.context_processors.request',
+        'django.contrib.auth.context_processors.auth',
+        'django.contrib.messages.context_processors.messages',
+      ],
     },
+  },
 ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
@@ -87,10 +94,10 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+  'default': {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+  }
 }
 
 
@@ -98,18 +105,18 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+  {
+      'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+  },
+  {
+      'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+  },
+  {
+      'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+  },
+  {
+      'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+  },
 ]
 
 
@@ -137,16 +144,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media_local')
 
 # For debugging 
 if DEBUG:
-    # will output to your console
-    logging.basicConfig(
-        level = logging.DEBUG,
-        format = '%(asctime)s %(levelname)s %(message)s',
-    )
+  # will output to your console
+  logging.basicConfig(
+    level = logging.DEBUG,
+    format = '%(asctime)s %(levelname)s %(message)s',
+  )
 else:
-    # will output to logging file
-    logging.basicConfig(
-        level = logging.DEBUG,
-        format = '%(asctime)s %(levelname)s %(message)s',
-        filename = '/my_log_file.log',
-        filemode = 'a'
-    )
+  # will output to logging file
+  logging.basicConfig(
+      level = logging.DEBUG,
+      format = '%(asctime)s %(levelname)s %(message)s',
+      filename = '/my_log_file.log',
+      filemode = 'a'
+  )

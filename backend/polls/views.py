@@ -1,9 +1,46 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import coWorkingSpace # Couponクラスをインポート
 import json
 import difflib
+import django_filters
+from rest_framework import viewsets, filters
+from .models import coWorkingSpace # Couponクラスをインポート
+from .serializer import coWorkingSpaceSerializer
+import logging
+from urllib.parse import urlencode
+from urllib.request import urlopen, Request
 
+logger = logging.getLogger('development')
+class coWorkingViewSet(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.all()
+  serializer_class = coWorkingSpaceSerializer
+
+
+def getLineAccessToken(req):
+  url = 'https://api.line.me/oauth2/v2.1/token/'
+  
+  headers = {
+    'accept':"application/json",
+    "Content-Type" :"application/x-www-form-urlencoded"
+  }
+  request = Request(url, headers=headers)
+  accessCode = 'cgjFFo8yGtVs5VTafSYV'
+  redirect_uri = 'http://localhost:3000/login'
+  channel_id = 1657842449
+  channel_secret = '31acec1fd7315a32c27ab510ed80fabe'
+  code_verifier = 'wJKN8qz5t8SSI9lMFhBB6qwNkQBkuPZoCxzRhwLRUo1'
+  data = {
+        'grant_type': 'authorization_code',
+        'code': accessCode,
+        'redirect_uri': redirect_uri,
+        'client_id': channel_id,
+        'client_secret': channel_secret,
+        'code_verifier': code_verifier,
+      }
+  data = urlencode(data).encode("utf-8")
+  response = urlopen(request, data)
+  print(req.POST)
+  return HttpResponse(response)
 
 def coupon_shibuya(request):
 
