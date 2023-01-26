@@ -91,16 +91,16 @@ const Home = () => {
             <ul className = "aria-info-list"> 
               <li className='aria-info-item'>
                 {/* 陶子へ　ここでSearchResult.jsxへ渋谷って値を渡す */}
-                <Link className = "aria-info" to = "/search_result" state={{aria: '渋谷'}}>
+                <Link className = "aria-info" to = "/search_result" state={{aria: 'shibuya'}}>
                   <img className = "aria-image" src={shibuya} />
                   <p className = "aria-name">渋谷</p>
-                </Link> 
+                </Link>
               </li>
               <li className='aria-info-item'>
-                <a className = "aria-info" href = "/polls">
+                <Link className = "aria-info" to = "/search_result" state={{aria: 'shinjuku'}}>
                   <img className = "aria-image" src={shinjuku} />
                   <p className = "aria-name">新宿</p>
-                </a>  
+                </Link>
               </li>
               
               <li className='aria-info-item'>

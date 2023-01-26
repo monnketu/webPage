@@ -12,9 +12,8 @@ from urllib.request import urlopen, Request
 
 logger = logging.getLogger('development')
 class coWorkingViewSet(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.all()
+  queryset = coWorkingSpace.objects.filter(aria = "渋谷")
   serializer_class = coWorkingSpaceSerializer
-
 
 def getLineAccessToken(req):
   url = 'https://api.line.me/oauth2/v2.1/token/'
@@ -248,20 +247,75 @@ def getSimData(request):
 
     for i in range(len(data)):
       params = {      
-        'coupon_spaceID':str(data[i].spaceID),
-        'coupon_aria':str(data[i].aria),
-        'coupon_name':str(data[i].name),
-        'coupon_address':str(data[i].address),
-        'coupon_station':str(data[i].station),
-        'coupon_wi-fi':str(data[i].wifi),
-        'coupon_isBattery':str(data[i].isBattery),
-        'coupon_isMeetingRoom':str(data[i].isMeetingRoom),
-        'coupon_isDropIn':str(data[i].isDropIn),
-        'coupon_price':str(data[i].price),
-        'coupon_startTime':str(data[i].startTime),
-        'coupon_endTime':str(data[i].endTime),
-        'coupon_favorite':str(data[i].favorite),
-        'coupon_jurisdiction':str(data[i].jurisdiction),
+        'spaceID':str(data[i].spaceID),
+        'aria':str(data[i].aria),
+        'name':str(data[i].name),
+        'address':str(data[i].address),
+        'station':str(data[i].station),
+        'wi-fi':str(data[i].wifi),
+        'isBattery':str(data[i].isBattery),
+        'isMeetingRoom':str(data[i].isMeetingRoom),
+        'isDropIn':str(data[i].isDropIn),
+        'price':str(data[i].price),
+        'startTime':str(data[i].startTime),
+        'endTime':str(data[i].endTime),
+        'favorite':str(data[i].favorite),
+        'jurisdiction':str(data[i].jurisdiction),
+      }
+      l['param' + str(i)] = (params)
+
+  # 同じテキスト
+  coupon(request)
+  def search_keyword(): #類似度を計算して配列に加える
+    li = []
+    # l = {
+    #   'param0':　{coupon_aria:　'渋谷',　},
+    #   'param1':　{},
+    #   'param2':　{},
+    #   'param3':　{},
+    #   'param4':　{},
+    # }
+    for text in l.keys():
+      text_a = '新宿'
+      print(text)
+      # li.append(l[text])
+      text_b = l[text]['aria']
+      print(text_b)
+      r = difflib.SequenceMatcher(None, text_a, text_b).ratio()
+      if r > 0.5:
+        li.append(l[text])
+    
+    return li
+
+  # とーこへ　ここの関数の中に、データをとってくる処理、類似度を測定する処理を書いて欲しい
+  
+  l = dict(param = search_keyword())
+  json_str = json.dumps(l, ensure_ascii=False, indent=2)
+  return HttpResponse(json_str)
+  # return json_str
+def getSimData_shibuya(request):
+  l = {}
+  def coupon(request):#データをとってくる処理
+    data = coWorkingSpace.objects.all()
+    
+    
+
+    for i in range(len(data)):
+      params = {      
+        'spaceID':str(data[i].spaceID),
+        'aria':str(data[i].aria),
+        'name':str(data[i].name),
+        'address':str(data[i].address),
+        'station':str(data[i].station),
+        'wi-fi':str(data[i].wifi),
+        'isBattery':str(data[i].isBattery),
+        'isMeetingRoom':str(data[i].isMeetingRoom),
+        'isDropIn':str(data[i].isDropIn),
+        'price':str(data[i].price),
+        'startTime':str(data[i].startTime),
+        'endTime':str(data[i].endTime),
+        'favorite':str(data[i].favorite),
+        'jurisdiction':str(data[i].jurisdiction),
       }
       l['param' + str(i)] = (params)
 
@@ -279,7 +333,9 @@ def getSimData(request):
     for text in l.keys():
       text_a = '渋谷'
       print(text)
-      text_b = l[text]['coupon_aria']
+      # li.append(l[text])
+      text_b = l[text]['aria']
+      print(text_b)
       r = difflib.SequenceMatcher(None, text_a, text_b).ratio()
       if r > 0.5:
         li.append(l[text])
@@ -291,3 +347,4 @@ def getSimData(request):
   l = dict(param = search_keyword())
   json_str = json.dumps(l, ensure_ascii=False, indent=2)
   return HttpResponse(json_str)
+  # return json_str

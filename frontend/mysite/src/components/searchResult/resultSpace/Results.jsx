@@ -1,5 +1,6 @@
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import ResultSpace from './ResultSpace';
 import styles from './../../../styles/searchResult/results/results.module.scss'
 const Results = () => {
@@ -11,21 +12,26 @@ const Results = () => {
   const txt6 = 'wifiの強度'
   const txt7 = '東京都千代田区丸の内1-8-3丸の内トラストタワー本館 20階'
   const txt8 = 'url'
-  const [ data, setData ] = useState({a:'null',b:'null'});
+  const [ data, setData ] = useState([]);
+  const location = useLocation();
+  const aria = location.state.aria;
+  console.log(aria);
   useEffect(() => {
     try {
-      fetch("http://localhost:8000/polls/coupon/")
+      fetch("http://localhost:8000/polls/getSimData/shibuya")
       .then(response => {
+        console.log('res')
         return response.json();
       })
-      .then(data => {
+      .then(res => {
+        console.log(res)
         // for key in data:
           // 
-        for(let key in data) { 
-          data[key] = JSON.parse(data[key]);
-        } // ['param0', 'param1', ... , 'param17'];
-        setData(data);
-        console.log(data);
+        // for(let key of res.results) { 
+          // data[key] = JSON.parse(data[key]);
+        // } // ['param0', 'param1', ... , 'param17'];
+        setData(res.param);
+        console.log(res);
       })
     } catch (error) {
       console.log("失敗しました");
@@ -40,7 +46,7 @@ const Results = () => {
       {/* <h2 className={styles.resultsLength}>1~4件を表示</h2> */}
       {/* Object.keys(props.data) = ['props0', 'props1',...,'props17'] */}
       {/* {Array(Object.keys(props.data).length).fill(0).map(() => <ResultSpace ex1={txt1} ex2={txt2} ex3={txt3} ex4={txt4} ex5={txt5} ex6={txt6} />)} */}
-      {Object.keys(props.data).map((data, index) => <ResultSpace ex1={props.data[data].coupon_name} ex2={props.data[data].coupon_isBattery} ex3={props.data[data].coupon_price} ex4={props.data[data].coupon_station} ex5={props.data[data].coupon_startTime} ex6={props.data[data].coupon_endTime}  ex7={props.data[data]['coupon_wi-fi']} ex8={props.data[data].coupon_address} ex9={txt8} key={index}/>)}
+      {props.data ? props.data.map((data, index) => <ResultSpace ex1={data.name} ex2={data.isBattery} ex3={data.price} ex4={props.data.coupon_station} ex5={data.startTime} ex6={data.endTime}  ex7={data['wi-fi']} ex8={data.address} ex9={txt8} key={index}/> ): null}
     </div>
   )
 }
