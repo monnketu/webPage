@@ -23,9 +23,9 @@ class coWorkingSpace(models.Model):
     # 価格/月 : INTEGER型
     price = models.IntegerField()
     # 開始時間 : datetime型
-    startTime = models.DateTimeField()
+    startTime = models.TimeField()
     # 終了時間 : datetime型
-    endTime = models.DateTimeField()
+    endTime = models.TimeField()
     # ドロップイン可能
     isDropIn = models.BooleanField()
     # 管轄 : 文字列50桁
