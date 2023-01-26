@@ -1,10 +1,15 @@
 from django.urls import path
 from rest_framework import routers
-from .views import coWorkingViewSet
+from .views import coWorkingViewSet_ikebukuro, coWorkingViewSet_shibuya, coWorkingViewSet_sinagawa, coWorkingViewSet_tokyo, coWorkingViewSet_shinjuku, coWorkingViewSet_others
 from . import views
 
 router = routers.DefaultRouter()
-router.register('coWorkingSpace', coWorkingViewSet)
+router.register('coWorkingSpace/shibuya', coWorkingViewSet_shibuya)
+router.register('coWorkingSpace/shinjuku', coWorkingViewSet_shinjuku)
+router.register('coWorkingSpace/ikebukuro', coWorkingViewSet_ikebukuro)
+router.register('coWorkingSpace/tokyo', coWorkingViewSet_tokyo)
+router.register('coWorkingSpace/sinagawa', coWorkingViewSet_sinagawa)
+router.register('coWorkingSpace/others', coWorkingViewSet_others)
 urlpatterns = [
   path('', views.index, name='index'),
   # path('coupon/', views.coupon, name='coupon'),

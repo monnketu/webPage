@@ -11,8 +11,23 @@ from urllib.parse import urlencode
 from urllib.request import urlopen, Request
 
 logger = logging.getLogger('development')
-class coWorkingViewSet(viewsets.ModelViewSet):
+class coWorkingViewSet_shibuya(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(aria = "渋谷")
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_shinjuku(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "新宿")
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_ikebukuro(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "池袋")
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_tokyo(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "東京")
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_sinagawa(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "品川")
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_others(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "その他")
   serializer_class = coWorkingSpaceSerializer
 
 def getLineAccessToken(req):

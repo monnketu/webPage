@@ -104,25 +104,25 @@ const Home = () => {
               </li>
               
               <li className='aria-info-item'>
-                <a className = "aria-info" href = "/polls">
+                <Link className = "aria-info" to = "/search_result" state={{aria: 'ikebukuro'}}>
                   <img className = "aria-image" src={ikebukuro} />
                   <p className = "aria-name">池袋</p>
-                </a> 
+                </Link>
               </li>
             </ul>
         
             <ul className = "aria-info-list-2"> 
               <li className='aria-info-item'>
-                <a className = "aria-info" href = "/polls">
+                <Link className = "aria-info" to = "/search_result" state={{aria: 'tokyo'}}>
                   <img className = "aria-image" src={tokyo} />
                   <p className = "aria-name">東京</p>
-                </a>
+                </Link>
               </li>
               <li className='aria-info-item'>
-                <a className = "aria-info" href = "/polls">
-                  <img className = "aria-image" src={shinagawa} />
+                <Link className = "aria-info" to = "/search_result" state={{aria: 'sinagawa'}}>
+                  <img className = "aria-image" src={tokyo} />
                   <p className = "aria-name">品川</p>
-                </a>  
+                </Link>
               </li>
                 
               <li className='aria-info-item'>

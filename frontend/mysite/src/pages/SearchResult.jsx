@@ -13,7 +13,7 @@ const SearchResult = () => {
     <div>
       <Header />
       <div className={styles.sideMenuAndResultsContainer }>
-        <SideMenu />
+        {/* <SideMenu /> */}
         <Results />
       </div>
     </div>

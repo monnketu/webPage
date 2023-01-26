@@ -18,9 +18,9 @@ const Results = () => {
   console.log(aria);
   useEffect(() => {
     try {
-      fetch("http://localhost:8000/polls/getSimData/shibuya")
+      fetch(`http://localhost:8000/api/coWorkingSpace/${aria}/`)
       .then(response => {
-        console.log('res')
+        console.log('res',response)
         return response.json();
       })
       .then(res => {
@@ -30,7 +30,7 @@ const Results = () => {
         // for(let key of res.results) { 
           // data[key] = JSON.parse(data[key]);
         // } // ['param0', 'param1', ... , 'param17'];
-        setData(res.param);
+        setData(res.results)
         console.log(res);
       })
     } catch (error) {
@@ -38,7 +38,7 @@ const Results = () => {
     };
     console.log('OK');
   },[])
-  const props = {data: data};
+  // const props = {data: data};
   // const startTime = props.data.param0 ? moment(new Date(props.data.param0.coupon_endTime)) : moment()
   // console.log(props.data.param0 ?  moment(new Date(props.data.param0.coupon_endTime)).format('HH:mm') : 'null');
   return(
@@ -46,7 +46,7 @@ const Results = () => {
       {/* <h2 className={styles.resultsLength}>1~4件を表示</h2> */}
       {/* Object.keys(props.data) = ['props0', 'props1',...,'props17'] */}
       {/* {Array(Object.keys(props.data).length).fill(0).map(() => <ResultSpace ex1={txt1} ex2={txt2} ex3={txt3} ex4={txt4} ex5={txt5} ex6={txt6} />)} */}
-      {props.data ? props.data.map((data, index) => <ResultSpace ex1={data.name} ex2={data.isBattery} ex3={data.price} ex4={props.data.coupon_station} ex5={data.startTime} ex6={data.endTime}  ex7={data['wi-fi']} ex8={data.address} ex9={txt8} key={index}/> ): null}
+      {data ? data.map((data, index) => <ResultSpace ex1={data.name} ex2={data.isBattery} ex3={data.price} ex4={data.station} ex5={data.startTime} ex6={data.endTime}  ex7={data['wi-fi']} ex8={data.address} ex9={txt8} key={index}/> ): null}
     </div>
   )
 }
