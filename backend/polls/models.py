@@ -18,7 +18,7 @@ class coWorkingSpace(models.Model):
     wifi = models.IntegerField()
     # 電源 : BOOLEAN型 無:False 有:True
     isBattery = models.BooleanField()
-    # 会議室 : BOOLEAN型 無:False 有:True
+    # 会議室 : INTEGER型 無:0 有:1 広々:2
     isMeetingRoom = models.IntegerField()
     # 価格/月 : INTEGER型
     price = models.IntegerField()

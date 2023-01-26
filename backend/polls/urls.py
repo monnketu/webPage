@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework import routers
-from .views import coWorkingViewSet_ikebukuro, coWorkingViewSet_shibuya, coWorkingViewSet_sinagawa, coWorkingViewSet_tokyo, coWorkingViewSet_shinjuku, coWorkingViewSet_others, coWorkingViewSet
+from .views import coWorkingViewSet_ikebukuro, coWorkingViewSet_shibuya, coWorkingViewSet_sinagawa, coWorkingViewSet_tokyo, coWorkingViewSet_shinjuku, coWorkingViewSet_others, coWorkingViewSet, coWorkingViewSet_wifi, coWorkingViewSet_low_cost, coWorkingViewSet_meeting_room, coWorkingViewSet_enhanced_options, coWorkingViewSet_dropin,coWorkingViewSet_all_time
 from . import views
 
 router = routers.DefaultRouter()
@@ -11,6 +11,12 @@ router.register('coWorkingSpace/ikebukuro', coWorkingViewSet_ikebukuro)
 router.register('coWorkingSpace/tokyo', coWorkingViewSet_tokyo)
 router.register('coWorkingSpace/sinagawa', coWorkingViewSet_sinagawa)
 router.register('coWorkingSpace/others', coWorkingViewSet_others)
+router.register('coWorkingSpace/wifi', coWorkingViewSet_wifi)
+router.register('coWorkingSpace/low_cost', coWorkingViewSet_low_cost)
+router.register('coWorkingSpace/meeting_room', coWorkingViewSet_meeting_room)
+router.register('coWorkingSpace/enhanced_options', coWorkingViewSet_enhanced_options)
+router.register('coWorkingSpace/dropIn', coWorkingViewSet_dropin)
+router.register('coWorkingSpace/all_time', coWorkingViewSet_all_time)
 urlpatterns = [
   path('', views.index, name='index'),
   # path('coupon/', views.coupon, name='coupon'),

@@ -4,29 +4,41 @@ import styles from './../../../../../styles/home/main/searcher/searchCharacters/
 export default function SearchCharacters() {
   const params1 = [
     {
-      image: 'wifi',
+      ja: '高速wi-fi',
+      en: 'wifi',
+      character: 'wifi',
       dispName: '高速wi-fi'
     },
     {
-      image: 'money',
+      ja: '低価格',
+      en: 'low_cost',
+      character: 'money',
       dispName: '低価格'
     },
     {
-      image: 'meetingroom',
+      ja: '広々会議室',
+      en: 'meeting_room',
+      character: 'meetingroom',
       dispName: '広々会議室'
     },
   ];
   const params2 = [
     {
-      image: 'printer',
+      ja: '充実オプション',
+      en: 'enhanced_options',
+      character: 'printer',
       dispName: '充実オプション'
     },
     {
-      image: 'dropin',
+      ja: 'ドロップイン可能',
+      en: 'dropIn',
+      character: 'dropin',
       dispName: 'ドロップイン可能'
     },
     {
-      image: 'clock',
+      ja: '24時間制',
+      en: 'all_time',
+      character: 'clock',
       dispName: '24時間制'
     },
   ];

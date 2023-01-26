@@ -4,8 +4,8 @@ import styles from './../../../../../styles/home/main/searcher/searchCharacters/
 
 export default function Character(props) {
   return (
-    <Link className = {styles.character_info} to = "/polls">
-      <img className = {styles.character_image} src = {`/img/${props.info.image}.jpeg`} alt={props.dispName}/>
+    <Link className = {styles.character_info} to = "/search_result" state={{info: props.info}}>
+      <img className = {styles.character_image} src = {`/img/${props.info.character}.jpeg`} alt={props.info.dispName}/>
       <p className = {styles.character_name}>{props.info.dispName}</p>
     </Link> 
   )

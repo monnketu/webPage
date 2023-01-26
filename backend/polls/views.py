@@ -32,6 +32,24 @@ class coWorkingViewSet_sinagawa(viewsets.ModelViewSet):
 class coWorkingViewSet_others(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(aria = "その他")
   serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_wifi(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(wifi = 2)
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_low_cost(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(price__lte = 15000)
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_meeting_room(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(isMeetingRoom__gte = 1)
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_enhanced_options(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(isEnhancedOptions = True)
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_dropin(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(isDropIn = True)
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_all_time(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(startTime = '00:00:00', endTime = '23:59:00')
+  serializer_class = coWorkingSpaceSerializer
 
 def getLineAccessToken(req):
   url = 'https://api.line.me/oauth2/v2.1/token/'

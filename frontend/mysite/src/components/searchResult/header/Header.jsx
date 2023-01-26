@@ -12,7 +12,7 @@ const Header = (props) => {
         <MenuBar />
       </div>
       <p className={styles.headerSentence}>{props.aria.ja}</p>
-      <h2 className={styles.resultsLength}>1~4件を表示</h2>
+      <h2 className={styles.resultsLength}>1~{props.data.length}件を表示</h2>
       {/* <h2 className={styles.searchAria}>{props.aria}</h2> */}
     </div>
   )

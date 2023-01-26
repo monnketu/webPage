@@ -7,12 +7,12 @@ import SideMenu from '../components/searchResult/sideMenu/SideMenu';
 import styles from './../styles/searchResult/searchResult.module.scss'
 const SearchResult = () => {
   const location = useLocation();
-  const aria = location.state ? location.state.aria: {ja: '全て', en: 'all'};
+  const info = location.state ? location.state.info: {ja: '全て', en: 'all'};
   const [ data, setData ] = useState([]);
   // const ariaName = location.state.aria;
   useEffect(() => {
     try {
-      fetch(`http://localhost:8000/api/coWorkingSpace/${aria.en}/`)
+      fetch(`http://localhost:8000/api/coWorkingSpace/${info.en}/`)
       .then(response => {
         return response.json();
       })
@@ -26,7 +26,7 @@ const SearchResult = () => {
   },[])
   return(
     <div>
-      <Header aria={aria}/>
+      <Header aria={info} data={data}/>
       <div className={styles.sideMenuAndResultsContainer }>
         {/* <SideMenu /> */}
         <Results data={data}/>
