@@ -1,0 +1,64 @@
+.search_box {
+  display: flex;
+  position: absolute;
+  top: 78%;
+  left: 15%;
+  width: 70%;
+  height:7%;
+  border: solid 2px;
+  background-color: white;
+  padding: 2%;
+  .search_sentence {
+    width: 18%;
+    text-align: center;
+    margin: auto;
+  }
+  .radioButtonLabel {
+   margin: auto; 
+  }
+  .search_criteria {
+    width: 26%;
+    border-radius: 0;
+    outline: 0;
+    border:1px solid grey;
+    &:focus {
+      border-bottom:3px solid brown;
+    }
+  }
+  .search_option {
+    border-radius: 0;
+    outline: 0;
+    border:1px solid grey;
+    &:focus {
+      border-bottom:3px solid brown;
+    }
+  }
+  .search_date {
+    width: 13%;
+    border-radius: 0;
+    outline: 0;
+    border:1px solid grey;
+    &:focus {
+      border-bottom:3px solid brown;
+    }
+  }
+  .search_time {
+    width: 9%;
+    border-radius: 0;
+    outline: 0;
+    border:1px solid grey;
+  }
+  .search_button {
+    width: 8%;
+    padding: 0;
+    border-radius: 0;
+    outline: 0;
+    border:1px solid grey;
+    color:white;
+    background-color:brown;
+    &:hover {
+      opacity: 0.5;
+      cursor: pointer;
+    }
+  }
+}

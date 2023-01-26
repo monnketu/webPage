@@ -1,0 +1,18 @@
+.space_rank {
+  width: 14%;
+  height: 80%;
+}
+.popular_space {
+  &_info {
+    display: flex;
+    width: 80%;
+    border: solid 1px;
+    margin-right: 34px;
+    background-color: white;
+  }
+  &_image {
+    width: 25%;
+    height: 100%;
+    margin-right: 10px;
+  }
+}
