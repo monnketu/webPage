@@ -12,7 +12,7 @@ from urllib.request import urlopen, Request
 
 logger = logging.getLogger('development')
 class coWorkingViewSet(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.all()
+  queryset = coWorkingSpace.objects.all().order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_shibuya(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(aria = "渋谷").order_by('price')
