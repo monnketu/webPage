@@ -15,6 +15,8 @@
   }
   .radioButtonLabel {
    margin: auto; 
+   padding-left: 30px;
+   width: 20%;
   }
   .search_criteria {
     width: 26%;
@@ -26,6 +28,7 @@
     }
   }
   .search_option {
+    width: 25%;
     border-radius: 0;
     outline: 0;
     border:1px solid grey;
@@ -43,7 +46,7 @@
     }
   }
   .search_time {
-    width: 9%;
+    width: 22%;
     border-radius: 0;
     outline: 0;
     border:1px solid grey;
