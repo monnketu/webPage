@@ -1,0 +1,22 @@
+.subTitle {
+  font-size:35pt;
+  background-color: black;
+  color: white;
+  width: fit-content;
+  padding-left: 100px;
+  padding-right: 2%;
+}
+.is_animated_subTitle {
+  animation: fadeIn 1s ease 0s 1 normal backwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

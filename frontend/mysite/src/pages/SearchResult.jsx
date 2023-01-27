@@ -54,6 +54,7 @@ const SearchResult = () => {
             const space_start_time = data.startTime === null ? moment(`00:00:59`, 'HH:mm:ss') : moment(`${data.startTime}`, 'HH:mm:ss');
             const space_end_time = data.endTime === null ? moment(`23:59:00`, 'HH:mm:ss'): moment(`${data.endTime}`, 'HH:mm:ss'); 
             // location.state.time(検索フォームの時間)はHH:mmの形式なので秒を手動で追加
+            console.log(space_start_time)
             return moment(`${location.state.time}:00`, 'HH:mm:ss').isBetween(space_start_time, space_end_time);
           })
         }
