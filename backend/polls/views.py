@@ -15,40 +15,40 @@ class coWorkingViewSet(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.all()
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_shibuya(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(aria = "渋谷")
+  queryset = coWorkingSpace.objects.filter(aria = "渋谷").order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_shinjuku(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(aria = "新宿")
+  queryset = coWorkingSpace.objects.filter(aria = "新宿").order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_ikebukuro(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(aria = "池袋")
+  queryset = coWorkingSpace.objects.filter(aria = "池袋").order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_tokyo(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(aria = "東京")
+  queryset = coWorkingSpace.objects.filter(aria = "東京").order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_sinagawa(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(aria = "品川")
+  queryset = coWorkingSpace.objects.filter(aria = "品川").order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_others(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(aria = "その他")
+  queryset = coWorkingSpace.objects.filter(aria = "その他").order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_wifi(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(wifi = 2)
+  queryset = coWorkingSpace.objects.filter(wifi = 2).order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_low_cost(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(price__lte = 15000)
+  queryset = coWorkingSpace.objects.filter(price__lte = 15000).order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_meeting_room(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(isMeetingRoom__gte = 1)
+  queryset = coWorkingSpace.objects.filter(isMeetingRoom__gte = 1).order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_enhanced_options(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(isEnhancedOptions = True)
+  queryset = coWorkingSpace.objects.filter(isEnhancedOptions = True).order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_dropin(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(isDropIn = True)
+  queryset = coWorkingSpace.objects.filter(isDropIn = True).order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_all_time(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(startTime = '00:00:00', endTime = '23:59:00')
+  queryset = coWorkingSpace.objects.filter(startTime = '00:00:00', endTime = '23:59:00').order_by('price')
   serializer_class = coWorkingSpaceSerializer
 
 def getLineAccessToken(req):

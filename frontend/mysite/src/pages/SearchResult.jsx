@@ -67,7 +67,7 @@ const SearchResult = () => {
       <Header aria={info} data={data}/>
       <div className={styles.sideMenuAndResultsContainer }>
         {/* <SideMenu /> */}
-        <Results data={data}/>
+        <Results data={data} />
       </div>
     </div>
   )
