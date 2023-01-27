@@ -21,8 +21,8 @@ const SearchResult = () => {
         return response.json();
       })
       .then(res => {
-        console.log(res,location.state);
-        let ret = res.results;
+        let ret = res.results; 
+        // URLを直接叩かれた場合かフォーム以外のところから検索された場合(エリアから探すなど)はここではなにもしない
         if (isLocationState && location.state.searchedByForm) {
           ret = ret.filter((data) => {
             switch(place) {
@@ -49,12 +49,13 @@ const SearchResult = () => {
               }
             }
           })
-          // .filter((data) => {
-          //   const space_start_time = data.startTime === null ? moment('2023-01-20T00:00:00').format('h:mm:ss') : moment(`2023-04-23T${location.state.time}:00`).format('hh:mm:ss');
-          //   const space_end_time = data.endTime === null ? moment(`${new Date()}T23:59:59`).format('h:mm:ss') : moment(data.endTime).format('h:mm:ss');
-          //   console.log(space_start_time, space_end_time, new Date());
-          //   return moment(location.state.time).isBetween(space_start_time, space_end_time);
-          // })
+          .filter((data) => {
+            // 1店ずつチェックしてmoment型に整えて営業時間内かどうか確かめる
+            const space_start_time = data.startTime === null ? moment(`00:00:59`, 'HH:mm:ss') : moment(`${data.startTime}`, 'HH:mm:ss');
+            const space_end_time = data.endTime === null ? moment(`23:59:00`, 'HH:mm:ss'): moment(`${data.endTime}`, 'HH:mm:ss'); 
+            // location.state.time(検索フォームの時間)はHH:mmの形式なので秒を手動で追加
+            return moment(`${location.state.time}:00`, 'HH:mm:ss').isBetween(space_start_time, space_end_time);
+          })
         }
         setData(ret);
       })
