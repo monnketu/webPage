@@ -35,7 +35,20 @@ class coWorkingSpace(models.Model):
     # 画像の名前 : 文字列50桁
     imageName = models.CharField(max_length=50)
     # お気に入り数 : INTEGER型 
-    # favorite = models.IntegerField()
+    favorite = models.IntegerField()
+    
+    # 最寄り駅から徒歩何分か: INTEGER型 
+    timeFromStation = models.IntegerField()
+    
+    # 会議室の収容人数: INTEGER型 
+    MeetingRoomCapacity = models.IntegerField()
+    # オプションの内容: 文字列100桁 各オプションは","で区切る。,の前後にスペースは入れない。
+    # Ex) プリンター,秘書,ドリンク
+    options = models.CharField(max_length=50)
+     
+    
+    
+    
 
     
     def __str__(self):

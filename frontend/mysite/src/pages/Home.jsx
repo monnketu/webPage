@@ -31,8 +31,8 @@ const Home = () => {
     <div>
       <Header />
       <Introduction />
-      <Searcher />
       <Recommendations />
+      <Searcher />
     </div>
   )
 }
