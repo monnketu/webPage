@@ -70,6 +70,7 @@ const SearchResult = () => {
       <div className={styles.sideMenuAndResultsContainer }>
         {/* <SideMenu /> */}
         <Results data={data} />
+        
       </div>
     </div>
   )
