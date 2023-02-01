@@ -1,9 +1,9 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from rest_framework.decorators import api_view
 import json
 import difflib
 import django_filters
+from django.shortcuts import render
+from django.http import HttpResponse
+from rest_framework.decorators import api_view
 from rest_framework import viewsets, filters
 from .models import coWorkingSpace # Couponクラスをインポート
 from .serializer import coWorkingSpaceSerializer
@@ -52,6 +52,7 @@ class coWorkingViewSet_all_time(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(startTime = '00:00:00', endTime = '23:59:00').order_by('price')
   serializer_class = coWorkingSpaceSerializer
 
+
 @api_view(['GET', 'POST'])
 def getLineAccessToken(req, code):
   # if (req.method == 'POST'):
@@ -64,7 +65,7 @@ def getLineAccessToken(req, code):
   }
   request = Request(url, headers=headers)
   accessCode = code
-  redirect_uri = 'http://localhost:3000/login'
+  redirect_uri = 'http://localhost:3000/'
   channel_id = 1657842449
   channel_secret = '31acec1fd7315a32c27ab510ed80fabe'
   code_verifier = 'wJKN8qz5t8SSI9lMFhBB6qwNkQBkuPZoCxzRhwLRUo1'

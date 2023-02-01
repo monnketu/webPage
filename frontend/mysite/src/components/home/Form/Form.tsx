@@ -12,11 +12,11 @@ const Form = () => {
   return (
     <div className= {styles.search_box}>
       <p className = {styles.search_sentence} >場所、日時から探す</p>
-      <select className = {styles.search_option} name="example" onChange={(e) => setSpace(e.target.value)}>
+      {/* <select className = {styles.search_option} name="example" onChange={(e) => setSpace(e.target.value)}>
         <option value='all'>指定なし</option>
         <option value='cafe'>カフェ</option>
         <option value='coWorkingSpace'>コワーキングスペース</option>
-      </select>
+      </select> */}
       {/* <input class = {styles.search_criteria} type = "text" placeholder="エリア・駅"/>
       <input class = {styles.search_criteria} type = "text" placeholder="キーワード・名前" /> */}
       <select className = {styles.search_option} name="example" onChange={(e) => setDropIn(e.target.value)}>
