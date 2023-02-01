@@ -5,8 +5,10 @@ import styles from './../../../../styles/home/main/recommendations/recommendatio
 export default function Recommendations() {
   const params = ['image1', 'image1', 'image1',];
   return (
+
+    <>
+    <p className = {styles.search_popular_space_sentence}>おすすめから探す</p>
     <div className = {styles.search_popular_space_container}>
-      <p className = {styles.search_popular_space_sentence}>おすすめから探す</p>
       <div className = {styles.popular_space}>
         <div className = {styles.popular_space_info_wrapper}>
           <ul className = {styles.popular_space_info_list}> 
@@ -15,5 +17,8 @@ export default function Recommendations() {
         </div>
       </div>
     </div>
+  </>
+    
+    
   )
 }

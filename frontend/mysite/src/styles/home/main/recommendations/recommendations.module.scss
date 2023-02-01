@@ -1,28 +1,41 @@
+.search_popular_space_sentence {
+  text-align: center;
+  font-size: 15pt;
+  margin-top: 150px;
+  font-weight: bold;
+}
 .search_popular_space_container {
-  .search_popular_space_sentence {
-    text-align: center;
-    font-size: 15pt;
-    margin-top: 150px;
-    font-weight: bold;
-  }
-  .popular_space {
+  // .search_popular_space_container2 {
+    border: solid 1px;
+    border-radius: 40px;
+    width: 69%;
+    margin-left: 230px;
+    margin-bottom: 80px;
+    background-color: white;
+    padding-bottom: 13px;
+    .popular_space {
     
-    &_info_wrapper {
-      // border: solid 1px;
-      width: 100%;
-      left: 3%;
+      &_info_wrapper {
+        // border: solid 1px;
+        width: 100%;
+        left: 3%;
+      }
+      &_info_list {
+        width: 84%;
+        list-style: none;
+        margin-left: 55px;
+        // margin-left: 175px;
+      }
+      &_item {
+        display: flex;
+        height: 25%;
+        margin-top: 30px;
+        height: 23%;
+        width: 87%;
+      }
+      &_info {
+        margin-left: 10%;
+      }
     }
-    &_info_list {
-      width: 84%;
-      list-style: none;
-      margin-left: 175px;
-    }
-    &_item {
-      display: flex;
-      height: 25%;
-      margin-top: 30px;
-      height: 23%;
-      width: 87%;
-    }
-  }
+  // }
 }

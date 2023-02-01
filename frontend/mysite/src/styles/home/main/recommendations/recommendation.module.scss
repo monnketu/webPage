@@ -5,10 +5,11 @@
 .popular_space {
   &_info {
     display: flex;
-    width: 80%;
+    width: 100%;
     border: solid 1px;
-    margin-right: 34px;
+    margin-right: 0px;
     background-color: white;
+    border-radius: 5px;
   }
   &_image {
     width: 25%;

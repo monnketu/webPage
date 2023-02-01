@@ -6,6 +6,7 @@
   width: 70%;
   height:7%;
   border: solid 2px;
+  border-radius: 20px;
   background-color: white;
   padding: 2%;
   .search_sentence {
@@ -17,6 +18,7 @@
    margin: auto; 
    padding-left: 30px;
    width: 20%;
+   
   }
   .search_criteria {
     width: 26%;
@@ -29,7 +31,7 @@
   }
   .search_option {
     width: 25%;
-    border-radius: 0;
+    border-radius: 10px;
     outline: 0;
     border:1px solid grey;
     &:focus {
@@ -47,14 +49,14 @@
   }
   .search_time {
     width: 22%;
-    border-radius: 0;
+    border-radius: 10px;
     outline: 0;
     border:1px solid grey;
   }
   .search_button {
     width: 8%;
     padding: 0;
-    border-radius: 0;
+    border-radius: 10px;
     outline: 0;
     border:1px solid grey;
     color:white;

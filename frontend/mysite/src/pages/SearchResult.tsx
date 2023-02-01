@@ -12,7 +12,7 @@ const SearchResult = () => {
   const dropIn = isLocationState ? (location.state.dropIn !== 'all' ? location.state.dropIn: '') : '';
   const time = isLocationState ? (location.state.time !== null ? location.state.time: '') : '';
   const dispName = isLocationState ? ((place===''&&dropIn===''&&time==='') ? '全て':`${place} ${dropIn} ${time}`): '全て' 
-  const info = isLocationState ? (location.state.searchedByForm ? {...location.state, en:'all', ja:dispName} : location.state.info): {ja: '全て', en: 'all'};
+  const info = isLocationState ? (location.state.searchedByForm ? {...location.state, en:'all', ja:dispName, searchByForm: true} : location.state.info): {ja: '全て', en: 'all'};
   const [ data, setData ] = useState([]);
   useEffect(() => {
     try {

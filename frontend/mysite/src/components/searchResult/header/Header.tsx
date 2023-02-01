@@ -14,7 +14,7 @@ interface Props {
 const Header = (props:Props) => {
   return ( 
     <div className={styles.header}>
-      <img src='/img/shibuya.jpeg'  className={styles.headerImage} alt='検索ページ'/>
+      <img src={`/img/${props.aria.searchByForm === true ? 'image2':props.aria.en}.jpeg`}  className={styles.headerImage} alt='検索ページ'/>
       <div>
         <MenuBar />
       </div>

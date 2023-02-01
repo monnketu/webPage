@@ -12,13 +12,13 @@ export default function SearchCharacters() {
     {
       ja: '低価格',
       en: 'low_cost',
-      character: 'money',
+      character: 'low_cost',
       dispName: '低価格'
     },
     {
       ja: '広々会議室',
       en: 'meeting_room',
-      character: 'meetingroom',
+      character: 'meeting_room',
       dispName: '広々会議室'
     },
   ];
@@ -26,19 +26,19 @@ export default function SearchCharacters() {
     {
       ja: '充実オプション',
       en: 'enhanced_options',
-      character: 'printer',
+      character: 'enhanced_options',
       dispName: '充実オプション'
     },
     {
       ja: 'ドロップイン可能',
       en: 'dropIn',
-      character: 'dropin',
+      character: 'dropIn',
       dispName: 'ドロップイン可能'
     },
     {
       ja: '24時間制',
       en: 'all_time',
-      character: 'clock',
+      character: 'all_time',
       dispName: '24時間制'
     },
   ];
