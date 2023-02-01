@@ -4,7 +4,6 @@ import HowToUse from './pages/HowToUse';
 import SearchResult from './pages/SearchResult';
 import Favorite from './pages/Favorite';
 import ErrorPage from './pages/404';
-import Login from './pages/login';
 import Detail from './pages/Detail';
 function App() {
   return (
@@ -16,7 +15,6 @@ function App() {
           <Route path='/search_result' element={<SearchResult />} />
           <Route path='/detail' element={<Detail />} />
           <Route path='/favorite' element={<Favorite />} />
-          <Route path='/login' element={<Login />} />
           <Route path = '*' element={<ErrorPage />} />
         </Routes>
       </>

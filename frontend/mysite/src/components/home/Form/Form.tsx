@@ -11,19 +11,8 @@ const Form = () => {
 
   return (
     <div className= {styles.search_box}>
-<<<<<<< HEAD
       <p className = {styles.search_sentence} >契約形態から探す</p>
-      <select className = {styles.search_option} name="example" onChange={(e) => setSpace(e.target.value)}>
-=======
       <p className = {styles.search_sentence} >場所、日時から探す</p>
-      {/* <select className = {styles.search_option} name="example" onChange={(e) => setSpace(e.target.value)}>
->>>>>>> 9e28485ea298cb55170188699b01d4b192e5fb52
-        <option value='all'>指定なし</option>
-        <option value='cafe'>カフェ</option>
-        <option value='coWorkingSpace'>コワーキングスペース</option>
-      </select> */}
-      {/* <input class = {styles.search_criteria} type = "text" placeholder="エリア・駅"/>
-      <input class = {styles.search_criteria} type = "text" placeholder="キーワード・名前" /> */}
       <select className = {styles.search_option} name="example" onChange={(e) => setDropIn(e.target.value)}>
         <option value="all">指定なし</option>
         <option value='monthly'>月額契約</option>

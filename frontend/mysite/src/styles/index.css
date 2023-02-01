@@ -3,7 +3,7 @@ body {
 }
 html {
   /* background-color: antiquewhite; */
-  background-image: url('/Users/fujitatoko/問題発見と解決/python_file/webPage/frontend/mysite/public/img/background3.jpeg');
+  background-image: url('../../public/img/background3.jpeg');
 }
 
 .aria-longname {
