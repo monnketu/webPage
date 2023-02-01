@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from rest_framework.decorators import api_view
 import json
 import difflib
 import django_filters
@@ -51,7 +52,9 @@ class coWorkingViewSet_all_time(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(startTime = '00:00:00', endTime = '23:59:00').order_by('price')
   serializer_class = coWorkingSpaceSerializer
 
-def getLineAccessToken(req):
+@api_view(['GET', 'POST'])
+def getLineAccessToken(req, code):
+  # if (req.method == 'POST'):
   url = 'https://api.line.me/oauth2/v2.1/token/'
   
   headers = {
@@ -59,7 +62,7 @@ def getLineAccessToken(req):
     "Content-Type" :"application/x-www-form-urlencoded"
   }
   request = Request(url, headers=headers)
-  accessCode = 'cgjFFo8yGtVs5VTafSYV'
+  accessCode = code
   redirect_uri = 'http://localhost:3000/login'
   channel_id = 1657842449
   channel_secret = '31acec1fd7315a32c27ab510ed80fabe'
@@ -74,7 +77,7 @@ def getLineAccessToken(req):
       }
   data = urlencode(data).encode("utf-8")
   response = urlopen(request, data)
-  print(req.POST)
+  print(code)
   return HttpResponse(response)
 
 def coupon_shibuya(request):

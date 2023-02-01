@@ -17,17 +17,12 @@ router.register('coWorkingSpace/meeting_room', coWorkingViewSet_meeting_room)
 router.register('coWorkingSpace/enhanced_options', coWorkingViewSet_enhanced_options)
 router.register('coWorkingSpace/dropIn', coWorkingViewSet_dropin)
 router.register('coWorkingSpace/all_time', coWorkingViewSet_all_time)
+# router.register('line_api', line_api)
 urlpatterns = [
   path('', views.index, name='index'),
   # path('coupon/', views.coupon, name='coupon'),
   path('getSimData/', views.getSimData, name='getSimData'),
-  path('getSimData/shibuya', views.getSimData_shibuya, name='getSimData_shibuya'),
-  path('getSimData/shinjuku', views.getSimData_shibuya, name='getSimData_shibuya'),
-  path('getSimData/ikebukuro', views.getSimData_shibuya, name='getSimData_shibuya'),
-  path('getSimData/shibuya', views.getSimData_shibuya, name='getSimData_shibuya'),
-  path('getSimData/shibuya', views.getSimData_shibuya, name='getSimData_shibuya'),
-  path('getSimData/shibuya', views.getSimData_shibuya, name='getSimData_shibuya'),
-  path('line_api/', views.getLineAccessToken, name='getLineAccessToken'),
+  path('line_api/<slug:code>/', views.getLineAccessToken, name='getLineAccessToken'),
   path('templates/', views.index_template, name='index_template'),
   path('templates/test1/', views.index_template_test1, name='index_template_test1'),
   

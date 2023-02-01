@@ -1,3 +1,11 @@
 .spaceDetailContainer {
-  
+  padding-left: 40px;
+  p {
+    font-size: 20pt;
+  }
+  .charactersList {
+    // list-style-position: inside;
+    // list-style-image: url('/img/image1.jpeg');
+    list-style: none;
+  }
 }
