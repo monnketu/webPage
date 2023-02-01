@@ -4,7 +4,7 @@ import HowToUse from './pages/HowToUse';
 import SearchResult from './pages/SearchResult';
 import Favorite from './pages/Favorite';
 import ErrorPage from './pages/404';
-import Login from './pages/Login';
+import Login from './pages/login';
 import Detail from './pages/Detail';
 function App() {
   return (

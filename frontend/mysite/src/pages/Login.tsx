@@ -6,14 +6,14 @@ const Login = () => {
   const [isGetInfo, setIsGetInfo] = useState(false);
 
   const location = useLocation().search; // URL path や パラメータなど。JSのlocationと同じ
-  const params = useParams();     // URLのパスパラメータを取得。例えば、 /uses/2 なら、2の部分を取得
+  // const params = useParams();     // URLのパスパラメータを取得。例えば、 /uses/2 なら、2の部分を取得
   const [ isGotToken, setIsGotToken ] = useState(false);
-  const redirect_uri = 'http://localhost:3000/login';
+  const redirect_uri = 'http://localhost:3000/';
   const channel_id = 1657842449;
   const channel_secret = '31acec1fd7315a32c27ab510ed80fabe';
   const code_verifier = 'wJKN8qz5t8SSI9lMFhBB6qwNkQBkuPZoCxzRhwLRUo1';
-  const LINE_ICON_PATH = '/Line_Login_Button_Image/images/DeskTop/2x/32dp/btn_base.png';
-  const API_URL = `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=${channel_id}&redirect_uri=${redirect_uri}&state=12345abcde&scope=profile%20openid&nonce=09876xyz`
+  const LINE_ICON_PATH = '/Users/noguchihiroto/Documents/webPage/frontend/mysite/public/Line_Login_Button_Image/images/DeskTop/1x/20dp/btn_login_base.png';
+  const API_URL = `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=${channel_id}&redirect_uri=${redirect_uri}&state=12345abcde&scope=profile%20openid&nonce=09876xyz`;
   useEffect (() => {
     // const history = useNavigate();   // historyオブジェクトを取得。
     // console.log(params);
@@ -52,24 +52,7 @@ const Login = () => {
           })
           .then(response => response.json())
           .then(res => {
-            // console.log(res); 
             console.log(res);
-            // if (isGetInfo === false) {
-            //   try {
-            //     setIsGetInfo(true);
-            //     fetch('https://api.line.me/oauth2/v2.1/verify', {
-            //       method: 'POST',
-            //       headers: {
-            //         "Content-Type": "application/x-www-form-urlencoded",
-            //       },
-            //       body: JSON.stringify({id_token: res.id_token, client_id: channel_id})
-            //     }).then(res => {
-            //       return(res.json())
-            //     }).then(response => console.log(response));
-            //   } catch(e) {
-            //     console.log(e);
-            //   }
-            // }
           });
         }
       } catch(err) {
