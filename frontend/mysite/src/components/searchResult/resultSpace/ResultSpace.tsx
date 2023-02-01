@@ -13,6 +13,7 @@ interface Props {
   startTime: string;
   endTime: string;
   wifi: number;
+  imageName:string;
   address: string;
   url: string;
   data: DBdata;
@@ -38,7 +39,7 @@ const ResultSpace = (props:Props) => {
   return (
     <div className={styles.resultSpace}>
       {/* <img src={props.src} alt='検索結果の画像' className={styles.resultSpaceImage}/> */}
-      <img src='/img/shibuya.jpeg' alt='検索結果の画像' className={styles.resultSpaceImage}/>
+      <img src={`/img/coWorkingSpace_images/${props.imageName}`} alt='検索結果の画像' className={styles.resultSpaceImage}/>
       <div className={styles.spaceExplanationContainer}>
         {/* <Link className={styles.spaceExplanation_first} to='/detail' state={props.data}><h1>渋谷駅から徒歩5分！</h1></Link> */}
         {/* pages/Detail.jsx にクリックしたコワーキングスペースのDBからのデータを渡す */}

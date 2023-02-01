@@ -33,7 +33,8 @@ const Results = (props:Props) => {
             station={data.station} 
             startTime={data.startTime} 
             endTime={data.endTime}  
-            wifi={data.wifi} 
+            wifi={data.wifi}
+            imageName={data.imageName} 
             address={data.address} 
             url={'url'} 
             data={data} 
