@@ -19,12 +19,12 @@ router.register('coWorkingSpace/dropIn', coWorkingViewSet_dropin)
 router.register('coWorkingSpace/all_time', coWorkingViewSet_all_time)
 # router.register('line_api', line_api)
 urlpatterns = [
-  path('', views.index, name='index'),
+  # path('', views.index, name='index'),
   # path('coupon/', views.coupon, name='coupon'),
-  path('getSimData/', views.getSimData, name='getSimData'),
+  # path('getSimData/', views.getSimData, name='getSimData'),
   path('line_api/<slug:code>/', views.getLineAccessToken, name='getLineAccessToken'),
-  path('templates/', views.index_template, name='index_template'),
-  path('templates/test1/', views.index_template_test1, name='index_template_test1'),
+  # path('templates/', views.index_template, name='index_template'),
+  # path('templates/test1/', views.index_template_test1, name='index_template_test1'),
   
   # path('coupon/shibuya', views.coupon, name='coupon'),
   # path('coupon/shinjuku', views.coupon, name='coupon'),

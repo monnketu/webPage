@@ -3,6 +3,8 @@ import { useParams, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [isFetched, setIsFetched] = useState(false);
+  const [isGetInfo, setIsGetInfo] = useState(false);
+
   const location = useLocation().search; // URL path や パラメータなど。JSのlocationと同じ
   const params = useParams();     // URLのパスパラメータを取得。例えば、 /uses/2 なら、2の部分を取得
   const [ isGotToken, setIsGotToken ] = useState(false);
@@ -36,9 +38,10 @@ const Login = () => {
         //   headers: {
         //     "Content-Type": "application/x-www-form-urlencoded",
         //   },
-        //   body: JSON.stringify(data)
+        // //   body: JSON.stringify(data)
         // })
         if (isFetched === false) {
+          setIsGotToken(true);
           fetch(`http://localhost:8000/polls/line_api/${accessCode}/`,{
             method: 'POST',
             // headers: {
@@ -49,8 +52,24 @@ const Login = () => {
           })
           .then(response => response.json())
           .then(res => {
-            console.log(res); 
-            setIsGotToken(true);
+            // console.log(res); 
+            console.log(res);
+            // if (isGetInfo === false) {
+            //   try {
+            //     setIsGetInfo(true);
+            //     fetch('https://api.line.me/oauth2/v2.1/verify', {
+            //       method: 'POST',
+            //       headers: {
+            //         "Content-Type": "application/x-www-form-urlencoded",
+            //       },
+            //       body: JSON.stringify({id_token: res.id_token, client_id: channel_id})
+            //     }).then(res => {
+            //       return(res.json())
+            //     }).then(response => console.log(response));
+            //   } catch(e) {
+            //     console.log(e);
+            //   }
+            // }
           });
         }
       } catch(err) {
