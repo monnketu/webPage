@@ -1,24 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './../counterSlice';
-export type State = {
-  reducer: {
-    text: string,
-    messageList: commentDataFromMySQL[],
-    isFirstVisit: boolean,
-  }
-}
-export interface commentDataFromMySQL {
-  account_id: number;
-  comment: string;
-  id: number
-}
-export interface DataFromMySQL {
-  commentList: {
-    data: commentDataFromMySQL[];
-  }
-}
+import counterSlice from '../slices/userInfoSlice';
+import { useSelector as rawUseSelector, TypedUseSelectorHook, useDispatch } from 'react-redux';
 
-const store = configureStore({reducer: {
-  reducer: counterReducer,
-},});
+
+const store = configureStore({
+  reducer: {
+    userInfo: counterSlice
+  }
+});
+export const useAppDispatch = () => useDispatch<typeof store.dispatch>()
+
 export default store;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+export const useSelector: TypedUseSelectorHook<RootState> = rawUseSelector;
+
