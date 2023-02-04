@@ -5,6 +5,7 @@ import SearchResult from './pages/SearchResult';
 import Favorite from './pages/Favorite';
 import ErrorPage from './pages/404';
 import Detail from './pages/Detail';
+import Questionnaire from './pages/Questionnaire';
 function App() {
   return (
     <BrowserRouter>
@@ -15,6 +16,7 @@ function App() {
           <Route path='/search_result' element={<SearchResult />} />
           <Route path='/detail' element={<Detail />} />
           <Route path='/favorite' element={<Favorite />} />
+          <Route path='/question' element={<Questionnaire />} />
           <Route path = '*' element={<ErrorPage />} />
         </Routes>
       </>

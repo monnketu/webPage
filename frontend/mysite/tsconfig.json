@@ -23,7 +23,7 @@
     "noImplicitAny": false,
   },
   "include": [
-    "src"
-, "slices/counterSlice.ts"  ]
+    "src", 
+    "slices/counterSlice.ts"  ]
 }
 
