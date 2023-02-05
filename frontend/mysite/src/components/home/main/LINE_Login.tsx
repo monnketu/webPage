@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 import styles from './../../../styles/home/LINE_Login.module.scss';
-import { useDispatch, useSelector } from "react-redux";
-import { useAppDispatch } from "../../../store";
+import { useDispatch } from "react-redux";
+import { useAppDispatch, useSelector } from "../../../store";
 import { loginReducer, logoutReducer } from "../../../slices/userInfoSlice";
 import { getLineProfile } from "../../../slices/userInfoSlice";
 import StateInterface from '../../../interfaces/State';
 const Login = () => {
   const dispatch = useAppDispatch();
-  const userInfo = useSelector((state:{userInfo:StateInterface}) => state.userInfo)
+  const userInfo = useSelector((state:StateInterface) => state.userInfo)
   console.log(userInfo)
   const location = useLocation().search; // URL path や パラメータなど。JSのlocationと同じ
   const channel_id = 1657842449;

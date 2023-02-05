@@ -1,27 +1,41 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import StateInterface from "../interfaces/State";
+import userInfoInterface from '../interfaces/userInfo';
 import LINE_API_response from '../interfaces/LINE_API_response';
 // 初期状態 ログアウトしたときもこの状態にする
-const initialState: StateInterface = {
+const initialState: userInfoInterface = {
   userID: '',
   profileImage: '',
   isLogined: false,
 }
-const getLineProfile = createAsyncThunk<LINE_API_response, string|null>(
+// エラーハンドリング関数
+// const handleErrors = (res: any) => {
+//   if(res.ok) return res;  
+
+//   switch(res.status) {
+//     case 400: throw Error('INVALID_TOKEN');
+//     case 401: throw Error('UNAUTHORIZED');
+//     case 500: throw Error('INTERNAL_SERVER_ERROR');
+//     case 502: throw Error('BAD_GATEWAY');
+//     case 404: throw Error('NOT_FOUND');
+//     default:  throw Error('UNHANDLED_ERROR');
+//   }
+// }
+const getLineProfile = createAsyncThunk<LINE_API_response,string|null,{state: StateInterface;}>(
   "get_line_profile",
   (accessCode:string|null, thunkAPI) => {
   // const accessCode = thunkAPI.getState().accessCode;
   // const accessCode = thunkAPI.getState().userInfo.accessCode;
   return new Promise((resolve, reject) => {
-    if (accessCode) {
+    const state:StateInterface = thunkAPI.getState();
+    if (accessCode && !state.userInfo.isLogined) {
       try {
-        console.log(thunkAPI.getState())
         fetch(`http://localhost:8000/polls/line_api/${accessCode}/`,{
           method: 'POST',
           body: JSON.stringify({accessCode: accessCode})
         })
-          .then(response => response.json())
-          .then((res:LINE_API_response) => {
+        .then(response => response.json())
+        .then((res:LINE_API_response) => {
             console.log(res);
             thunkAPI.dispatch(loginReducer())
             resolve(res);
@@ -30,7 +44,6 @@ const getLineProfile = createAsyncThunk<LINE_API_response, string|null>(
             reject(thunkAPI.rejectWithValue(err.message));
           });
         } catch(err:any) {
-          console.log('asdasd',err);
           reject(thunkAPI.rejectWithValue(err.message));
         }
       }
@@ -38,17 +51,17 @@ const getLineProfile = createAsyncThunk<LINE_API_response, string|null>(
 })
 
   
-  export const counterSlice = createSlice({
-    name: 'userInfo',
-    initialState,
-    reducers: {
-      loginReducer: (state) => {
-        state.isLogined = true;
-      },
-      logoutReducer: (state) => {
-        state = initialState;
-      },
+export const userInfoSlice = createSlice({
+  name: 'userInfo',
+  initialState,
+  reducers: {
+    loginReducer: (state) => {
+      state.isLogined = true;
     },
+    logoutReducer: (state) => {
+      state = initialState;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getLineProfile.pending, (state) => {
     });
@@ -64,7 +77,7 @@ const getLineProfile = createAsyncThunk<LINE_API_response, string|null>(
     });
   }
 });
-export const { loginReducer, logoutReducer } = counterSlice.actions;
+export const { loginReducer, logoutReducer } = userInfoSlice.actions;
 // export { logoutReducer }
 export { getLineProfile }
-export default counterSlice.reducer;
+export default userInfoSlice.reducer;

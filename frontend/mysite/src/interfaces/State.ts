@@ -1,5 +1,6 @@
+import FormInterface from "./form";
+import userInfoInterface from "./userInfo";
 export default interface StateInterface {
-  userID: string;
-  profileImage: string;
-  isLogined: boolean;
+  userInfo: userInfoInterface;
+  formInfo: FormInterface;
 }

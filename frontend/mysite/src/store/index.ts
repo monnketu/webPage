@@ -1,11 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterSlice from '../slices/userInfoSlice';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import userInfoSlice from '../slices/userInfoSlice';
+import formSlice from '../slices/formSlice';
 import { useSelector as rawUseSelector, TypedUseSelectorHook, useDispatch } from 'react-redux';
-
 
 const store = configureStore({
   reducer: {
-    userInfo: counterSlice
+    userInfo: userInfoSlice,
+    formInfo: formSlice,
   }
 });
 export const useAppDispatch = () => useDispatch<typeof store.dispatch>()
