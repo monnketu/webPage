@@ -45,6 +45,8 @@ class coWorkingSpace(models.Model):
     # オプションの内容: 文字列100桁 各オプションは","で区切る。,の前後にスペースは入れない。
     # Ex) プリンター,秘書,ドリンク
     options = models.CharField(max_length=50)
+    
+    url = models.CharField(max_length=200)
      
     
     

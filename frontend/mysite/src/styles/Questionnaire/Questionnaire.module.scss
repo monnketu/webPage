@@ -1,6 +1,9 @@
 .QuestionnaireContainer {
-  width: 100vw;
+  width: 100%;
   margin: auto;
+  .question {
+    text-align: center;
+  }
   .option {
     width:100%;
   }

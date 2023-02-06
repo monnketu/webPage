@@ -6,12 +6,14 @@
 }
 .popular_characters {
   width: 86%;
+  margin: auto;
   .character_info_wrapper {
     /* position: absolute; */
     border: solid 1px;
     border-radius: 40px;
     width: 80%;
-    margin-left: 230px;
+    // margin-left: 230px;
+    margin:auto;
     margin-bottom: 80px;
     background-color: white;
     

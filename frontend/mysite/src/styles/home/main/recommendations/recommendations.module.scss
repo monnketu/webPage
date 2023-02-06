@@ -9,10 +9,13 @@
     border: solid 1px;
     border-radius: 40px;
     width: 69%;
-    margin-left: 230px;
+    // margin-left: 230px;
+    margin: auto;
     margin-bottom: 80px;
     background-color: white;
     padding-bottom: 13px;
+    text-align: center;
+    position: relative;
     .popular_space {
     
       &_info_wrapper {
@@ -35,6 +38,13 @@
       }
       &_info {
         margin-left: 10%;
+      }
+      .diagnoseButton {
+        margin-top: 10px;
+        margin: auto;
+        width: 90%;
+        height: 20vh;
+        border-radius: 100px;
       }
     }
   // }

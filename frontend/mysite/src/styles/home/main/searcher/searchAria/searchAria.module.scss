@@ -2,13 +2,15 @@
   &_container {
     .popular_arias {
       width: 86%;
+      margin: auto;
       .aria_info {
         &_wrapper {
           /* position: absolute; */
           border: solid 1px;
           border-radius: 40px;
           width: 80%;
-          margin-left: 230px;
+          margin: auto;
+          // margin-left: 230px;
           margin-bottom: 80px;
           background-color: white;
         }
