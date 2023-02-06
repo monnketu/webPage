@@ -16,8 +16,14 @@ const SearchResult = () => {
   const [ data, setData ] = useState([]);
   useEffect(() => {
     try {
-      fetch(`http://localhost:8000/api/coWorkingSpace/${info.en}/`)
+      fetch(`http://127.0.0.1:8000/api/coWorkingSpace/${info.en}/`,{
+        headers: {
+          // mode: 'nocors'
+        },
+        mode: 'cors'
+      })
       .then(response => {
+        console.log(response);
         return response.json();
       })
       .then(res => {

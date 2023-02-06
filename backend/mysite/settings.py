@@ -55,6 +55,8 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_WHITELIST = [
   'http://127.0.0.1:3000',
   'http://localhost:3000',
+  'http://192.168.0.166:3000',
+  'http://192.168.0.132:3000,',
 ]
 
 MIDDLEWARE = [
@@ -99,6 +101,7 @@ DATABASES = {
     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
   }
 }
+ALLOWED_HOSTS = ["*"]
 
 
 # Password validation

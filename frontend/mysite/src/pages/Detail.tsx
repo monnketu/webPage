@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import SubTitle from '../components/Detail/titile/SubTitle';
 import SpaceDetail from '../components/Detail/Main/SpaceDetail';
 import Reviews from '../components/Detail/review/Reviews';
+import PostReview from '../components/Detail/review/PostReview';
 
 export default function Detail() {
   const location = useLocation();
@@ -17,6 +18,8 @@ export default function Detail() {
       <SpaceDetail spaceInfo={info}/>
       <SubTitle name={'口コミ一覧'}/>
       <Reviews />
+      <SubTitle name={'口コミを書く'}/>
+      <PostReview />
     </div>
   )
 }
