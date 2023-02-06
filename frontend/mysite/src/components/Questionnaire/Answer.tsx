@@ -11,6 +11,7 @@ interface Props {
 
 export default function Answer(props:Props) {
   const questionInfo = useSelector((state) => state.questionInfo);
+  console.log(questionInfo)
   const dispatch = useAppDispatch();
   const createBackGroundColor = () => {
     switch(props.questionNumber) {

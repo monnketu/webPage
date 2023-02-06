@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './../styles/Questionnaire/Questionnaire.module.scss';
 import Answers from '../components/Questionnaire/Answers';
+import DiagnoseButton from '../components/Questionnaire/DiagnoseButton';
 export default function Questionnaire() {
   return (
     <div className={styles.QuestionnaireContainer}>
@@ -10,6 +11,7 @@ export default function Questionnaire() {
       <Answers questionNumber={2}/>
       <h2 className={styles.question}>Q3 ドロップイン</h2>
       <Answers questionNumber={3}/>
+      <DiagnoseButton />
     </div>
   )
 }

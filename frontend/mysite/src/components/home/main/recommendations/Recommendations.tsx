@@ -14,13 +14,13 @@ export default function Recommendations() {
     <p className = {styles.search_popular_space_sentence}>おすすめから探す</p>
     <div className = {styles.search_popular_space_container}>
       <div className = {styles.popular_space}>
-        {/* <div className = {styles.popular_space_info_wrapper}>
+        {questionInfo.diagnose === 'notStarted' ?  <button className={styles.diagnoseButton} onClick = {() => dispatch(diagnoseStartReducer())}>診断スタート</button> : null}
+        {questionInfo.diagnose === 'progress' ? <Questionnaire /> : null}
+        {questionInfo.diagnose === 'finished' ? (<div className = {styles.popular_space_info_wrapper}>
           <ul className = {styles.popular_space_info_list}> 
             {params.map((param, index) => <li className={styles.popular_space_item} key={index}><Recommendation img={param} rank={index+1}/></li>)}
           </ul>
-        </div> */}
-        {questionInfo.diagnose === 'notStarted' ?  <button className={styles.diagnoseButton} onClick = {() => dispatch(diagnoseStartReducer())}>診断スタート</button> : null}
-        {questionInfo.diagnose === 'progress' ? <Questionnaire /> : null}
+        </div>) : null}
       </div>
     </div>
   </>
