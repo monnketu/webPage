@@ -53,12 +53,14 @@ const StyledTextareaElement = styled('textarea', {
     !['ownerState', 'minRows', 'maxRows'].includes(prop.toString()),
 })(
   ({ theme }) => `
-  width: 30%;
+  width: 70%;
+  height: 20vh;
   font-family: IBM Plex Sans, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
-  line-height: 8;
-  padding: 5px;
+  line-height: 1.5;
+  padding: 12px;
+  margin-bottom: 3%;
   border-radius: 12px;
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
   background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
@@ -77,7 +79,7 @@ const StyledTextareaElement = styled('textarea', {
 );
 
 const CustomInput = React.forwardRef(function CustomInput(
-  props: InputUnstyledProps,
+  props: any,
   ref: React.ForwardedRef<HTMLDivElement>,
 ) {
   return (
@@ -85,12 +87,13 @@ const CustomInput = React.forwardRef(function CustomInput(
       slots={{ input: StyledInputElement, textarea: StyledTextareaElement }}
       {...props}
       ref={ref}
+      onChange={(e) => props.setReview(e.target.value)}
     />
   );
 });
 
-export default function UnstyledInputBasic() {
+export default function UnstyledInputBasic(props) {
   return (
-    <CustomInput aria-label="Demo input" multiline placeholder="口コミ本文を入力してください" />
+    <CustomInput aria-label="Demo input" multiline placeholder="口コミ本文を入力してください" setReview={props.setReview}/>
   );
 }

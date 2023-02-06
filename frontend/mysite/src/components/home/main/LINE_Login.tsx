@@ -12,7 +12,7 @@ const Login = () => {
   console.log(userInfo)
   const location = useLocation().search; // URL path や パラメータなど。JSのlocationと同じ
   const channel_id = 1657842449;
-  const redirect_uri = 'http://localhost:3000/';
+  const redirect_uri = 'http://192.168.0.166:3000/';
   const API_URL = `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=${channel_id}&redirect_uri=${redirect_uri}&state=12345abcde&scope=profile%20openid&nonce=09876xyz`;
   const LINE_ICON_PATH = '/Line_Login_Button_Image/images/DeskTop/1x/20dp/btn_login_base.png';
   const query2 = location ? new URLSearchParams(location) : null;

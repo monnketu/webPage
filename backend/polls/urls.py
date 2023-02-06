@@ -17,6 +17,7 @@ router.register('coWorkingSpace/meeting_room', coWorkingViewSet_meeting_room)
 router.register('coWorkingSpace/enhanced_options', coWorkingViewSet_enhanced_options)
 router.register('coWorkingSpace/dropIn', coWorkingViewSet_dropin)
 router.register('coWorkingSpace/all_time', coWorkingViewSet_all_time)
+# router.register('postReview', ReviewViewSet)
 # router.register('line_api', line_api)
 urlpatterns = [
   # path('', views.index, name='index'),
@@ -25,7 +26,8 @@ urlpatterns = [
   path('line_api/<slug:code>/', views.getLineAccessToken, name='getLineAccessToken'),
   # path('templates/', views.index_template, name='index_template'),
   # path('templates/test1/', views.index_template_test1, name='index_template_test1'),
-  
+  # path('postReview/', views.review_list, name='review_list'),
+  path('postReview/',  views.review_list),
   # path('coupon/shibuya', views.coupon, name='coupon'),
   # path('coupon/shinjuku', views.coupon, name='coupon'),
   # path('coupon/ikebukuro', views.coupon, name='coupon'),

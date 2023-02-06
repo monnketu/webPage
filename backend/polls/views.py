@@ -2,16 +2,19 @@ import json
 import difflib
 import django_filters
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
-from rest_framework import viewsets, filters
-from .models import coWorkingSpace # Couponクラスをインポート
+from rest_framework import viewsets, filters, generics
+from .models import coWorkingSpace, review 
 from .serializer import coWorkingSpaceSerializer
 import logging
 from urllib.parse import urlencode
 from urllib.request import urlopen, Request
-
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.parsers import JSONParser
 logger = logging.getLogger('development')
+
+
 class coWorkingViewSet(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.all().order_by('price')
   serializer_class = coWorkingSpaceSerializer
@@ -56,6 +59,7 @@ class coWorkingViewSet_all_time(viewsets.ModelViewSet):
 @api_view(['GET', 'POST'])
 def getLineAccessToken(req, code):
   # if (req.method == 'POST'):
+  print(json.loads(req.read().decode())['accessCode'])
   url = 'https://api.line.me/oauth2/v2.1/token/'
   url2 = 'https://api.line.me/oauth2/v2.1/verify'
   
@@ -65,7 +69,7 @@ def getLineAccessToken(req, code):
   }
   request = Request(url, headers=headers)
   accessCode = code
-  redirect_uri = 'http://localhost:3000/'
+  redirect_uri = 'http://192.168.0.166:3000/'
   channel_id = 1657842449
   channel_secret = '31acec1fd7315a32c27ab510ed80fabe'
   code_verifier = 'wJKN8qz5t8SSI9lMFhBB6qwNkQBkuPZoCxzRhwLRUo1'
@@ -89,5 +93,25 @@ def getLineAccessToken(req, code):
   }
   data2 = urlencode(data2).encode("utf-8")
   response2 = urlopen(request2, data2)
+
   # print(code)
   return HttpResponse(response2)
+
+# @api_view(['POST'])
+# def createCoWorkingSpaceReviewTable:
+@csrf_exempt
+def review_list(request):
+  if (request.method == 'POST'):
+    data = JSONParser().parse(request)
+    print(data, 'datatata')
+    setData = review(title=data['title'], memberID= data['memberID'], review=data['review'])
+    setData.save()
+    returnData = {
+      'title': data['title'],
+      'memberID': data['memberID'],
+      'review': data['review'],
+    }
+    print(setData, 'setData')
+    return HttpResponse(json.dumps(returnData))
+    # return JsonResponse(serializer.errors, status=400)
+  

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import coWorkingSpace
+from .models import coWorkingSpace, review
 
 class coWorkingSpaceSerializer(serializers.ModelSerializer):
   class Meta:

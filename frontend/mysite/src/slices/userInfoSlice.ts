@@ -30,7 +30,7 @@ const getLineProfile = createAsyncThunk<LINE_API_response,string|null,{state: St
     const state:StateInterface = thunkAPI.getState();
     if (accessCode && !state.userInfo.isLogined) {
       try {
-        fetch(`http://localhost:8000/polls/line_api/${accessCode}/`,{
+        fetch(`http://192.168.0.166:8000/polls/line_api/${accessCode}/`,{
           method: 'POST',
           body: JSON.stringify({accessCode: accessCode})
         })

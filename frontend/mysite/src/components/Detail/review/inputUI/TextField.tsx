@@ -26,7 +26,7 @@ const grey = {
 
 const StyledInputElement = styled('input')(
   ({ theme }) => `
-  width: 30%;
+  width: 70%;
   font-family: IBM Plex Sans, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
@@ -50,7 +50,7 @@ const StyledInputElement = styled('input')(
 );
 
 const CustomInput = React.forwardRef(function CustomInput(
-  props: React.InputHTMLAttributes<HTMLInputElement>,
+  props: any,
   ref: React.ForwardedRef<HTMLInputElement>,
 ) {
   const { getRootProps, getInputProps } = useInput(props);
@@ -62,11 +62,11 @@ const CustomInput = React.forwardRef(function CustomInput(
 
   return (
     <div {...getRootProps()}>
-      <StyledInputElement {...props} {...inputProps} />
+      <StyledInputElement {...props} {...inputProps} onChange={(e) => props.setTitle(e.target.value)}/>
     </div>
   );
 });
 
-export default function UseInput() {
-  return <CustomInput aria-label="Demo input" placeholder="タイトル" />;
+export default function UseInput(props) {
+  return <CustomInput aria-label="Demo input" placeholder="タイトル" setTitle={props.setTitle}/>;
 }
