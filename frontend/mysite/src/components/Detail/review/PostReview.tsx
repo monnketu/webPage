@@ -5,7 +5,12 @@ import UnstyledInputBasic from './inputUI/MultiInput';
 import { Button } from "@mui/material";
 import { useSelector, useAppDispatch } from "../../../store";
 import StateInterface from '../../../interfaces/State';
-export default function PostReview() {
+import DBdata from "../../../interfaces/DBdata";
+
+interface Props {
+  spaceInfo: DBdata;
+}
+export default function PostReview(props: Props) {
   const userInfo = useSelector((state:StateInterface) => state.userInfo);
   const [title, setTitle] = useState('')
   const [review, setReview] = useState('')
@@ -15,7 +20,7 @@ export default function PostReview() {
     console.log(review);
     fetch('http://192.168.0.166:8000/polls/postReview/', {
       method: 'POST',
-      body: JSON.stringify({title: title, memberID: userInfo.userID, review: review})
+      body: JSON.stringify({title: title, memberID: userInfo.userID, review: review, spaceName: props.spaceInfo.name})
     })
     .then(res => res.json())
     .then(res => console.log(res,'res'))

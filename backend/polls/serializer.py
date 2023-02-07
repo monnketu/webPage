@@ -17,3 +17,10 @@ class lineSerializer(serializers.Serializer):
   def get_user(self, instance):
     request = self.context.get('request')
     return True
+
+class reviewSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = review
+    fields = '__all__'
+  def getSpaceName(self, instance):
+    return instance.getSpaceName()

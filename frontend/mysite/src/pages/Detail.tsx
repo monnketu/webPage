@@ -17,9 +17,9 @@ export default function Detail() {
       <SubTitle name={'詳細'}/>
       <SpaceDetail spaceInfo={info}/>
       <SubTitle name={'口コミ一覧'}/>
-      <Reviews />
+      <Reviews spaceInfo={info}/>
       <SubTitle name={'口コミを書く'}/>
-      <PostReview />
+      <PostReview spaceInfo={info}/>
     </div>
   )
 }

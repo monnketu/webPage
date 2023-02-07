@@ -13,7 +13,7 @@ import styles from '../../../styles/Detail/review/review.module.scss';
 */
 
 interface Props {
-  memberID: number;
+  memberID: string;
   reviewTitle: string;
   review: string;
 }

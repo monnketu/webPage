@@ -66,9 +66,13 @@ class review(models.Model):
   memberID = models.CharField(max_length=100)
   title = models.CharField(max_length=100)
   review = models.CharField(max_length=100)
+  spaceName = models.CharField(max_length=100)
   created = models.DateTimeField(auto_now_add=True)
+  
   class Meta:
     ordering = ['created']
+  def  getSpaceName(self):
+    return self.spaceName
   def __str__(self):
     return self.title
 

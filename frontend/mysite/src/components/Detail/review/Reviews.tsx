@@ -1,13 +1,27 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import DBdata from '../../../interfaces/DBdata';
+import reviewInterface from '../../../interfaces/review';
 import Review from './Review'
 
-
-export default function Reviews() {
+interface Props {
+  spaceInfo: DBdata;
+}
+export default function Reviews(props:Props) {
+  const [reviews, setReviews] = useState<Array<reviewInterface>>([]);
+  useEffect(() => {
+    fetch('http://192.168.0.166:8000/api/coWorkingSpace/reviews/')
+    .then(res => res.json())
+    .then(response => setReviews(response.results))
+  }, [])
   return (
-    <div>
-      <Review memberID={1} reviewTitle='テストタイトル1' review='テスト口コミ1' />
-      <Review memberID={2} reviewTitle='テストタイトル2' review='テスト口コミ2' />
-      <Review memberID={3} reviewTitle='テストタイトル3' review='テスト口コミ3' />
-    </div>
+    reviews.length >= 1 ?
+      <div>
+        {reviews.map((review, index) => {
+          if (review.spaceName === props.spaceInfo.name) {
+            return <Review memberID={review.memberID} reviewTitle={review.title} review={review.review} key={index}/>
+          }
+        })}
+      </div>
+      :null
   )
 }

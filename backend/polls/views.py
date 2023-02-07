@@ -6,7 +6,7 @@ from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework import viewsets, filters, generics
 from .models import coWorkingSpace, review 
-from .serializer import coWorkingSpaceSerializer
+from .serializer import coWorkingSpaceSerializer, reviewSerializer
 import logging
 from urllib.parse import urlencode
 from urllib.request import urlopen, Request
@@ -54,7 +54,9 @@ class coWorkingViewSet_dropin(viewsets.ModelViewSet):
 class coWorkingViewSet_all_time(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(startTime = '00:00:00', endTime = '23:59:00').order_by('price')
   serializer_class = coWorkingSpaceSerializer
-
+class reviewViewSet(viewsets.ModelViewSet):
+  queryset = review.objects.all()
+  serializer_class = reviewSerializer
 
 @api_view(['GET', 'POST'])
 def getLineAccessToken(req, code):
@@ -104,12 +106,13 @@ def review_list(request):
   if (request.method == 'POST'):
     data = JSONParser().parse(request)
     print(data, 'datatata')
-    setData = review(title=data['title'], memberID= data['memberID'], review=data['review'])
+    setData = review(title=data['title'], memberID= data['memberID'], review=data['review'], spaceName=data['spaceName'])
     setData.save()
     returnData = {
       'title': data['title'],
       'memberID': data['memberID'],
       'review': data['review'],
+      'spaceName': data['spaceName']
     }
     print(setData, 'setData')
     return HttpResponse(json.dumps(returnData))
