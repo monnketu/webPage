@@ -71,7 +71,8 @@ def getLineAccessToken(req, code):
   }
   request = Request(url, headers=headers)
   accessCode = code
-  redirect_uri = 'http://192.168.0.166:3000/'
+  # redirect_uri = 'http://192.168.0.166:3000/'
+  redirect_uri = 'http://localhost:3000/'
   channel_id = 1657842449
   channel_secret = '31acec1fd7315a32c27ab510ed80fabe'
   code_verifier = 'wJKN8qz5t8SSI9lMFhBB6qwNkQBkuPZoCxzRhwLRUo1'

@@ -12,11 +12,11 @@ const Header = () => {
         <img className = {styles.photo} src='/img/image2.jpeg' alt='header画像'/>
         <MainTitle name = '自由に働くをサポートする'/>
         <MainTitle name = 'フリースタイル' className='mainTitle2'/>
-        <div className = {styles.message_wrapper}>
+        {/* <div className = {styles.message_wrapper}>
           <div className = {styles.message}>
            <p className = {styles.key_messgae} >いつでも、どこでも</p>
           </div>
-        </div> 
+        </div>  */}
 
         <div className = {styles.menu_container}>
           {/* <span className = {styles.title}>もんけつ</span> */}
