@@ -6,11 +6,14 @@ import SubTitle from '../components/Detail/titile/SubTitle';
 import SpaceDetail from '../components/Detail/Main/SpaceDetail';
 import Reviews from '../components/Detail/review/Reviews';
 import PostReview from '../components/Detail/review/PostReview';
+import { useSelector } from '../store';
+import StateInterface from '../interfaces/State';
 
 export default function Detail() {
   const location = useLocation();
   const info = location.state;
   console.log(info);
+  const userInfo = useSelector((state:StateInterface) => state.userInfo);
   return (
     <div className={styles.detail}>
       <Header info={info}/>
@@ -20,6 +23,7 @@ export default function Detail() {
       <Reviews spaceInfo={info}/>
       <SubTitle name={'口コミを書く'}/>
       <PostReview spaceInfo={info}/>
+      
     </div>
   )
 }

@@ -9,7 +9,7 @@ interface Props {
 export default function Reviews(props:Props) {
   const [reviews, setReviews] = useState<Array<reviewInterface>>([]);
   useEffect(() => {
-    fetch('http://192.168.0.166:8000/api/coWorkingSpace/reviews/')
+    fetch('http://localhost:8000/api/coWorkingSpace/reviews/')
     .then(res => res.json())
     .then(response => setReviews(response.results))
   }, [])

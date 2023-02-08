@@ -16,7 +16,7 @@ const SearchResult = () => {
   const [ data, setData ] = useState([]);
   useEffect(() => {
     try {
-      fetch(`http://192.168.0.166:8000/api/coWorkingSpace/${info.en}/`,{
+      fetch(`http://localhost:8000/api/coWorkingSpace/${info.en}/`,{
         headers: {
           // mode: 'nocors'
         },

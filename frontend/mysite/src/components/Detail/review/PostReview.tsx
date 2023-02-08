@@ -18,7 +18,7 @@ export default function PostReview(props: Props) {
     console.log(userInfo);
     console.log(title);
     console.log(review);
-    fetch('http://192.168.0.166:8000/polls/postReview/', {
+    fetch('http://localhost:8000/polls/postReview/', {
       method: 'POST',
       body: JSON.stringify({title: title, memberID: userInfo.userID, review: review, spaceName: props.spaceInfo.name})
     })
@@ -31,7 +31,8 @@ export default function PostReview(props: Props) {
       <UseInput setTitle={setTitle}/>
       <h3>本文</h3>
       <UnstyledInputBasic setReview={setReview}/>
-      <Button  variant="contained" className={styles.postButton} onClick = {sendHandler}>送信する</Button>
+      <Button  variant="contained" className={styles.postButton} onClick = {sendHandler} disabled={!userInfo.isLogined}>送信する</Button>
+      {userInfo.isLogined ? null : <p>※口コミを投稿するにはログインする必要があります</p>}
     </div>
   )
 }
