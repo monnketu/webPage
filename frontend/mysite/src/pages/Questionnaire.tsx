@@ -5,7 +5,7 @@ import DiagnoseButton from '../components/Questionnaire/DiagnoseButton';
 export default function Questionnaire() {
   return (
     <div className={styles.QuestionnaireContainer}>
-      <h2 className={styles.question}>Q1 価格</h2>
+      <h2 className={styles.question}>←価格&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;アクセス→</h2>
       <Answers questionNumber={1} />
       <h2 className={styles.question}>Q2 場所</h2>
       <Answers questionNumber={2}/>

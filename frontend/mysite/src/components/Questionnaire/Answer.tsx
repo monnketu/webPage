@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './../../styles/Questionnaire/answer.module.scss';
 import { useAppDispatch, useSelector } from '../../store';
 import { question1Reducer, question2Reducer, question3Reducer } from './../../slices/questionSlice';
+import { border } from '@mui/system';
 
 interface Props {
   text: string;
@@ -16,10 +17,15 @@ export default function Answer(props:Props) {
   const createBackGroundColor = () => {
     switch(props.questionNumber) {
       case 1: 
-        if (questionInfo.question1 === props.rank) {
-          return '#a0a0a0'
-        } else {
-          return  '#ffffff'
+         {
+          switch(props.rank) {
+            case 0: return '#e9967a';
+            case 1: return '#ffdead';
+            case 2: return '#fffacd';
+            case 3: return '#ffdead';
+            case 4: return '#e9967a';
+          }
+          return  '#ffdead'
         }
     
       case 2: 
@@ -39,6 +45,9 @@ export default function Answer(props:Props) {
   } 
   const clickedStyle = {
     backgroundColor: createBackGroundColor(),
+    opacity: questionInfo.question1 === props.rank ? 0.5 : 1,
+    border: 'solid',
+    borderWidth: 1
   };
   return (
     <div 
