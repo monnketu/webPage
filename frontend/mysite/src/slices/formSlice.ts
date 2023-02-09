@@ -30,6 +30,7 @@ const formSlice = createSlice({
       state.dropIn = action.payload;
     },
     timeReducer: (state, action:timeInterface) => {
+      state.time = action.payload;
       console.log(action);
     },
   }

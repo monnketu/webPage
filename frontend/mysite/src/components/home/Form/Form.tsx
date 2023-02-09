@@ -13,7 +13,7 @@ const Form = () => {
   const space = useSelector((state: StateInterface) => state.formInfo.space)
   const isDropIn = useSelector((state: StateInterface) => state.formInfo.dropIn)
   const time = useSelector((state: StateInterface) => state.formInfo.time)
-
+  console.log(useSelector(state => state));
   return (
     <div className= {styles.search_box}>
       <p className = {styles.search_sentence} >契約形態、日時から探す</p>
