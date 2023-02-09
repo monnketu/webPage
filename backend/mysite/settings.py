@@ -49,7 +49,7 @@ INSTALLED_APPS = [
 ]
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 72
+    'PAGE_SIZE': 200
 }
 
 CORS_ORIGIN_WHITELIST = [

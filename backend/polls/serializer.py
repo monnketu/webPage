@@ -6,6 +6,12 @@ class coWorkingSpaceSerializer(serializers.ModelSerializer):
   class Meta:
     model = coWorkingSpace
     fields = '__all__'
+  # def create(self, post_data):
+  #   datas = coWorkingSpace.objects.all()
+  #   print(post_data)
+  #   # for data in datas:
+  #   return datas
+    
 
 class lineSerializer(serializers.Serializer):
   access_token = serializers.CharField()

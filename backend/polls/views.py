@@ -119,3 +119,9 @@ def review_list(request):
     return HttpResponse(json.dumps(returnData))
     # return JsonResponse(serializer.errors, status=400)
   
+@api_view(['GET', 'POST'])
+def diagnose(req):
+  coWorkingSpaces  = coWorkingSpace.objects.all()
+  ret = coWorkingSpaces
+  print(ret)
+  return JsonResponse(ret)

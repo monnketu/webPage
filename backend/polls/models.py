@@ -47,8 +47,11 @@ class coWorkingSpace(models.Model):
     options = models.CharField(max_length=50)
     
     
-    url = models.CharField(max_length=200)
-     
+    # url = models.CharField(max_length=200)
+    
+    # 人口密度
+    density = models.FloatField()
+    
     
     
     

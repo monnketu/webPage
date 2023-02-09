@@ -4,9 +4,12 @@ import Questionnaire from '../../../../pages/Questionnaire';
 import styles from './../../../../styles/home/main/recommendations/recommendations.module.scss';
 import { useAppDispatch, useSelector } from '../../../../store';
 import { diagnoseStartReducer } from '../../../../slices/questionSlice';
+import StateInterface from '../../../../interfaces/State';
 export default function Recommendations() {
   const dispatch = useAppDispatch();
-  const questionInfo = useSelector((state) => state.questionInfo);
+  const questionInfo = useSelector((state:StateInterface) => state.questionInfo);
+  const recommendInfo = useSelector((state:StateInterface) => state.recommendInfo);
+  console.log(recommendInfo);
   const params = ['image1', 'image1', 'image1',];
   return (
 
@@ -18,7 +21,7 @@ export default function Recommendations() {
         {questionInfo.diagnose === 'progress' ? <Questionnaire /> : null}
         {questionInfo.diagnose === 'finished' ? (<div className = {styles.popular_space_info_wrapper}>
           <ul className = {styles.popular_space_info_list}> 
-            {params.map((param, index) => <li className={styles.popular_space_item} key={index}><Recommendation img={param} rank={index+1}/></li>)}
+            {params.map((param, index) => <li className={styles.popular_space_item} key={index}><Recommendation spaceInfo={recommendInfo[`rank${index+1}`]} rank={index+1} answer={[1,2,3]}/></li>)}
           </ul>
         </div>) : null}
       </div>

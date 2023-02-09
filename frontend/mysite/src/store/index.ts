@@ -3,12 +3,14 @@ import userInfoSlice from '../slices/userInfoSlice';
 import formSlice from '../slices/formSlice';
 import { useSelector as rawUseSelector, TypedUseSelectorHook, useDispatch } from 'react-redux';
 import questionSlice from '../slices/questionSlice';
+import recommendSlice from '../slices/recommendSlice';
 
 const store = configureStore({
   reducer: {
     userInfo: userInfoSlice,
     formInfo: formSlice,
     questionInfo: questionSlice,
+    recommendInfo: recommendSlice,
   }
 });
 export const useAppDispatch = () => useDispatch<typeof store.dispatch>()

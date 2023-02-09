@@ -19,6 +19,7 @@
     .popular_space {
       // height:15vh;
       padding-top: 2vh;
+      padding-bottom: 2vh;
       &_info_wrapper {
         // border: solid 1px;
         width: 100%;
@@ -27,7 +28,8 @@
       &_info_list {
         width: 84%;
         list-style: none;
-        margin-left: 55px;
+        margin:auto;
+        // margin-left: 55px;
         // margin-left: 175px;
       }
       &_item {
@@ -39,6 +41,9 @@
       }
       &_info {
         margin-left: 10%;
+        &:visited {
+          text-decoration: none;
+        }
       }
       .diagnoseButton {
         // margin-top: 50px;
@@ -51,6 +56,10 @@
         color: white;
         font-size: 15pt;
         font-weight: bold;
+        &:hover {
+          cursor: pointer;
+          opacity: 0.5;
+        }
       }
     }
   // }

@@ -4,6 +4,10 @@
   border: solid 1px;
   border-radius: 5px;
   margin-right: 34px; 
+  text-decoration: none;
+  &:hover {
+    opacity: 0.5;
+  }
   .aria_image {
     width:60%;
     height: 100%;

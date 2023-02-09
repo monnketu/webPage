@@ -10,9 +10,12 @@ import { useSelector } from '../store';
 import StateInterface from '../interfaces/State';
 
 export default function Detail() {
+  useEffect(() => {
+    window.scroll({top: 0, behavior: 'auto'})
+  },[])
   const location = useLocation();
   const info = location.state;
-  console.log(info);
+  console.log(info,'info');
   const userInfo = useSelector((state:StateInterface) => state.userInfo);
   return (
     <div className={styles.detail}>
@@ -22,8 +25,7 @@ export default function Detail() {
       <SubTitle name={'口コミ一覧'}/>
       <Reviews spaceInfo={info}/>
       <SubTitle name={'口コミを書く'}/>
-      <PostReview spaceInfo={info}/>
-      
+      <PostReview spaceInfo={info}/> 
     </div>
   )
 }

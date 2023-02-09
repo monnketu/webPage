@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework import routers
-from .views import coWorkingViewSet_ikebukuro, coWorkingViewSet_shibuya, coWorkingViewSet_sinagawa, coWorkingViewSet_tokyo, coWorkingViewSet_shinjuku, coWorkingViewSet_others, coWorkingViewSet, coWorkingViewSet_wifi, coWorkingViewSet_low_cost, coWorkingViewSet_meeting_room, coWorkingViewSet_enhanced_options, coWorkingViewSet_dropin,coWorkingViewSet_all_time, reviewViewSet
+from .views import coWorkingViewSet_ikebukuro, coWorkingViewSet_shibuya, coWorkingViewSet_sinagawa, coWorkingViewSet_tokyo, coWorkingViewSet_shinjuku, coWorkingViewSet_others, coWorkingViewSet, coWorkingViewSet_wifi, coWorkingViewSet_low_cost, coWorkingViewSet_meeting_room, coWorkingViewSet_enhanced_options, coWorkingViewSet_dropin,coWorkingViewSet_all_time ,reviewViewSet
 from . import views
 
 router = routers.DefaultRouter()
@@ -29,6 +29,7 @@ urlpatterns = [
   # path('templates/test1/', views.index_template_test1, name='index_template_test1'),
   # path('postReview/', views.review_list, name='review_list'),
   path('postReview/',  views.review_list),
+  path('diagnose/',  views.diagnose),
   # path('coupon/shibuya', views.coupon, name='coupon'),
   # path('coupon/shinjuku', views.coupon, name='coupon'),
   # path('coupon/ikebukuro', views.coupon, name='coupon'),

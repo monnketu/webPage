@@ -1,17 +1,16 @@
 import React from 'react'
+import DBdata from '../../interfaces/DBdata';
 import styles from '../../styles/Detail/header.module.scss';
 import MainTitle from './titile/MainTitle';
 
 interface Props {
   imageName?: string;
-  info: {
-    name: string;
-  };
+  info: DBdata
 }
 export default function Header(props: Props) {
   return (
     <div className={styles.headerContainer}>
-      <img className={styles.headerImage} src={`/img/${props.imageName ? props.imageName : 'shibuya'}.jpeg`} alt='詳細のヘッダー画像'/>
+      <img className={styles.headerImage} src={`/img/coWorkingSpace_images/${props.info.imageName}`} alt='詳細のヘッダー画像' />
       <MainTitle name={props.info.name} />
     </div>
   )

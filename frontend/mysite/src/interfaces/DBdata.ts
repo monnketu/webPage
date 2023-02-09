@@ -19,4 +19,5 @@ export default interface DBdata {
   timeFromStation: number;
   MeetingRoomCapacity: number;
   options: string;
+  density: number;
  }
