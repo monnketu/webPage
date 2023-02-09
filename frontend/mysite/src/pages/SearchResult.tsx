@@ -16,10 +16,8 @@ const SearchResult = () => {
   const [ data, setData ] = useState([]);
   useEffect(() => {
     try {
+      console.log(location, isLocationState, place, dropIn, time,dispName,info);
       fetch(`http://localhost:8000/api/coWorkingSpace/${info.en}/`,{
-        headers: {
-          // mode: 'nocors'
-        },
         mode: 'cors'
       })
       .then(response => {
@@ -30,18 +28,6 @@ const SearchResult = () => {
         // URLを直接叩かれた場合かフォーム以外のところから検索された場合(エリアから探すなど)はここではなにもしない
         if (isLocationState && location.state.searchedByForm) {
           ret = ret.filter((data:any) => {
-            switch(place) {
-              case 'cafe': {
-                return data.isCafe === true;
-              }
-              case 'coWorkingSpace':{
-                return data.isCafe === false;
-              }
-              default: {
-                return data;
-              }
-            }
-          }).filter((data:any) => {
             switch(dropIn) {
               case 'dropIn': {
                 return data.isDropIn === true;

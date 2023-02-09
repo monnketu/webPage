@@ -16,8 +16,8 @@ const Form = () => {
 
   return (
     <div className= {styles.search_box}>
-      <p className = {styles.search_sentence} >契約形態から探す</p>
-      <p className = {styles.search_sentence} >場所、日時から探す</p>
+      <p className = {styles.search_sentence} >契約形態、日時から探す</p>
+      {/* <p className = {styles.search_sentence} >場所、日時から探す</p> */}
       <select className = {styles.search_option} name="example" onChange={(e) => dispatch(dropInReducer(e.target.value))}>
         <option value="all">指定なし</option>
         <option value='monthly'>月額契約</option>
