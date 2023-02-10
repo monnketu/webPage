@@ -19,12 +19,12 @@ const Form = () => {
       <p className = {styles.search_sentence} >契約形態、時間から探す</p>
       {/* <p className = {styles.search_sentence} >場所、日時から探す</p> */}
       <select className = {styles.search_option} name="example" onChange={(e) => dispatch(dropInReducer(e.target.value))}>
-        <option value="all">指定なし</option>
-        <option value='monthly'>月額契約</option>
-        <option value='dropIn'>ドロップイン可能</option>
+        <option value="all" selected={isDropIn === 'all' ? true : false}>指定なし</option>
+        <option value='monthly' selected={isDropIn === 'monthly' ? true : false}>月額契約</option>
+        <option value='dropIn' selected={isDropIn === 'dropIn' ? true : false}>ドロップイン可能</option>
       </select>
 
-      <input className = {styles.search_time} type = "time" onChange={(e) => dispatch(timeReducer(e.target.value))}/>
+      <input className = {styles.search_time} type = "time" onChange={(e) => dispatch(timeReducer(e.target.value))} value={time}/>
       <button className = {styles.search_button} onClick={() => navigate('/search_result', {state:{space: space, dropIn: isDropIn, time: time, searchedByForm: true}})}>検索</button>
     </div>
   )
