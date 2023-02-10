@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './../../styles/HowToUse/index.css'
-
+import Header from "../Header/Header";
 const index = () => {
   return (
     <>
@@ -9,12 +9,7 @@ const index = () => {
       <div className = "main-search-container">
         <p className = "header">特徴と使い方</p>
         <img className = "photo" src = "/media/image2.jpeg" alt='ヘッダー画像'/>
-        <ul className = "menu-bar">
-          <li className = "menu-start"><Link className = "menu-link" to = "/">トップページ</Link></li>
-          {/* <li className = "menu-start"><Link className = "menu-link" to = "/how_to_use">特徴と使い方</Link></li> */}
-          {/* <li className = "menu"><a className = "menu-link" href = "/polls">お気に入り&nbsp;|&nbsp;</a></li>
-          <li className = "menu"><a className = "menu-link" href = "/polls">会員登録/ログイン&emsp;</a></li> */}
-          </ul>
+        <Header />
       </div>
         <p className = "big-title">フリースタイルとは</p>
         <p className = "title">特徴</p>

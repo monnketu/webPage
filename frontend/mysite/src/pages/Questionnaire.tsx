@@ -3,7 +3,7 @@ import styles from './../styles/Questionnaire/Questionnaire.module.scss';
 import Answers from '../components/Questionnaire/Answers';
 import DiagnoseButton from '../components/Questionnaire/DiagnoseButton';
 export default function Questionnaire() {
-  const questions = ['価格', 'アクセス', '営業形態'];
+  const questions = ['価格', '立地', '営業形態'];
   const sentenses = [[questions[0], questions[1]], [questions[1],questions[2]], [questions[2],questions[0]]]
   return (
     <div className={styles.QuestionnaireContainer}>

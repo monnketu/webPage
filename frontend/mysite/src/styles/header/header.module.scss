@@ -51,3 +51,26 @@
     vertical-align: middle;
   }
 }
+.menu_bar {
+  position: absolute;
+  top: 29px;
+  left: 75%;
+  list-style: none;
+  display: flex;
+  margin: 0;
+  menu {
+    &_start {
+    }
+    &::before {
+      content: "|";
+      color : white;
+    }
+  }
+  .menu_link {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    padding:0 8px;
+
+  }
+}
