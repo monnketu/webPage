@@ -5,10 +5,11 @@
 
 .main-search-container {
   position: relative;
+  height: 60vh;
 }
 
 .photo {
-  height: 70vh;
+  height: 140%;
 }
 
 .menu-bar {
