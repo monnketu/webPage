@@ -46,17 +46,11 @@ class coWorkingSpace(models.Model):
     # Ex) プリンター,秘書,ドリンク
     options = models.CharField(max_length=50)
     
-    
     # url = models.CharField(max_length=200)
     
     # 人口密度
     density = models.FloatField()
-    
-    
-    
-    
-
-    
+       
     def __str__(self):
       return self.name
 
