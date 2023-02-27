@@ -39,7 +39,7 @@ const ResultSpace = (props:Props) => {
   return (
     <div className={styles.resultSpace}>
       {/* <img src={props.src} alt='検索結果の画像' className={styles.resultSpaceImage}/> */}
-      <div style={{width: '340px'}}>
+      <div style={{width: '32vw'}}>
         <img src={`/img/coWorkingSpace_images/${props.imageName}`} alt='検索結果の画像' className={styles.resultSpaceImage}/>
       </div>
       <div className={styles.spaceExplanationContainer}>
@@ -56,7 +56,7 @@ const ResultSpace = (props:Props) => {
         {/* <p className={styles.spaceExplanation}>wi-fi : {props.ex7 === '0' ? '無' : (props.ex7 === '1' ? '普通' : '強')}</p> */}
         <p className={styles.spaceExplanation}>wi-fi : {disp_wifi(props.wifi)}</p>
         <p className={styles.spaceExplanation}>{props.address}</p>
-        <p className={styles.spaceExplanation}>{props.url}</p>
+        {/* <p className={styles.spaceExplanation}>{props.url}</p> */}
         {/* <p className={styles.spaceExplanation}>{props.data}</p> */}
       </div>
     </div>
