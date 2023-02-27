@@ -13,7 +13,7 @@ export default function Questionnaire() {
             <h2 className={styles.question}>←{sentense[0]}</h2>
             <h2 className={styles.question}>{sentense[1]}→</h2>
           </div>
-          <Answers questionNumber={index + 1} left={sentense[0]} right={sentense[1]}/>
+          <Answers questionNumber={index + 1} left={sentense[0]} right={sentense[1]} />
         </div>
       ))}
       <DiagnoseButton />

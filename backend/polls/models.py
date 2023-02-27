@@ -50,7 +50,10 @@ class coWorkingSpace(models.Model):
     
     # 人口密度
     density = models.FloatField()
-       
+    
+    # ドロップインの料金
+    dropInFee = models.IntegerField()
+    
     def __str__(self):
       return self.name
 
