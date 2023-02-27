@@ -54,6 +54,8 @@ class coWorkingSpace(models.Model):
     # ドロップインの料金
     dropInFee = models.IntegerField()
     
+    # 23かどうか: BOOLEAN型 23区:False それ以外:True
+    isAria23 = models.BooleanField()
     def __str__(self):
       return self.name
 
@@ -71,14 +73,8 @@ class review(models.Model):
   
   class Meta:
     ordering = ['created']
-  def  getSpaceName(self):
+  def getSpaceName(self):
     return self.spaceName
+  
   def __str__(self):
     return self.title
-
-
-
-
- 
-
-
