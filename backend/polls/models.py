@@ -52,7 +52,8 @@ class coWorkingSpace(models.Model):
     density = models.FloatField()
     
     # ドロップインの料金
-    dropInFee = models.IntegerField()
+    dropInFeePerDay = models.IntegerField()
+    dropInFeePerHour = models.IntegerField()
     
     # 23かどうか: BOOLEAN型 23区:False それ以外:True
     isAria23 = models.BooleanField()
