@@ -2,14 +2,15 @@ import React from 'react';
 import ResultSpace from './ResultSpace';
 import styles from './../../../styles/searchResult/results/results.module.scss'
 import DBdata from '../../../interfaces/DBdata';
-import {useSelector, TypedUseSelectorHook} from 'react-redux'
+// import {useSelector, TypedUseSelectorHook} from 'react-redux'
+import { useSelector } from '../../../store';
 import { Store } from '../../../interfaces/Store';
 interface Props {
   data: DBdata[] | undefined;
 }
 
 const Results = (props:Props) => {
-  const info = useSelector((state:Store) => state.userInfo);
+  const info = useSelector((state) => state.userInfo);
   console.log(info)
   return(
     <div className={styles.results}>

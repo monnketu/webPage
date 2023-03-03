@@ -5,18 +5,22 @@ import Results from '../components/searchResult/resultSpace/Results';
 import SideMenu from '../components/searchResult/sideMenu/SideMenu';
 import moment from 'moment';
 import styles from '../styles/searchResult/searchResult.module.scss'
+import { useSelector } from '../store';
 const SearchResult = () => {
   const location = useLocation();
+  console.log(location)
   const isLocationState = location.state ? true : false;
   const place = isLocationState ? (location.state.space !== 'all' ? location.state.space: '') : '';
   const dropIn = isLocationState ? (location.state.dropIn !== 'all' ? location.state.dropIn: '') : '';
   const time = isLocationState ? (location.state.time !== null ? location.state.time: '') : '';
-  const dispName = isLocationState ? ((place===''&& dropIn===''&&time==='') ? '全て':`${place} ${dropIn} ${time}`): '全て' 
-  const info = isLocationState ? (location.state.searchedByForm ? {...location.state, en:'all', ja:dispName, searchByForm: true} : location.state.info): {ja: '全て', en: 'all'};
+  const dispName = isLocationState ? ((place===''&& dropIn===''&&time==='') ? '全て':`${place} ${dropIn} ${time}`): '全て';
+
+  // 【要修正】searchBuForm変数2重になってる Form.tsx参照 3/2 
+  const info = isLocationState ? (location.state.searchedByForm ? {...location.state, en:(location.state.price ? `price_${location.state.price}` :'all'), ja:dispName, searchByForm: true} : location.state.info): {ja: '全て', en: 'all'};
   const [ data, setData ] = useState([]);
   useEffect(() => {
     try {
-      console.log(location, isLocationState, place, dropIn, time,dispName,info);
+      // console.log(location, isLocationState, place, dropIn, time,dispName,info);
       fetch(`http://localhost:8000/api/coWorkingSpace/${info.en}/`,{
         mode: 'cors'
       })
@@ -40,6 +44,9 @@ const SearchResult = () => {
                 return data;
               }
             }
+          }).filter((data:any) => {
+            if (data.staion === '')
+            data.station === '' ? true: data.station === info.station
           })
           .filter((data:any) => {
             if(location.state.time === '') {
@@ -67,7 +74,6 @@ const SearchResult = () => {
       <div className={styles.sideMenuAndResultsContainer }>
         {/* <SideMenu /> */}
         <Results data={data} />
-        
       </div>
     </div>
   )

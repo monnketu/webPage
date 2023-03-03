@@ -51,13 +51,24 @@ class coWorkingViewSet_enhanced_options(viewsets.ModelViewSet):
 class coWorkingViewSet_dropin(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(isDropIn = True).order_by('price')
   serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_price_10000(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(price__lte = 10000).order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_price_30000(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(price__gte = 10000, price__lte = 30000).order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_price_50000(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(price__gte = 30000, price__lte = 50000).order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_price_infty(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(price__gte = 50000).order_by('price')
+  serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_all_time(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(startTime = '00:00:00', endTime = '23:59:00').order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class reviewViewSet(viewsets.ModelViewSet):
   queryset = review.objects.all()
   serializer_class = reviewSerializer
-
 @api_view(['GET', 'POST'])
 def getLineAccessToken(req, code):
   # if (req.method == 'POST'):

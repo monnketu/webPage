@@ -4,18 +4,11 @@ import FormInterface from "../interfaces/form";
 const initialState:FormInterface = {
   space: '',
   dropIn: 'all',
-  time: ''
+  time: '',
+  station: '',
+  price: '',
 };
-interface spaceInterface {
-  type: string;
-  payload: string;
-}
-
-interface dropinInterface {
-  type: string;
-  payload: string;
-}
-interface timeInterface {
+interface reducerInterface {
   type: string;
   payload: string;
 }
@@ -23,18 +16,23 @@ const formSlice = createSlice({
   name: 'formInfo',
   initialState,
   reducers: {
-    spaceReducer: (state, action:spaceInterface) => {
+    spaceReducer: (state, action:reducerInterface) => {
       state.space = action.payload;
     },
-    dropInReducer: (state, action:dropinInterface) => {
+    dropInReducer: (state, action:reducerInterface) => {
       state.dropIn = action.payload;
     },
-    timeReducer: (state, action:timeInterface) => {
+    timeReducer: (state, action:reducerInterface) => {
       state.time = action.payload;
-      console.log(action);
+    },
+    stationReducer: (state, action:reducerInterface) => {
+      state.station = action.payload;
+    },
+    priceReducer: (state, action:reducerInterface) => {
+      state.price = action.payload;
     },
   }
 });
 
-export const { spaceReducer, dropInReducer, timeReducer } = formSlice.actions;
+export const { spaceReducer, dropInReducer, timeReducer, stationReducer, priceReducer } = formSlice.actions;
 export default formSlice.reducer;

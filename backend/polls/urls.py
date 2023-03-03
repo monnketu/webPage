@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework import routers
-from .views import coWorkingViewSet_ikebukuro, coWorkingViewSet_shibuya, coWorkingViewSet_sinagawa, coWorkingViewSet_tokyo, coWorkingViewSet_shinjuku, coWorkingViewSet_others, coWorkingViewSet, coWorkingViewSet_wifi, coWorkingViewSet_low_cost, coWorkingViewSet_meeting_room, coWorkingViewSet_enhanced_options, coWorkingViewSet_dropin,coWorkingViewSet_all_time ,reviewViewSet
+from .views import coWorkingViewSet_ikebukuro, coWorkingViewSet_shibuya, coWorkingViewSet_sinagawa, coWorkingViewSet_tokyo, coWorkingViewSet_shinjuku, coWorkingViewSet_others, coWorkingViewSet, coWorkingViewSet_wifi, coWorkingViewSet_low_cost, coWorkingViewSet_meeting_room, coWorkingViewSet_enhanced_options, coWorkingViewSet_dropin,coWorkingViewSet_all_time ,reviewViewSet, coWorkingViewSet_price_10000, coWorkingViewSet_price_30000, coWorkingViewSet_price_50000, coWorkingViewSet_price_infty
 from . import views
 
 router = routers.DefaultRouter()
@@ -16,6 +16,11 @@ router.register('coWorkingSpace/low_cost', coWorkingViewSet_low_cost)
 router.register('coWorkingSpace/meeting_room', coWorkingViewSet_meeting_room)
 router.register('coWorkingSpace/enhanced_options', coWorkingViewSet_enhanced_options)
 router.register('coWorkingSpace/dropIn', coWorkingViewSet_dropin)
+router.register('coWorkingSpace/price_1', coWorkingViewSet_price_10000)
+router.register('coWorkingSpace/price_3', coWorkingViewSet_price_30000)
+router.register('coWorkingSpace/price_5', coWorkingViewSet_price_50000)
+router.register('coWorkingSpace/price_infty', coWorkingViewSet_price_infty)
+
 router.register('coWorkingSpace/all_time', coWorkingViewSet_all_time)
 router.register('coWorkingSpace/reviews', reviewViewSet)
 # router.register('postReview', ReviewViewSet)
