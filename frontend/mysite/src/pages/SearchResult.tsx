@@ -29,7 +29,6 @@ const SearchResult = () => {
       })
       .then(res => {
         let ret = res.results; 
-        console.log(ret);
         // URLを直接叩かれた場合かフォーム以外のところから検索された場合(エリアから探すなど)はここではなにもしない
         if (isLocationState && location.state.searchedByForm) {
           ret = ret.filter((data:any) => {
@@ -45,12 +44,15 @@ const SearchResult = () => {
               }
             }
           }).filter((data:any) => {
-            if (data.staion === '')
-            data.station === '' ? true: data.station === info.station
+            console.log(data);
+            if (info.station === '') {
+              return true;
+            } else {
+              return data.station === info.station;
+            }
           })
           .filter((data:any) => {
             if(location.state.time === '') {
-              console.log(location.state);
               return true;
             } else {
               // 1店ずつチェックしてmoment型に整えて営業時間内かどうか確かめる
