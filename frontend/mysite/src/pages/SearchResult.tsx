@@ -14,9 +14,8 @@ const SearchResult = () => {
   const dropIn = isLocationState ? (location.state.dropIn !== 'all' ? location.state.dropIn: '') : '';
   const time = isLocationState ? (location.state.time !== null ? location.state.time: '') : '';
   const dispName = isLocationState ? ((place===''&& dropIn===''&&time==='') ? '全て':`${place} ${dropIn} ${time}`): '全て';
-
   // 【要修正】searchBuForm変数2重になってる Form.tsx参照 3/2 
-  const info = isLocationState ? (location.state.searchedByForm ? {...location.state, en:(location.state.price ? `price_${location.state.price}` :'all'), ja:dispName, searchByForm: true} : location.state.info): {ja: '全て', en: 'all'};
+  const info = isLocationState ? (location.state.searchedByForm ? {...location.state, en:(location.state.price ? `${`${dropIn}_`}price_${location.state.price}` :'all'), ja:dispName, searchByForm: true} : location.state.info): {ja: '全て', en: 'all'};
   const [ data, setData ] = useState([]);
   useEffect(() => {
     try {
@@ -28,23 +27,12 @@ const SearchResult = () => {
         return response.json();
       })
       .then(res => {
-        let ret = res.results; 
+        let ret = res.results;
         // URLを直接叩かれた場合かフォーム以外のところから検索された場合(エリアから探すなど)はここではなにもしない
         if (isLocationState && location.state.searchedByForm) {
+          console.log(ret); 
+          console.log(isLocationState, location)
           ret = ret.filter((data:any) => {
-            switch(dropIn) {
-              case 'dropIn': {
-                return data.isDropIn === true;
-              }
-              case 'monthly': {
-                return data.isDropIn === false;
-              }
-              default: {
-                return data;
-              }
-            }
-          }).filter((data:any) => {
-            console.log(data);
             if (info.station === '') {
               return true;
             } else {

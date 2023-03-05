@@ -9,6 +9,8 @@ export default interface DBdata {
   isBattery: boolean;
   isMeetingRoom: boolean;
   price: number;
+  dropInFeePerDay: number;
+  dropInFeePerHour: number;
   startTime: string;
   endTime: string;
   isDropIn: boolean;

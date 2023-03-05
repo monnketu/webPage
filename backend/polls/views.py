@@ -51,18 +51,59 @@ class coWorkingViewSet_enhanced_options(viewsets.ModelViewSet):
 class coWorkingViewSet_dropin(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(isDropIn = True).order_by('price')
   serializer_class = coWorkingSpaceSerializer
+  
+
+class coWorkingViewSet_price_all(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(price__gt = 0).order_by('price')
+  serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_price_10000(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(price__lte = 10000).order_by('price')
+  queryset = coWorkingSpace.objects.filter(price__lt = 10000).order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_price_30000(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(price__gte = 10000, price__lte = 30000).order_by('price')
+  queryset = coWorkingSpace.objects.filter(price__gte = 10000, price__lt = 30000).order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_price_50000(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(price__gte = 30000, price__lte = 50000).order_by('price')
+  queryset = coWorkingSpace.objects.filter(price__gte = 30000, price__lt = 50000).order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_price_infty(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(price__gte = 50000).order_by('price')
   serializer_class = coWorkingSpaceSerializer
+  
+  
+class coWorkingViewSet_dropIn_1day_price_all(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(dropInFeePerDay__gt = 0).order_by('dropInFeePerDay')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_dropIn_1day_price_2000(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(dropInFeePerDay__gt = 0,dropInFeePerDay__lt = 2000).order_by('dropInFeePerDay')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_dropIn_1day_price_3000(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(dropInFeePerDay__gte = 2000, dropInFeePerDay__lt = 3000).order_by('dropInFeePerDay')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_dropIn_1day_price_4000(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(dropInFeePerDay__gte = 3000, dropInFeePerDay__lt = 4000).order_by('dropInFeePerDay')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_dropIn_1day_price_infty(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(dropInFeePerDay__gte = 4000).order_by('dropInFeePerDay')
+  serializer_class = coWorkingSpaceSerializer
+  
+  
+class coWorkingViewSet_dropIn_1hour_price_all(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(dropInFeePerHour__gt = 0).order_by('dropInFeePerHour')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_dropIn_1hour_price_500(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(dropInFeePerHour__lte = 500, dropInFeePerHour__gt = 0).order_by('dropInFeePerHour')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_dropIn_1hour_price_600(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(dropInFeePerHour__gte = 500, dropInFeePerDay__lt = 600).order_by('dropInFeePerHour')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_dropIn_1hour_price_700(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(dropInFeePerHour__gte = 600, dropInFeePerDay__lt = 700).order_by('dropInFeePerHour')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_dropIn_1hour_price_infty(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(dropInFeePerHour__gte = 700).order_by('dropInFeePerHour')
+  serializer_class = coWorkingSpaceSerializer
+  
+  
 class coWorkingViewSet_all_time(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(startTime = '00:00:00', endTime = '23:59:00').order_by('price')
   serializer_class = coWorkingSpaceSerializer

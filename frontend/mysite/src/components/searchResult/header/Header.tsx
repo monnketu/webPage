@@ -13,6 +13,7 @@ interface Props {
 }
 
 const Header = (props:Props) => {
+  console.log('data', props.data);
   return ( 
     <div className={styles.header}>
       <img src={`/img/${props.aria.searchByForm === true ? 'image2':props.aria.en}.jpeg`}  className={styles.headerImage} alt='検索ページ'/>

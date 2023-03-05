@@ -19,7 +19,9 @@ const Results = (props:Props) => {
           <ResultSpace 
             name={data.name} 
             isDropIn={data.isDropIn} 
-            price={data.price} 
+            price={data.price}
+            dropInFeePerDay={data.dropInFeePerDay}
+            dropInFeePerHour={data.dropInFeePerHour}
             station={data.station} 
             startTime={data.startTime} 
             endTime={data.endTime}  
