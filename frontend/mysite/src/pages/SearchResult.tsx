@@ -41,6 +41,7 @@ const SearchResult = () => {
           })
           .filter((data:any) => {
             if(location.state.time === '') {
+              // return data.dropInFeePerDay < data.dropInFeePerHour;
               return true;
             } else {
               // 1店ずつチェックしてmoment型に整えて営業時間内かどうか確かめる

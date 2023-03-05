@@ -18,24 +18,82 @@ logger = logging.getLogger('development')
 class coWorkingViewSet(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.all().order_by('price')
   serializer_class = coWorkingSpaceSerializer
+  
+  
+class coWorkingViewSet_adachi(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "足立区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_arakawa(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "荒川区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_itabashi(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "板橋区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_edogawa(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "江戸川区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_ota(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "大田区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_katsushika(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "葛飾区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_kita(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "北区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_koutou(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "江東区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_shinagawa(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "品川区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_shibuya(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(aria = "渋谷").order_by('price')
+  queryset = coWorkingSpace.objects.filter(aria = "渋谷区").order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_shinjuku(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(aria = "新宿").order_by('price')
+  queryset = coWorkingSpace.objects.filter(aria = "新宿区").order_by('price')
   serializer_class = coWorkingSpaceSerializer
-class coWorkingViewSet_ikebukuro(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(aria = "池袋").order_by('price')
+class coWorkingViewSet_suginami(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "杉並区").order_by('price')
   serializer_class = coWorkingSpaceSerializer
-class coWorkingViewSet_tokyo(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(aria = "東京").order_by('price')
+class coWorkingViewSet_sumida(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "墨田区").order_by('price')
   serializer_class = coWorkingSpaceSerializer
-class coWorkingViewSet_sinagawa(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(aria = "品川").order_by('price')
+class coWorkingViewSet_setagaya(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "世田谷区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_taito(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "台東区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_chuo(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "中央区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_chiyoda(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "千代田区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_toyoshima(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "豊島区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_nakano(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "中野区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_nerima(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "練馬区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_bunkyo(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "文京区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_minato(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "港区").order_by('price')
+  serializer_class = coWorkingSpaceSerializer
+class coWorkingViewSet_meguro(viewsets.ModelViewSet):
+  queryset = coWorkingSpace.objects.filter(aria = "目黒区").order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_others(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(aria = "その他").order_by('price')
+  queryset = coWorkingSpace.objects.filter(isAria23 = False).order_by('price')
   serializer_class = coWorkingSpaceSerializer
+  
+  
 class coWorkingViewSet_wifi(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(wifi = 2).order_by('price')
   serializer_class = coWorkingSpaceSerializer
