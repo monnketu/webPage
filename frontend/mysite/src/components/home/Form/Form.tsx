@@ -31,7 +31,7 @@ const Form = () => {
       </select>
       <DropInOptions type={dropIn} priceRef={priceRef} />
  
-      <input className = {styles.search_time} type = "text"  ref={stationRef}/>
+      <input className = {styles.search_time} type = "text"  ref={stationRef} placeholder='駅名 (例: 池袋)'/>
       <input className = {styles.search_time} type = "time"  ref={timeRef} />
       <button 
         className = {styles.search_button} 

@@ -30,7 +30,7 @@ const SearchResult = () => {
         let ret = res.results;
         // URLを直接叩かれた場合かフォーム以外のところから検索された場合(エリアから探すなど)はここではなにもしない
         if (isLocationState && location.state.searchedByForm) {
-          console.log(ret); 
+          console.log('info',ret, info); 
           console.log(isLocationState, location)
           ret = ret.filter((data:any) => {
             if (info.station === '') {
