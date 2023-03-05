@@ -5,6 +5,8 @@ import { useAppDispatch, useSelector } from '../../store';
 import { diagnoseFinishReducer } from '../../slices/questionSlice';
 import DBdata from '../../interfaces/DBdata';
 import { recommendReducer } from '../../slices/recommendSlice';
+import SPMI from '../../SPMI';
+
 export default function DiagnoseButton() {
   const [isfullfilled, setIsfullfilled] = React.useState(true);
   const questionInfo = useSelector((state) => state.questionInfo)
@@ -60,8 +62,8 @@ export default function DiagnoseButton() {
       console.log(w3);
       const PRICE_MIN = 8000;
       const PRICE_MAX = 60000;
-      const ACCESS_MAX = 846.8844455;
-      const ACCESS_MIN = 3008.493467;
+      const ACCESS_MAX = 34200;
+      const ACCESS_MIN = 4500;
       fetch('http://localhost:8000/api/coWorkingSpace/all/')
       .then(res => res.json())
       .then((res) => {
@@ -70,8 +72,9 @@ export default function DiagnoseButton() {
         const filteredData =res.results.filter((data:DBdata) => data.price >= PRICE_MIN && data.price <= PRICE_MAX);
         filteredData.forEach((data:DBdata, index:number) => {
           const w_alpha = (data.price - PRICE_MIN) / (PRICE_MAX - PRICE_MIN);
-          const w_beta =  (((data.density * createScore_timeFromStation(data.timeFromStation)) - ACCESS_MIN) / (ACCESS_MAX - ACCESS_MIN));
+          const w_beta =  ((((SPMI[data.station] ? SPMI[data.station] : SPMI['その他']) * createScore_timeFromStation(data.timeFromStation)) - ACCESS_MIN) / (ACCESS_MAX - ACCESS_MIN));
           const w_gumma = (is24H(data.startTime, data.endTime) + isOption5(data.options) + isDropIn(data.isDropIn)) / 3;
+          console.log(w_beta, data.station);
           score_index_list.push([w1 * w_alpha + w2 * w_beta + w3 * w_gumma, index]);
         });
         const sorted_score_Data = score_index_list.sort((val1, val2) => val2[0]  - val1[0]);
