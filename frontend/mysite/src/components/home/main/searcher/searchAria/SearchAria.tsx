@@ -85,7 +85,7 @@ export default function SearchAria() {
       },
       {
         ja:'豊島区',
-        en: 'toyoshima'
+        en: 'toshima'
       },
     ],
     [
@@ -133,7 +133,7 @@ export default function SearchAria() {
           {arias23.map(arias => {
             return (
               <ul className = {styles.aria_info_list}>
-                {arias.map((aria, index) => <li key={index}><Aria aria={aria}/></li>)}
+                {arias.map((aria, index) => <li key={index} className={styles.aria_li}><Aria aria={aria}/></li>)}
               </ul>
             )
           })}

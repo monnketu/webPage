@@ -29,6 +29,10 @@
           list-style: none;
           margin: auto;
           margin-top: 30px;
+          .aria_li {
+            width: calc((100% / 3));
+            height: fit-content;
+          }
         }
       }
     }

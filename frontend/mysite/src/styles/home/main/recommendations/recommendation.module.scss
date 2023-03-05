@@ -1,6 +1,7 @@
+$recommendation_height: 90px;
 .space_rank {
   width: 14%;
-  height: 80%;
+  height: $recommendation_height;
 }
 .popular_space {
   &_info {
@@ -12,6 +13,7 @@
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
+    height: $recommendation_height;
     &:hover {
       opacity: 0.5;
     }
@@ -19,6 +21,7 @@
   &_image {
     width: 25%;
     height: 100%;
+    // height: 58px;
     margin-right: 10px;
   }
 }
