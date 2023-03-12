@@ -152,10 +152,10 @@ class coWorkingViewSet_dropIn_1hour_price_500(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(dropInFeePerHour__lte = 500, dropInFeePerHour__gt = 0).order_by('dropInFeePerHour')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_dropIn_1hour_price_600(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(dropInFeePerHour__gte = 500, dropInFeePerDay__lt = 600).order_by('dropInFeePerHour')
+  queryset = coWorkingSpace.objects.filter(dropInFeePerHour__gte = 500, dropInFeePerHour__lt = 600).order_by('dropInFeePerHour')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_dropIn_1hour_price_700(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(dropInFeePerHour__gte = 600, dropInFeePerDay__lt = 700).order_by('dropInFeePerHour')
+  queryset = coWorkingSpace.objects.filter(dropInFeePerHour__gte = 600, dropInFeePerHour__lt = 700).order_by('dropInFeePerHour')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_dropIn_1hour_price_infty(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(dropInFeePerHour__gte = 700).order_by('dropInFeePerHour')
