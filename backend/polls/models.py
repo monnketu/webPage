@@ -9,7 +9,7 @@ class coWorkingSpace(models.Model):
     # 名前 : 文字列50桁
     name = models.CharField(max_length=50)
     #特徴　: 文字列100桁
-    characteristic = models.CharField(max_length=100)
+    characteristic = models.CharField(max_length=100, null=True)
     #カフェなのかどうか: BOOLEAN型 コワーキングスペース:False カフェ:True
     isCafe = models.BooleanField()
     # 住所 : 文字列100桁
@@ -43,34 +43,34 @@ class coWorkingSpace(models.Model):
     timeFromStation = models.IntegerField()
     
     # 会議室の収容人数: INTEGER型 
-    MeetingRoomCapacity = models.IntegerField()
+    MeetingRoomCapacity = models.IntegerField(null=True)
     # オプションの内容: 文字列100桁 各オプションは","で区切る。,の前後にスペースは入れない。
     # Ex) プリンター,秘書,ドリンク
-    options = models.CharField(max_length=50)
+    options = models.CharField(max_length=50, null=True)
 
     #フリードリンク制かどうか: BOOLEAN型 無:False 有:True
-    isFreeDrink = models.IntegerField()
+    isFreeDrink = models.BooleanField()
 
     #プリンターコピーがあるかどうか: BOOLEAN型 無:False 有:True
-    isPrinterCopier = models.IntegerField()
+    isPrinterCopier = models.BooleanField()
 
     #法人登記ができるどうか: BOOLEAN型 無:False 有:True
-    isCorporateRegistration= models.IntegerField()
+    isCorporateRegistration= models.BooleanField()
 
     #電話対応ができるどうか: BOOLEAN型 無:False 有:True
-    isCall= models.IntegerField()
+    isCall= models.BooleanField()
 
     #郵便受け取りができるどうか: BOOLEAN型 無:False 有:True
-    isReceivingMail= models.IntegerField()
+    isReceivingMail= models.BooleanField()
 
     #仮眠室があるどうか: BOOLEAN型 無:False 有:True
-    isNappingRoom= models.IntegerField()
+    isNappingRoom= models.BooleanField()
 
     #駐車場があるかどうか: BOOLEAN型 無:False 有:True
-    isParking= models.IntegerField()
+    isParking= models.BooleanField()
 
     #本や雑誌があるかどうか: BOOLEAN型 無:False 有:True
-    isBook= models.IntegerField()
+    isBook= models.BooleanField()
     
     # url = models.CharField(max_length=200)
     
