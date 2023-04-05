@@ -41,7 +41,7 @@ export default function DropInOptions({type, priceRef}) {
             <select className = {styles.search_option} name="price" ref={priceRef}>
               <option value={'all'}>指定なし</option>
               <option value={'500'} selected={price === '500'}>5百円未満</option>
-              <option value={'600'} selected={price === '600'}>5百円円以上〜6百円未満</option>
+              <option value={'600'} selected={price === '600'}>5百円以上〜6百円未満</option>
               <option value={'700'} selected={price === '700'}>6百円以上〜7百円未満</option>
               <option value={'infty'} selected={price === 'infty'}>7百円以上</option>
             </select>
