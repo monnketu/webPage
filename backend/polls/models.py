@@ -23,7 +23,7 @@ class coWorkingSpace(models.Model):
     # 会議室 : INTEGER型 無:0 有:1 広々:2
     isMeetingRoom = models.IntegerField()
     # 価格/月 : INTEGER型
-    price = models.IntegerField()
+    price = models.IntegerField(null=True)
     # 開始時間 : datetime型
     startTime = models.TimeField()
     # 終了時間 : datetime型
@@ -31,7 +31,7 @@ class coWorkingSpace(models.Model):
     # ドロップイン可能
     isDropIn = models.BooleanField()
     # 管轄 : 文字列50桁
-    jurisdiction = models.CharField(max_length=50)
+    #jurisdiction = models.CharField(max_length=50)
     # 充実オプション: BOOLEAN型 無:False 有:True
     isEnhancedOptions = models.BooleanField()
     # 画像の名前 : 文字列50桁
@@ -75,7 +75,7 @@ class coWorkingSpace(models.Model):
     # url = models.CharField(max_length=200)
     
     # 人口密度
-    density = models.FloatField()
+    #density = models.FloatField()
     
     # ドロップインの料金
     dropInFeePerDay = models.IntegerField()
