@@ -46,7 +46,7 @@ class coWorkingSpace(models.Model):
     MeetingRoomCapacity = models.IntegerField(null=True)
     # オプションの内容: 文字列100桁 各オプションは","で区切る。,の前後にスペースは入れない。
     # Ex) プリンター,秘書,ドリンク
-    options = models.CharField(max_length=50, null=True)
+    #options = models.CharField(max_length=50, null=True)
 
     #フリードリンク制かどうか: BOOLEAN型 無:False 有:True
     isFreeDrink = models.BooleanField()
