@@ -1,5 +1,5 @@
 import StateInterface from "./State"
 
-export interface Store {
+export default interface Store {
   userInfo : StateInterface;
 }

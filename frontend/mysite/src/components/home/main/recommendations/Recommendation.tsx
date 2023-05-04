@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './../../../../styles/home/main/recommendations/recommendation.module.scss';
 import Answer from '../../../Questionnaire/Answer';
-import DBdata from '../../../../interfaces/DBdata';
+import DBdata from '../../../../interfaces/DB/DBdata';
 
 interface Props {
   rank: number;

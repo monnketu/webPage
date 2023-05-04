@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import DBdata from "../interfaces/DBdata";
+import DBdata from "../interfaces/DB/DBdata";
 import recommendInterface from "../interfaces/recommend";
 // import FormInterface from "../interfaces/form";
 // import formActionInterace from "../interfaces/formActionInterface";

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import DBdata from '../../../interfaces/DBdata';
-import reviewInterface from '../../../interfaces/review';
+import DBdata from '../../../interfaces/DB/DBdata';
+import reviewInterface from '../../../interfaces/DB/review';
 import Review from './Review'
 
 interface Props {

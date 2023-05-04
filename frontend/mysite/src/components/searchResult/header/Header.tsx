@@ -4,8 +4,8 @@ import MenuBar from '../../menuBar/MenuBar';
 import MenuHeader from '../../Header/Header';
 import { useLocation } from "react-router-dom";
 import ariaName from '../../../ariaName';
-import Aria from '../../../interfaces/Aria';
-import DBdata from './../../../interfaces/DBdata';
+import Aria from '../../../interfaces/form/Aria';
+import DBdata from '../../../interfaces/DB/DBdata';
 
 interface Props {
   aria: Aria;

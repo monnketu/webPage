@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import styles from './../../styles/Questionnaire/diagnoseButton.module.scss';
 import { useAppDispatch, useSelector } from '../../store';
 import { diagnoseFinishReducer } from '../../slices/questionSlice';
-import DBdata from '../../interfaces/DBdata';
+import DBdata from '../../interfaces/DB/DBdata';
 import { recommendReducer } from '../../slices/recommendSlice';
 import SPMI from '../../SPMI';
 

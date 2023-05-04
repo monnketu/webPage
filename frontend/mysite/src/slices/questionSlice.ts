@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import Question from "../interfaces/question";
+import Question from "../interfaces/state/question";
 // import FormInterface from "../interfaces/form";
 // import formActionInterace from "../interfaces/formActionInterface";
 const initialState: Question = {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './../../../../../styles/home/main/searcher/searchAria/aria.module.scss';
-import Aria from '../../../../../interfaces/Aria';
+import Aria from '../../../../../interfaces/form/Aria';
 
 interface Props {
   aria: Aria;

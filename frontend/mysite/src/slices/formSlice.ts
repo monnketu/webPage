@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import FormInterface from "../interfaces/form";
+import FormInterface from "../interfaces/form/form";
 // import formActionInterace from "../interfaces/formActionInterface";
 const initialState:FormInterface = {
   space: '',

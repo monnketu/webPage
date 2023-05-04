@@ -1,5 +1,5 @@
 import React from 'react'
-import DBdata from '../../interfaces/DBdata';
+import DBdata from '../../interfaces/DB/DBdata';
 import styles from '../../styles/Detail/header.module.scss';
 import MainTitle from './titile/MainTitle';
 import MenuHeader from './../Header/Header';

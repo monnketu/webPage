@@ -1,4 +1,4 @@
-import DBdata from "./DBdata";
+import DBdata from "../DB/DBdata";
 
 export default interface recommendInterface {
   rank1: DBdata | undefined;

@@ -4,8 +4,7 @@ import UseInput from "./inputUI/TextField";
 import UnstyledInputBasic from './inputUI/MultiInput';
 import { Button } from "@mui/material";
 import { useSelector, useAppDispatch } from "../../../store";
-import StateInterface from '../../../interfaces/State';
-import DBdata from "../../../interfaces/DBdata";
+import * from './../../../interfaces/index';
 
 interface Props {
   spaceInfo: DBdata;

@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './../../../styles/searchResult/results/resultSpace.module.scss'
 import moment from 'moment';
-import DBdata from '../../../interfaces/DBdata';
+import DBdata from '../../../interfaces/DB/DBdata';
 import { useSelector } from '../../../store';
+import { dispPrice } from '../../../modules/price';
 
 interface Props {
   name: string;
@@ -35,20 +36,20 @@ const ResultSpace = (props:Props) => {
         return '不明';
     }
   };
-  const dispPrice = () => {
-    switch(type) {
-      case 'all':
-        return `${props.price.toLocaleString()}円/月`;
-      case 'monthly':
-        return `${props.price.toLocaleString()}円/月`;
-      case 'dropIn_1day':
-        return `${props.dropInFeePerDay.toLocaleString()}円/日`;
-      case 'dropIn_1hour':
-        return `${props.dropInFeePerHour.toLocaleString()}円/時間`;
-      default:
-        throw new Error('表示する金額の部分でエラー');
-    }
-  }
+  // const dispPrice = () => {
+  //   switch(type) {
+  //     case 'all':
+  //       return `${props.price.toLocaleString()}円/月`;
+  //     case 'monthly':
+  //       return `${props.price.toLocaleString()}円/月`;
+  //     case 'dropIn_1day':
+  //       return `${props.dropInFeePerDay.toLocaleString()}円/日`;
+  //     case 'dropIn_1hour':
+  //       return `${props.dropInFeePerHour.toLocaleString()}円/時間`;
+  //     default:
+  //       throw new Error('表示する金額の部分でエラー');
+  //   }
+  // }
   const Moment_startTime:any = moment(`${props.startTime}`, 'HH:mm:ss');
   const Moment_endTime:any = moment(`${props.endTime}`, 'HH:mm:ss');
   const startTime = props.startTime ? new Date(Moment_startTime): new Date();
@@ -66,7 +67,7 @@ const ResultSpace = (props:Props) => {
         {/* <p>{props.ex1}</p> */}
         <p className={styles.spaceExplanation}>{props.isDropIn === true ? 'ドロップイン可能' : '月額契約'}</p>
         {/* <p className={styles.spaceExplanation}>{props.ex3}円/月</p> */}
-        <h3 className={styles.spaceExplanation}>{dispPrice()}</h3>
+        <h3 className={styles.spaceExplanation}>{dispPrice(type, props.price)}</h3>
         <p className={styles.spaceExplanation}>最寄り駅：{props.station}</p>
         <p className={styles.spaceExplanation}>営業時間:{`${startTime.getHours().toString().padStart(2,'0')}:${startTime.getMinutes().toString().padStart(2,'0')}`}~{`${endTime.getHours().toString().padStart(2,'0')}:${endTime.getMinutes().toString().padStart(2,'0')}`}</p>
         {/* <p className={styles.spaceExplanation}>{props.ex6}</p> */}

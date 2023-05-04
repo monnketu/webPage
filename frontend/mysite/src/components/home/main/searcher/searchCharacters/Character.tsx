@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './../../../../../styles/home/main/searcher/searchCharacters/character.module.scss';
-import Info from './../../../../../interfaces/SpaceInfo';
+import Info from '../../../../../interfaces/coWorkingSpace/SpaceInfo';
 
 interface Props {
   info: Info
