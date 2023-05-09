@@ -7,7 +7,7 @@ import SpaceDetail from '../components/Detail/Main/SpaceDetail';
 import Reviews from '../components/Detail/review/Reviews';
 import PostReview from '../components/Detail/review/PostReview';
 import { useSelector } from '../store';
-import StateInterface from '../interfaces/State';
+import { StateInterface } from '../interfaces/';
 
 export default function Detail() {
   useEffect(() => {

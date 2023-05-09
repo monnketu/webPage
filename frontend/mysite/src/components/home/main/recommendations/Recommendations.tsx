@@ -4,7 +4,7 @@ import Questionnaire from '../../../../pages/Questionnaire';
 import styles from './../../../../styles/home/main/recommendations/recommendations.module.scss';
 import { useAppDispatch, useSelector } from '../../../../store';
 import { diagnoseStartReducer } from '../../../../slices/questionSlice';
-import StateInterface from '../../../../interfaces/State';
+import  { StateInterface } from '../../../../interfaces/';
 export default function Recommendations() {
   const dispatch = useAppDispatch();
   const questionInfo = useSelector((state:StateInterface) => state.questionInfo);

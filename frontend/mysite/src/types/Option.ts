@@ -1,0 +1,1 @@
+export type BusinessFormOption = 'all' | 'monthly' | 'dropin_1day' | 'dropin_1hour';

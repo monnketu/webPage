@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useAppDispatch, useSelector } from "../../../store";
 import { loginReducer, logoutReducer } from "../../../slices/userInfoSlice";
 import { getLineProfile } from "../../../slices/userInfoSlice";
-import StateInterface from '../../../interfaces/State';
+import { StateInterface } from '../../../interfaces/';
 const Login = () => {
   const dispatch = useAppDispatch();
   const userInfo = useSelector((state:StateInterface) => state.userInfo)

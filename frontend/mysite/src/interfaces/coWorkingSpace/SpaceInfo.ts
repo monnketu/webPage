@@ -1,6 +1,8 @@
-export default interface Info {
+type Info = {
   ja: string;
   en: string;
   character: string;
   dispName: string;
 }
+
+export default Info

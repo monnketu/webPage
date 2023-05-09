@@ -1,6 +1,8 @@
+import { BusinessFormOption } from "../../types/Option";
+
 export default interface FormInterface {
   space: string;
-  dropIn: string;
+  businessForm: BusinessFormOption;
   time: string;
   station: string;
   price: string;

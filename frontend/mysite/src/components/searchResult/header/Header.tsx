@@ -16,7 +16,7 @@ const Header = (props:Props) => {
   console.log('data', props.data);
   return ( 
     <div className={styles.header}>
-      <img src={`/img/${props.aria.searchByForm === true ? 'image2':props.aria.en}.jpeg`}  className={styles.headerImage} alt='検索ページ'/>
+      <img src={`/img/${props.aria.searchedByForm === true ? 'image2':props.aria.en}.jpeg`}  className={styles.headerImage} alt='検索ページ'/>
       {/* <img src={`/img/image2.jpeg`}  className={styles.headerImage} alt='検索ページ'/> */}
       <div>
         <MenuHeader />

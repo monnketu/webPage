@@ -1,12 +1,15 @@
-export const dispPrice = (type: option, price: number) => {
-  switch (type) {
-    case 'all':
+// import {option}
+import { BusinessFormOption } from "../types/Option";
+import { businessForms } from "../consts/searchOption";
+export const dispPrice = (form: BusinessFormOption, price: number) => {
+  switch (form) {
+    case businessForms.all:
       return `${price.toLocaleString()}円/月`;
-    case 'monthly':
+    case businessForms.monthly:
       return `${price.toLocaleString()}円/月`;
-    case 'dropIn_1day':
+    case businessForms.dropin_1day:
       return `${price.toLocaleString()}円/日`;
-    case 'dropIn_1hour':
+    case businessForms.dropin_1hour:
       return `${price.toLocaleString()}円/時間`;
     default:
       throw new Error('表示する金額が不正です');

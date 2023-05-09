@@ -4,10 +4,11 @@ import UseInput from "./inputUI/TextField";
 import UnstyledInputBasic from './inputUI/MultiInput';
 import { Button } from "@mui/material";
 import { useSelector, useAppDispatch } from "../../../store";
-import * from './../../../interfaces/index';
+import type {Aria, DBdata, StateInterface} from './../../../interfaces/index';
 
 interface Props {
   spaceInfo: DBdata;
+  aria?: Aria;
 }
 export default function PostReview(props: Props) {
   const userInfo = useSelector((state:StateInterface) => state.userInfo);

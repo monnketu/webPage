@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import StateInterface from "../interfaces/State";
-import userInfoInterface from '../interfaces/userInfo';
+import  { StateInterface, userInfoInterface } from "../interfaces/";
 import LINE_API_response from '../interfaces/login/LINE_API_response';
 // 初期状態 ログアウトしたときもこの状態にする
 const initialState: userInfoInterface = {
@@ -21,9 +20,9 @@ const initialState: userInfoInterface = {
 //     default:  throw Error('UNHANDLED_ERROR');
 //   }
 // }
-const getLineProfile = createAsyncThunk<LINE_API_response,string|null,{state: StateInterface;}>(
+const getLineProfile = createAsyncThunk<LINE_API_response, string | null, {state: StateInterface;}>(
   "get_line_profile",
-  (accessCode:string|null, thunkAPI) => {
+  (accessCode: string | null, thunkAPI) => {
   // const accessCode = thunkAPI.getState().accessCode;
   // const accessCode = thunkAPI.getState().userInfo.accessCode;
   return new Promise((resolve, reject) => {
@@ -36,7 +35,6 @@ const getLineProfile = createAsyncThunk<LINE_API_response,string|null,{state: St
         })
         .then(response => response.json())
         .then((res:LINE_API_response) => {
-            console.log(res);
             thunkAPI.dispatch(loginReducer())
             resolve(res);
           })
@@ -63,10 +61,9 @@ export const userInfoSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getLineProfile.pending, (state) => {
+    builder.addCase(getLineProfile.pending, () => {
     });
     builder.addCase(getLineProfile.fulfilled, (state, action) => {
-      console.log(action)
       state.userID = action.payload.sub; // payloadCreatorでreturnされた値
       state.profileImage = action.payload.picture
     });

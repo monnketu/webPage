@@ -5,13 +5,13 @@ import MainTitle from './titile/MainTitle';
 import MenuHeader from './../Header/Header';
 interface Props {
   imageName?: string;
-  info: DBdata
+  DBinfo: DBdata
 }
 export default function Header(props: Props) {
   return (
     <div className={styles.headerContainer}>
-      <img className={styles.headerImage} src={`/img/coWorkingSpace_images/${props.info.imageName}`} alt='詳細のヘッダー画像' />
-      <MainTitle name={props.info.name} />
+      <img className={styles.headerImage} src={`/img/coWorkingSpace_images/${props.DBinfo.imageName}`} alt='詳細のヘッダー画像' />
+      <MainTitle name={props.DBinfo.name} />
       <MenuHeader />
     </div>
   )

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import DBdata from "../interfaces/DB/DBdata";
-import recommendInterface from "../interfaces/recommend";
+import { recommendInterface } from "../interfaces/";
 // import FormInterface from "../interfaces/form";
 // import formActionInterace from "../interfaces/formActionInterface";
 const initialState:recommendInterface = {

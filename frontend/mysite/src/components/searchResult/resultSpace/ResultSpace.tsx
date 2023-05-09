@@ -5,6 +5,7 @@ import moment from 'moment';
 import DBdata from '../../../interfaces/DB/DBdata';
 import { useSelector } from '../../../store';
 import { dispPrice } from '../../../modules/price';
+import { BusinessFormOption } from '../../../types/Option';
 
 interface Props {
   name: string;
@@ -23,7 +24,7 @@ interface Props {
   key: number;
 }
 const ResultSpace = (props:Props) => {
-  const type = useSelector(state => state.formInfo.dropIn);
+  const form: BusinessFormOption = useSelector(state => state.formInfo.businessForm);
   const disp_wifi = (num:number) => {
     switch (num) {
       case 0:
@@ -67,7 +68,7 @@ const ResultSpace = (props:Props) => {
         {/* <p>{props.ex1}</p> */}
         <p className={styles.spaceExplanation}>{props.isDropIn === true ? 'ドロップイン可能' : '月額契約'}</p>
         {/* <p className={styles.spaceExplanation}>{props.ex3}円/月</p> */}
-        <h3 className={styles.spaceExplanation}>{dispPrice(type, props.price)}</h3>
+        <h3 className={styles.spaceExplanation}>{dispPrice(form, props.price)}</h3>
         <p className={styles.spaceExplanation}>最寄り駅：{props.station}</p>
         <p className={styles.spaceExplanation}>営業時間:{`${startTime.getHours().toString().padStart(2,'0')}:${startTime.getMinutes().toString().padStart(2,'0')}`}~{`${endTime.getHours().toString().padStart(2,'0')}:${endTime.getMinutes().toString().padStart(2,'0')}`}</p>
         {/* <p className={styles.spaceExplanation}>{props.ex6}</p> */}

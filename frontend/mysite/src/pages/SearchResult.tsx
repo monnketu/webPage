@@ -6,21 +6,44 @@ import SideMenu from '../components/searchResult/sideMenu/SideMenu';
 import moment from 'moment';
 import styles from '../styles/searchResult/searchResult.module.scss'
 import { useSelector } from '../store';
+import { StateInterface } from '../interfaces';
+import { StateOfFormToSearchResult } from '../components/home/Form/Form';
 const SearchResult = () => {
-  const location = useLocation();
-  console.log(location)
-  const isLocationState = location.state ? true : false;
-  const place = isLocationState ? (location.state.space !== 'all' ? location.state.space: '') : '';
-  const dropIn = isLocationState ? (location.state.dropIn !== 'all' ? location.state.dropIn: '') : '';
-  const time = isLocationState ? (location.state.time !== null ? location.state.time: '') : '';
-  const dispName = isLocationState ? ((place===''&& dropIn===''&&time==='') ? '全て':`${place} ${dropIn} ${time}`): '全て';
+  // Form.tsxからもらったstateを受け取る
+  const location: StateOfFormToSearchResult = useLocation();
+  const state = location.state;
+  // このページへの導線はhomeからの
+  // 検索ボタンや
+  // 場所、特徴検索画面
+  // からになるのでそこからはすべてstateを渡すためstateがundefinedならURL直叩き判定にする
+
+  // URL直叩きかどうかを判定
+  const isLocationState = state ? true : false;
+
+  // どのコワーキングスペースを表示するかどうか(条件)
+  const place = isLocationState ? (state.space !== 'all' ? state.space: '') : '';
+
+  
+  const businessForm = isLocationState ? (state.businessForm !== 'all' ? state.businessForm: ''): '';
+  const time = isLocationState ? (state.time !== null ? state.time: '') : '';
+  const dispName = isLocationState ? ((place===''&& businessForm===''&&time==='') ? '全て':`${place} ${businessForm} ${time}`): '全て';
   // 【要修正】searchBuForm変数2重になってる Form.tsx参照 3/2 
-  const info = isLocationState ? (location.state.searchedByForm ? {...location.state, en:(location.state.price ? `${`${dropIn}_`}price_${location.state.price}` :'all'), ja:dispName, searchByForm: true} : location.state.info): {ja: '全て', en: 'all'};
+  const info = isLocationState ? (state.searchedByForm ? 
+    {
+      ...state, 
+      en:(location.state.price ? `${businessForm}_price_${location.state.price}` :'all'), 
+      ja:dispName, searchByForm: true
+    }: location.state.info): 
+    {
+      ja: '全て', 
+      en: 'all'
+    };
+
   const [ data, setData ] = useState([]);
   useEffect(() => {
     try {
-      // console.log(location, isLocationState, place, dropIn, time,dispName,info);
-      fetch(`http://localhost:8000/api/coWorkingSpace/${info.en}/`,{
+      // console.log(location, isLocationState, place, businessForm, time,dispName,info);
+      fetch(`http://localhost:8000/api/coWorkingSpace/${info.en}/`, {
         mode: 'cors'
       })
       .then(response => {
@@ -30,8 +53,6 @@ const SearchResult = () => {
         let ret = res.results;
         // URLを直接叩かれた場合かフォーム以外のところから検索された場合(エリアから探すなど)はここではなにもしない
         if (isLocationState && location.state.searchedByForm) {
-          console.log('info',ret, info); 
-          console.log(isLocationState, location)
           ret = ret.filter((data:any) => {
             if (info.station === '') {
               return true;
@@ -58,11 +79,11 @@ const SearchResult = () => {
     } catch (error) {
       console.log("失敗しました");
     };
-  },[])
+  }, [])
   return(
     <div>
       <Header aria={info} data={data}/>
-      <div className={styles.sideMenuAndResultsContainer }>
+      <div className={styles.sideMenuAndResultsContainer}>
         {/* <SideMenu /> */}
         <Results data={data} />
       </div>
