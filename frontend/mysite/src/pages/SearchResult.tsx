@@ -6,8 +6,9 @@ import SideMenu from '../components/searchResult/sideMenu/SideMenu';
 import moment from 'moment';
 import styles from '../styles/searchResult/searchResult.module.scss'
 import { useSelector } from '../store';
-import { StateInterface } from '../interfaces';
+import { BusinessForm, StateInterface } from '../interfaces';
 import { StateOfFormToSearchResult } from '../components/home/Form/Form';
+import { BusinessFormOption } from '../types/Option';
 const SearchResult = () => {
   // Form.tsxからもらったstateを受け取る
   const location: StateOfFormToSearchResult = useLocation();
@@ -17,26 +18,45 @@ const SearchResult = () => {
   // 場所、特徴検索画面
   // からになるのでそこからはすべてstateを渡すためstateがundefinedならURL直叩き判定にする
 
-  // URL直叩きかどうかを判定
+  // URL直叩きかどうかを判定(is location.state?)
   const isLocationState = state ? true : false;
 
   // どのコワーキングスペースを表示するかどうか(条件)
+  // 検索条件の場所がallならplace='', all以外になにかあればそれにする(渋谷など)
   const place = isLocationState ? (state.space !== 'all' ? state.space: '') : '';
 
-  
-  const businessForm = isLocationState ? (state.businessForm !== 'all' ? state.businessForm: ''): '';
+  // 検索条件の営業形態(ドロップイン1日とか月額とか)
+  const businessForm:(BusinessFormOption | '') = isLocationState ? (state.businessForm !== 'all' ? state.businessForm: ''): '';
+  // ユーザーが指定した時間
   const time = isLocationState ? (state.time !== null ? state.time: '') : '';
-  const dispName = isLocationState ? ((place===''&& businessForm===''&&time==='') ? '全て':`${place} ${businessForm} ${time}`): '全て';
-  // 【要修正】searchBuForm変数2重になってる Form.tsx参照 3/2 
+  // 検索結果画面に表示される検索条件(ex. 渋谷 ドロップイン1日 12:56)
+  const dispName = isLocationState ? 
+    ((place === '' && businessForm === '' && time === '') ? 
+      '全て':
+      `${place} ${businessForm} ${time}`): 
+    '全て';
+
+  // 【要修正】searchByForm変数2重になってる Form.tsx参照  
+
+  // 検索条件の情報を格納変数
   const info = isLocationState ? (state.searchedByForm ? 
+    // フォームから検索ボタンを押した場合
     {
       ...state, 
       en:(location.state.price ? `${businessForm}_price_${location.state.price}` :'all'), 
-      ja:dispName, searchByForm: true
-    }: location.state.info): 
+      ja:dispName,
+      searchByForm: true,
+    }:
+    // 特徴から探すなどのフォーム外から検索した場合 (searchChara)
     {
+      ...location.state,
+      // en: ('all'),
+      // ja: ('全て'),
+    }):
+    // URL直叩きの場合
+    {
+      en: 'all',
       ja: '全て', 
-      en: 'all'
     };
 
   const [ data, setData ] = useState([]);

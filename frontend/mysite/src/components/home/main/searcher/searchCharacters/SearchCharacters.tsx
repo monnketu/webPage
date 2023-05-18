@@ -1,45 +1,53 @@
 import React from 'react'
 import Character from './Character';
+import CharaParam from '../../../../../interfaces/coWorkingSpace/coWorkingSpaceCharaParam';
 import styles from './../../../../../styles/home/main/searcher/searchCharacters/searchCharacters.module.scss';
+
 export default function SearchCharacters() {
-  const params1 = [
+  const params1: CharaParam[] = [
     {
-      ja: '高速wi-fi',
-      en: 'wifi',
+      name: {
+        ja: '高速wi-fi',
+        en: 'wifi',
+      },
       character: 'wifi',
-      dispName: '高速wi-fi'
     },
     {
-      ja: '低価格',
-      en: 'low_cost',
+      name: {
+        ja: '低価格',
+        en: 'low_cost',
+      },
       character: 'low_cost',
-      dispName: '低価格'
     },
     {
-      ja: '広々会議室',
-      en: 'meeting_room',
+      name: {
+        ja: '広々会議室',
+        en: 'meeting_room',
+      },
       character: 'meeting_room',
-      dispName: '広々会議室'
     },
   ];
-  const params2 = [
+  const params2:CharaParam[] = [
     {
-      ja: '充実オプション',
-      en: 'enhanced_options',
+      name: {
+        ja: '充実オプション',
+        en: 'enhanced_options',
+      },
       character: 'enhanced_options',
-      dispName: '充実オプション'
     },
     {
-      ja: 'ドロップイン可能',
-      en: 'dropIn',
+      name: {
+        ja: 'ドロップイン可能',
+        en: 'dropIn',
+      },
       character: 'dropIn',
-      dispName: 'ドロップイン可能'
     },
     {
-      ja: '24時間制',
-      en: 'all_time',
+      name: {
+        ja: '24時間制',
+        en: 'all_time',
+      },
       character: 'all_time',
-      dispName: '24時間制'
     },
   ];
   return (

@@ -1,5 +1,6 @@
+import type Aria23 from './Aria23';
+
 export default interface Aria {
-  en: string;
-  ja: string;
+  name: Aria23['name'];
   searchedByForm?: boolean;
 }
