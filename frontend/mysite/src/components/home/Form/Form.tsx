@@ -31,16 +31,16 @@ const Form = () => {
   const businessForm = useSelector((state: StateInterface) => state.formInfo.businessForm)
   const time = useSelector((state: StateInterface) => state.formInfo.time)
   const price = useSelector((state: StateInterface) => state.formInfo.price)
-  const selectedBusinessForm:BusinessFormOption = dropInRef.current[dropInRef.current.options.selectedIndex].value;
+  const selectedBusinessForm:BusinessFormOption = dropInRef.current ? dropInRef.current[dropInRef.current.options.selectedIndex].value: '';
   
 
   const state: StateOfFormToSearchResult = {
     state:{
       space: space,
       businessForm: selectedBusinessForm, 
-      time: timeRef.current.value, 
-      price: priceRef.current[priceRef.current.options.selectedIndex].value, 
-      station: stationRef.current.value,
+      time: timeRef.current? timeRef.current.value: '', 
+      price: priceRef.current ? priceRef.current[priceRef.current.options.selectedIndex].value: '', 
+      station: stationRef.current ? stationRef.current.value: '',
       searchedByForm: true, // Formの検索ボタン押下かどうか
     }
   }

@@ -82,7 +82,7 @@ class coWorkingSpace(models.Model):
     dropInFeePerHour = models.IntegerField()
     
     # 23かどうか: BOOLEAN型 23区:False それ以外:True
-    isAria23 = models.BooleanField()
+    isArea23 = models.BooleanField()
     def __str__(self):
       return self.name
 

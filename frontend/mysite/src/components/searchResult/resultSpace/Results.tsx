@@ -4,7 +4,6 @@ import styles from './../../../styles/searchResult/results/results.module.scss'
 import DBdata from '../../../interfaces/DB/DBdata';
 // import {useSelector, TypedUseSelectorHook} from 'react-redux'
 import { useSelector } from '../../../store';
-import type { Store } from '../../../interfaces';
 
 interface Props {
   data: DBdata[] | undefined;

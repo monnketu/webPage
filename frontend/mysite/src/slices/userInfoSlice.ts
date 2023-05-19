@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import  { StateInterface, userInfoInterface } from "../interfaces/";
+import { StateInterface, userInfoInterface } from "../interfaces/";
 import LINE_API_response from '../interfaces/login/LINE_API_response';
+
 // 初期状態 ログアウトしたときもこの状態にする
 const initialState: userInfoInterface = {
   userID: '',
@@ -38,9 +39,9 @@ const getLineProfile = createAsyncThunk<LINE_API_response, string | null, {state
             thunkAPI.dispatch(loginReducer())
             resolve(res);
           })
-          .catch(err => {
-            reject(thunkAPI.rejectWithValue(err.message));
-          });
+        .catch(err => {
+          reject(thunkAPI.rejectWithValue(err.message));
+        });
         } catch(err:any) {
           reject(thunkAPI.rejectWithValue(err.message));
         }

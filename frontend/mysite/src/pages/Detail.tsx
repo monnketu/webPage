@@ -19,7 +19,7 @@ export default function Detail() {
   const userInfo = useSelector((state:StateInterface) => state.userInfo);
   return (
     <div className={styles.detail}>
-      <Header info={info}/>
+      <Header DBinfo={info}/>
       <SubTitle name={'詳細'}/>
       <SpaceDetail spaceInfo={info}/>
       <SubTitle name={'口コミ一覧'}/>

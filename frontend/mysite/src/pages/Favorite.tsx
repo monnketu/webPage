@@ -10,7 +10,6 @@ import DBdata from '../interfaces/DB/DBdata';
 const SearchResult = () => {
   const [ data, setData ] = useState<DBdata[]>();
   useEffect(() => {
-    console.log('useEffect!!');
     try {
       fetch("http://localhost:8000/polls/favorite/").then(response => {
         return response.json();
@@ -23,7 +22,6 @@ const SearchResult = () => {
     } catch (error) {
       console.log("失敗しました");
     };
-    console.log('OK');
     
   },[])
 

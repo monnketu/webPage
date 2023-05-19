@@ -16,12 +16,12 @@ const Header = (props:Props) => {
   console.log('data', props.data);
   return ( 
     <div className={styles.header}>
-      <img src={`/img/${props.aria.searchedByForm === true ? 'image2':props.aria.en}.jpeg`}  className={styles.headerImage} alt='検索ページ'/>
+      <img src={`/img/${props.aria.searchedByForm === true ? 'image2':props.aria.name.en}.jpeg`}  className={styles.headerImage} alt='検索ページ'/>
       {/* <img src={`/img/image2.jpeg`}  className={styles.headerImage} alt='検索ページ'/> */}
       <div>
         <MenuHeader />
       </div>
-      <p className={styles.headerSentence}>{props.aria.ja}</p>
+      <p className={styles.headerSentence}>{props.aria.name.ja}</p>
       <h2 className={styles.resultsLength}>1~{props.data.length}件を表示</h2>
       {/* <h2 className={styles.searchAria}>{props.aria}</h2> */}
     </div>

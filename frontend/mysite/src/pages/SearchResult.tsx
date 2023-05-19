@@ -6,7 +6,7 @@ import SideMenu from '../components/searchResult/sideMenu/SideMenu';
 import moment from 'moment';
 import styles from '../styles/searchResult/searchResult.module.scss'
 import { useSelector } from '../store';
-import { BusinessForm, StateInterface } from '../interfaces';
+import { BusinessForm, DBdata, StateInterface } from '../interfaces';
 import { StateOfFormToSearchResult } from '../components/home/Form/Form';
 import { BusinessFormOption } from '../types/Option';
 const SearchResult = () => {
@@ -39,48 +39,59 @@ const SearchResult = () => {
   // 【要修正】searchByForm変数2重になってる Form.tsx参照  
 
   // 検索条件の情報を格納変数
-  const info = isLocationState ? (state.searchedByForm ? 
+  const searchInfo = isLocationState ? (state.searchedByForm ? 
     // フォームから検索ボタンを押した場合
     {
       ...state, 
-      en:(location.state.price ? `${businessForm}_price_${location.state.price}` :'all'), 
-      ja:dispName,
+      name: {
+        en:(location.state.price ? `${businessForm}_price_${location.state.price}` :'all'), 
+        ja:dispName,
+      },
       searchByForm: true,
+      isDirectURL: false,
     }:
     // 特徴から探すなどのフォーム外から検索した場合 (searchChara)
     {
       ...location.state,
-      // en: ('all'),
-      // ja: ('全て'),
+      name: {
+        en: 'all',
+        ja: '全て',
+      },
+      isDirectURL: false,
     }):
     // URL直叩きの場合
     {
-      en: 'all',
-      ja: '全て', 
+      name: {
+        en: 'all',
+        ja: '全て',
+      },
+      isDirectURL: true,
+      station: '',
     };
 
-  const [ data, setData ] = useState([]);
+  const [ data, setData ] = useState<DBdata[]>([]);
   useEffect(() => {
     try {
       // console.log(location, isLocationState, place, businessForm, time,dispName,info);
-      fetch(`http://localhost:8000/api/coWorkingSpace/${info.en}/`, {
+      fetch(`http://localhost:8000/api/coWorkingSpace/${searchInfo.name.en}/`, {
         mode: 'cors'
       })
       .then(response => {
         return response.json();
       })
       .then(res => {
-        let ret = res.results;
+        let ret:DBdata[] = res.results;
+
         // URLを直接叩かれた場合かフォーム以外のところから検索された場合(エリアから探すなど)はここではなにもしない
         if (isLocationState && location.state.searchedByForm) {
-          ret = ret.filter((data:any) => {
-            if (info.station === '') {
+          ret = ret.filter((data:DBdata) => {
+            if (searchInfo.station === '') {
               return true;
             } else {
-              return data.station === info.station;
+              return data.station === searchInfo.station;
             }
           })
-          .filter((data:any) => {
+          .filter((data:DBdata) => {
             if(location.state.time === '') {
               // return data.dropInFeePerDay < data.dropInFeePerHour;
               return true;
@@ -102,7 +113,7 @@ const SearchResult = () => {
   }, [])
   return(
     <div>
-      <Header aria={info} data={data}/>
+      <Header aria={searchInfo} data={data} />
       <div className={styles.sideMenuAndResultsContainer}>
         {/* <SideMenu /> */}
         <Results data={data} />

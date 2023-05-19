@@ -90,7 +90,7 @@ class coWorkingViewSet_meguro(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(aria = "目黒区").order_by('price')
   serializer_class = coWorkingSpaceSerializer
 class coWorkingViewSet_others(viewsets.ModelViewSet):
-  queryset = coWorkingSpace.objects.filter(isAria23 = False).order_by('price')
+  queryset = coWorkingSpace.objects.filter(isArea23 = False).order_by('price')
   serializer_class = coWorkingSpaceSerializer
   
   
