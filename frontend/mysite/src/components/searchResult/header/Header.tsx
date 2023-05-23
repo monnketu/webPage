@@ -13,7 +13,8 @@ interface Props {
 }
 
 const Header = (props:Props) => {
-  console.log('data', props.data);
+  // DBからとってきた200件分のデータを表示
+  // console.log('data', props.data);
   return ( 
     <div className={styles.header}>
       <img src={`/img/${props.aria.searchedByForm === true ? 'image2':props.aria.name.en}.jpeg`}  className={styles.headerImage} alt='検索ページ'/>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './../../../styles/searchResult/results/resultSpace.module.scss'
 import moment from 'moment';
@@ -24,6 +24,7 @@ interface Props {
   key: number;
 }
 const ResultSpace = (props:Props) => {
+  const [isFavorite, setIsFavorite] = useState<boolean>(false);
   const form: BusinessFormOption = useSelector(state => state.formInfo.businessForm);
   const disp_wifi = (num:number) => {
     switch (num) {
@@ -57,7 +58,7 @@ const ResultSpace = (props:Props) => {
   const endTime = props.endTime ? new Date(Moment_endTime): new Date();
   return (
     <div className={styles.resultSpace}>
-      {/* <img src={props.src} alt='検索結果の画像' className={styles.resultSpaceImage}/> */}
+      <img src={`/img/favorite_icon${isFavorite ? '_clicked': ''}.png`} className={styles.favorite_icon} onClick={() => setIsFavorite((fav) => !fav)}/>
       <div style={{width: '32vw'}}>
         <img src={`/img/coWorkingSpace_images/${props.imageName}`} alt='検索結果の画像' className={styles.resultSpaceImage}/>
       </div>
@@ -65,13 +66,10 @@ const ResultSpace = (props:Props) => {
         {/* <Link className={styles.spaceExplanation_first} to='/detail' state={props.data}><h1>渋谷駅から徒歩5分！</h1></Link> */}
         {/* pages/Detail.jsx にクリックしたコワーキングスペースのDBからのデータを渡す */}
         <Link className={styles.spaceExplanation_first} to='/detail' state={props.data}>{props.name}</Link>
-        {/* <p>{props.ex1}</p> */}
         <p className={styles.spaceExplanation}>{props.isDropIn === true ? 'ドロップイン可能' : '月額契約'}</p>
-        {/* <p className={styles.spaceExplanation}>{props.ex3}円/月</p> */}
         <h3 className={styles.spaceExplanation}>{dispPrice(form, props.price)}</h3>
         <p className={styles.spaceExplanation}>最寄り駅：{props.station}</p>
         <p className={styles.spaceExplanation}>営業時間:{`${startTime.getHours().toString().padStart(2,'0')}:${startTime.getMinutes().toString().padStart(2,'0')}`}~{`${endTime.getHours().toString().padStart(2,'0')}:${endTime.getMinutes().toString().padStart(2,'0')}`}</p>
-        {/* <p className={styles.spaceExplanation}>{props.ex6}</p> */}
         {/* <p className={styles.spaceExplanation}>wi-fi : {props.ex7 === '0' ? '無' : (props.ex7 === '1' ? '普通' : '強')}</p> */}
         <p className={styles.spaceExplanation}>wi-fi : {disp_wifi(props.wifi)}</p>
         <p className={styles.spaceExplanation}>{props.address}</p>

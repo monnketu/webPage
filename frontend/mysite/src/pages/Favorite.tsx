@@ -11,13 +11,14 @@ const SearchResult = () => {
   const [ data, setData ] = useState<DBdata[]>();
   useEffect(() => {
     try {
-      fetch("http://localhost:8000/polls/favorite/").then(response => {
+      fetch("http://localhost:8000/api/coWorkingSpace/all/").then(response => {
         return response.json();
       }).then((data) => {
-        for(let key in data) { 
-          data[key] = JSON.parse(data[key]);
-        } // ['param0', 'param1', ... , 'param17'];
-        setData(data);
+        console.log(data.results);
+        // for(let key in data.results) { 
+        //   data[key] = JSON.parse(data[key]);
+        // } // ['param0', 'param1', ... , 'param17'];
+        setData(data.results);
       })
     } catch (error) {
       console.log("失敗しました");
@@ -30,6 +31,7 @@ const SearchResult = () => {
   return(
     <div>
       {/* <Header /> */}
+      <h1>(お気に入り一覧)</h1>
       <div className={styles.sideMenuAndResultsContainer }>
         <SideMenu />
         <Results data={data}/>

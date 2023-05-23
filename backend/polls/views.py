@@ -1,17 +1,23 @@
 import json
 import difflib
 import django_filters
+from django.db import connection
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
+from rest_framework.response import Response
 from rest_framework import viewsets, filters, generics
+from rest_framework.parsers import JSONParser
+from rest_framework.views import APIView
+from rest_framework.request import Request
 from .models import coWorkingSpace, review 
 from .serializer import coWorkingSpaceSerializer, reviewSerializer
 import logging
 from urllib.parse import urlencode
 from urllib.request import urlopen, Request
 from django.views.decorators.csrf import csrf_exempt
-from rest_framework.parsers import JSONParser
+from .models import favoriteTable
+from django.db import models
 logger = logging.getLogger('development')
 
 
@@ -20,9 +26,11 @@ class coWorkingViewSet(viewsets.ModelViewSet):
   serializer_class = coWorkingSpaceSerializer
   
   
+# -----------------------------------------------------------------------------
 class coWorkingViewSet_adachi(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(aria = "足立区").order_by('price')
   serializer_class = coWorkingSpaceSerializer
+  
 class coWorkingViewSet_arakawa(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(aria = "荒川区").order_by('price')
   serializer_class = coWorkingSpaceSerializer
@@ -92,8 +100,8 @@ class coWorkingViewSet_meguro(viewsets.ModelViewSet):
 class coWorkingViewSet_others(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(isArea23 = False).order_by('price')
   serializer_class = coWorkingSpaceSerializer
-  
-  
+#-----------------------------------------------------------------------------------
+
 class coWorkingViewSet_wifi(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(wifi = 2).order_by('price')
   serializer_class = coWorkingSpaceSerializer
@@ -168,6 +176,26 @@ class coWorkingViewSet_all_time(viewsets.ModelViewSet):
 class reviewViewSet(viewsets.ModelViewSet):
   queryset = review.objects.all()
   serializer_class = reviewSerializer
+
+# json.loads(request.read().decode())['user_id']を用いてreactから渡されたJSON形式のデータを処理する
+@api_view(['POST'])
+def favorite_data_view(request):
+  req_message = json.loads(request.read().decode())['user_id']
+  user_id = req_message
+  class exec("favoriteTable_{}(models.Model)".format(user_id)):
+    spaceID = models.IntegerField(primary_key=True)
+    spaceID2 = models.IntegerField()
+  def __str__(self):
+    return str(self.spaceID)
+  
+  table_name = f'favorite_data_{user_id}'
+  
+  with connection.schema_editor() as schema_editor:
+    schema_editor.create_model(exec("favoriteTable_{}".format(user_id)))
+    # cursor.execute(f"CREATE TABLE favorite_123123_2(spaceID INT(11) NOT NULL)")
+  return Response({'message': 'Success'})
+
+
 @api_view(['GET', 'POST'])
 def getLineAccessToken(req, code):
   # if (req.method == 'POST'):

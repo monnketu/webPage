@@ -72,14 +72,24 @@ const SearchResult = () => {
   const [ data, setData ] = useState<DBdata[]>([]);
   useEffect(() => {
     try {
-      // console.log(location, isLocationState, place, businessForm, time,dispName,info);
       fetch(`http://localhost:8000/api/coWorkingSpace/${searchInfo.name.en}/`, {
         mode: 'cors'
       })
+      // fetch(`http://localhost:8000/polls/favorite-data/`, {
+      //   mode: 'cors',
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     user_id: '124'
+      //   })
+      // })
       .then(response => {
         return response.json();
       })
       .then(res => {
+        console.log(res)
         let ret:DBdata[] = res.results;
 
         // URLを直接叩かれた場合かフォーム以外のところから検索された場合(エリアから探すなど)はここではなにもしない
