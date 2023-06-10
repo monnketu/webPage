@@ -1,7 +1,7 @@
 // import {option}
 import { BusinessFormOption } from "../types/Option";
 import { businessForms } from "../consts/searchOption";
-export const dispPrice = (form: BusinessFormOption, price: number) => {
+const dispPrice = (form: BusinessFormOption, price: number) => {
   switch (form) {
     case businessForms.all:
       return `${price.toLocaleString()}円/月`;
@@ -15,3 +15,5 @@ export const dispPrice = (form: BusinessFormOption, price: number) => {
       throw new Error('表示する金額が不正です');
   }
 }
+
+export default dispPrice;
