@@ -1,0 +1,44 @@
+.search_aria {
+    // .search_arias {
+    //   width: 86%;
+    //   margin: auto;
+  &__sentence {
+    text-align: center;
+    font-size: 15pt;
+    margin-top: 150px;
+    font-weight: bold;
+  }
+  .arias_container{
+    .arias {
+      /* position: absolute; */
+      border: solid 1px;
+      border-radius: 40px;
+      width: 80%;
+      margin: auto;
+      // margin-left: 230px;
+      margin-bottom: 80px;
+      background-color: white;
+    }
+    &_list2 {
+      display: flex;
+      width: 86%;
+      list-style: none;
+      margin: auto;
+      margin-top: 30px;
+      margin-bottom:30px;
+    }
+    &_list {
+      display: flex;
+      width: 86%;
+      list-style: none;
+      margin: auto;
+      margin-top: 30px;
+      margin-bottom:30px;
+      .aria_info_wrapper {
+        width: calc((100% / 3));
+        height: fit-content;
+      }
+    }
+  }
+
+}

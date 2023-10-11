@@ -24,6 +24,7 @@
   },
   "include": [
     "src", 
-    "slices/counterSlice.ts"  ]
+    "slices/counterSlice.ts"  
+  ]
 }
 
