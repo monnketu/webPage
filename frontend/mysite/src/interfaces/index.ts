@@ -13,7 +13,7 @@ import formActionInterace from "./form/formActionInterface";
 import BusinessForm from "./form/SearchOption";
 import CharaParam from "./coWorkingSpace/coWorkingSpaceCharaParam";
 
-export type { 
+export type {
   Area,
   Area23,
   DBdata, 
