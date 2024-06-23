@@ -1,11 +1,18 @@
 import { Form } from "../form/Form";
 import Question from "./question";
-import userInfoInterface from "./userInfo";
 import recommendInterface from './recommend';
 
-export default interface StateInterface {
-  userInfo: userInfoInterface;
+interface UserInfo {
+  userID: string;
+  profileImage: string;
+  isLogined: boolean;
+}
+
+interface UserState {
+  userInfo: UserInfo;
   formInfo: Form;
   questionInfo: Question;
   recommendInfo: recommendInterface;
 }
+
+export default UserState;
