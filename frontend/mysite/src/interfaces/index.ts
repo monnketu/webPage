@@ -12,15 +12,20 @@ import FormInterface from "./form/form";
 import formActionInterace from "./form/formActionInterface";
 import BusinessForm from "./form/SearchOption";
 import CharaParam from "./coWorkingSpace/coWorkingSpaceCharaParam";
+<<<<<<< HEAD
 
 export type {
+=======
+import { ReqBody } from './favorite/favorite';
+export type { 
+>>>>>>> FS-2
   Area,
   Area23,
-  DBdata, 
-  FormInterface, 
-  formActionInterace, 
-  LINE_API_response, 
-  Question, 
+  DBdata,
+  FormInterface,
+  formActionInterace,
+  LINE_API_response,
+  Question,
   recommendInterface, 
   reviewInterface, 
   CharaParam,
@@ -28,4 +33,5 @@ export type {
   Store, 
   userInfoInterface,
   BusinessForm,
+  ReqBody,
 };

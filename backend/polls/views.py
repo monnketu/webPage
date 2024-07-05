@@ -18,6 +18,8 @@ from urllib.request import urlopen, Request
 from django.views.decorators.csrf import csrf_exempt
 from .models import favoriteTable
 from django.db import models
+from rest_framework.renderers import JSONRenderer
+
 logger = logging.getLogger('development')
 
 
@@ -29,8 +31,7 @@ class coWorkingViewSet(viewsets.ModelViewSet):
 # -----------------------------------------------------------------------------
 class coWorkingViewSet_adachi(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(aria = "足立区").order_by('price')
-  serializer_class = coWorkingSpaceSerializer
-  
+  serializer_class = coWorkingSpaceSerializer  
 class coWorkingViewSet_arakawa(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(aria = "荒川区").order_by('price')
   serializer_class = coWorkingSpaceSerializer
@@ -101,7 +102,6 @@ class coWorkingViewSet_others(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(isArea23 = False).order_by('price')
   serializer_class = coWorkingSpaceSerializer
 #-----------------------------------------------------------------------------------
-
 class coWorkingViewSet_wifi(viewsets.ModelViewSet):
   queryset = coWorkingSpace.objects.filter(wifi = 2).order_by('price')
   serializer_class = coWorkingSpaceSerializer
@@ -178,28 +178,32 @@ class reviewViewSet(viewsets.ModelViewSet):
   serializer_class = reviewSerializer
 
 # json.loads(request.read().decode())['user_id']を用いてreactから渡されたJSON形式のデータを処理する
+
+# お気に入りボタンを押したときの処理
 @api_view(['POST'])
 def favorite_data_view(request):
-  req_message = json.loads(request.read().decode())['user_id']
-  user_id = req_message
-  class exec("favoriteTable_{}(models.Model)".format(user_id)):
-    spaceID = models.IntegerField(primary_key=True)
-    spaceID2 = models.IntegerField()
-  def __str__(self):
-    return str(self.spaceID)
-  
-  table_name = f'favorite_data_{user_id}'
-  
-  with connection.schema_editor() as schema_editor:
-    schema_editor.create_model(exec("favoriteTable_{}".format(user_id)))
-    # cursor.execute(f"CREATE TABLE favorite_123123_2(spaceID INT(11) NOT NULL)")
-  return Response({'message': 'Success'})
+  body = json.loads(request.read().decode())
+  user_id = body['userID']
+  space_id= body['spaceID']
+  print(space_id)
+  try:
+    # 該当レコードの抽出
+    record = coWorkingSpace.objects.get(spaceID=space_id)
+    print(record)
+    # 該当レコードのfavorite_usersフィールドの更新
+    record.favorite_users = user_id
+    record.save()
+    serializer = coWorkingSpaceSerializer(record)
+    return Response(serializer.data)
+  except coWorkingSpace.DoesNotExist:
+    return Response({'message': 'Record not found'}, status=404)
 
 
+# LINEログイン
 @api_view(['GET', 'POST'])
 def getLineAccessToken(req, code):
   # if (req.method == 'POST'):
-  print(json.loads(req.read().decode())['accessCode'])
+  # print(json.loads(req.read().decode())['accessCode'])
   url = 'https://api.line.me/oauth2/v2.1/token/'
   url2 = 'https://api.line.me/oauth2/v2.1/verify'
   
@@ -244,7 +248,7 @@ def getLineAccessToken(req, code):
 def review_list(request):
   if (request.method == 'POST'):
     data = JSONParser().parse(request)
-    print(data, 'datatata')
+    
     setData = review(title=data['title'], memberID= data['memberID'], review=data['review'], spaceName=data['spaceName'])
     setData.save()
     returnData = {

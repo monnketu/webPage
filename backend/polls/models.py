@@ -107,7 +107,9 @@ class review(models.Model):
     return self.title
   
 class favoriteTable(models.Model):
-  spaceID = models.IntegerField(primary_key=True)
-  spaceID2 = models.IntegerField()
+  recordID = models.AutoField(primary_key=True)
+  spaceID = models.IntegerField(null = True)
+  userID = models.CharField(max_length=100, null=True)
+  method = models.CharField(max_length=10, null=True)
   def __str__(self):
-    return str(self.spaceID)
+    return str(self.method)

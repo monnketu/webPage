@@ -6,17 +6,15 @@ import SideMenu from '../components/searchResult/sideMenu/SideMenu';
 import moment from 'moment';
 import styles from '../styles/searchResult/searchResult.module.scss'
 import { useSelector } from '../store';
-import { BusinessForm, DBdata, StateInterface } from '../interfaces';
+import { ReqBody, BusinessForm, DBdata, StateInterface } from '../interfaces';
 import { StateOfFormToSearchResult } from '../components/home/Form/Form';
 import { BusinessFormOption } from '../types/Option';
+
 const SearchResult = () => {
   // Form.tsxからもらったstateを受け取る
   const location: StateOfFormToSearchResult = useLocation();
   const state = location.state;
-  // このページへの導線はhomeからの
-  // 検索ボタンや
-  // 場所、特徴検索画面
-  // からになるのでそこからはすべてstateを渡すためstateがundefinedならURL直叩き判定にする
+  // このページへの導線はhomeからの検索ボタンや場所、特徴検索画面からになるのでそこからはすべてstateを渡すためstateがundefinedならURL直叩き判定にする
 
   // URL直叩きかどうかを判定(is location.state?)
   const isLocationState = state ? true : false;
@@ -72,19 +70,22 @@ const SearchResult = () => {
   const [ data, setData ] = useState<DBdata[]>([]);
   useEffect(() => {
     try {
-      fetch(`http://localhost:8000/api/coWorkingSpace/${searchInfo.name.en}/`, {
-        mode: 'cors'
-      })
-      // fetch(`http://localhost:8000/polls/favorite-data/`, {
-      //   mode: 'cors',
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     user_id: '124'
-      //   })
+      // fetch(`http://localhost:8000/api/coWorkingSpace/${searchInfo.name.en}/`, {
+      //   mode: 'cors'
       // })
+      const req_body: ReqBody = {
+        spaceID: 150,
+        userID: 'kokoko',
+      }
+      
+      fetch(`http://localhost:8000/polls/favorite-data/`, {
+        mode: 'cors',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(req_body)
+      })
       .then(response => {
         return response.json();
       })
