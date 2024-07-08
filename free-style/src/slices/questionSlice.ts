@@ -15,19 +15,7 @@ const initialState: Question = {
   question2: 0,
   question3: 0,
 };
-// interface spaceInterface {
-//   type: string;
-//   payload: string;
-// }
 
-// interface dropinInterface {
-//   type: string;
-//   payload: string;
-// }
-// interface timeInterface {
-//   type: string;
-//   payload: string;
-// }
 const questionSlice = createSlice({
   name: 'question',
   initialState,

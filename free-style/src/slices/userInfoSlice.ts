@@ -1,12 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { StateInterface} from "../interfaces/";
+// import { StateInterface} from "../interfaces/";
 import LINE_API_response from '../interfaces/login/LINE_API_response';
-
-interface UserInfo {
-  userID: string;
-  profileImage: string;
-  isLogined: boolean;
-}
+import { UserInfo } from "@/common/interfaces";
 
 // 初期状態 ログアウトしたときもこの状態にする
 const initialState: UserInfo = {

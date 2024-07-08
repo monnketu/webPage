@@ -19,11 +19,6 @@ const initialState:Form = {
   price: 0,
 };
 
-interface reducerInterface {
-  type: string;
-  payload: number | string;
-}
-
 const formSlice = createSlice({
   name: 'formInfo',
   initialState,
