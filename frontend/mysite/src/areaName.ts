@@ -1,4 +1,4 @@
-const ariaName = {
+const areaName = {
   shibuya: '渋谷',
   shinjuku: '新宿',
   ikebukuro: '池袋',
@@ -7,4 +7,4 @@ const ariaName = {
   others: 'その他'
 }
 
-export default ariaName;
+export default areaName;

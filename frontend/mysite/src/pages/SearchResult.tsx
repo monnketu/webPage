@@ -70,22 +70,22 @@ const SearchResult = () => {
   const [ data, setData ] = useState<DBdata[]>([]);
   useEffect(() => {
     try {
-      // fetch(`http://localhost:8000/api/coWorkingSpace/${searchInfo.name.en}/`, {
-      //   mode: 'cors'
-      // })
-      const req_body: ReqBody = {
-        spaceID: 150,
-        userID: 'kokoko',
-      }
-      
-      fetch(`http://localhost:8000/polls/favorite-data/`, {
-        mode: 'cors',
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(req_body)
+      fetch(`http://localhost:8000/api/coWorkingSpace/${searchInfo.name.en}/`, {
+        mode: 'cors'
       })
+      // const req_body: ReqBody = {
+      //   spaceID: 150,
+      //   userID: 'kokoko',
+      // }
+      
+      // fetch(`http://localhost:8000/polls/favorite-data/`, {
+      //   mode: 'cors',
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(req_body)
+      // })
       .then(response => {
         return response.json();
       })
@@ -124,7 +124,7 @@ const SearchResult = () => {
   }, [])
   return(
     <div>
-      <Header aria={searchInfo} data={data} />
+      <Header area={searchInfo} data={data} />
       <div className={styles.sideMenuAndResultsContainer}>
         {/* <SideMenu /> */}
         <Results data={data} />

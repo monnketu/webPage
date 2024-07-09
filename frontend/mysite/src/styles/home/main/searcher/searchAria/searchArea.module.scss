@@ -1,5 +1,5 @@
-.search_aria {
-    // .search_arias {
+.search_area {
+    // .search_areas {
     //   width: 86%;
     //   margin: auto;
   &__sentence {
@@ -8,35 +8,29 @@
     margin-top: 150px;
     font-weight: bold;
   }
-  .arias_container{
-    .arias {
-      /* position: absolute; */
+  .areas_container{
+    .areas {
       border: solid 1px;
       border-radius: 40px;
       width: 80%;
       margin: auto;
-      // margin-left: 230px;
       margin-bottom: 80px;
       background-color: white;
-    }
-    &_list2 {
-      display: flex;
-      width: 86%;
-      list-style: none;
-      margin: auto;
-      margin-top: 30px;
-      margin-bottom:30px;
-    }
-    &_list {
-      display: flex;
-      width: 86%;
-      list-style: none;
-      margin: auto;
-      margin-top: 30px;
-      margin-bottom:30px;
-      .aria_info_wrapper {
-        width: calc((100% / 3));
-        height: fit-content;
+      &_list {
+        display: flex;
+        justify-content: center;
+        width: 1000px;
+        list-style: none;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom:30px;
+        &__item {
+          width: 300px;
+        }
+        // .area_info_wrapper {
+        //   width: calc((100% / 3));
+        //   height: fit-content;
+        // }
       }
     }
   }

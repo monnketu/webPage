@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styles from './../../../../../styles/home/main/searcher/searcharea/area.module.scss';
+import styles from './../../../../../styles/home/main/searcher/searchAria/area.module.scss';
 import Area from '../../../../../interfaces/form/Area';
 
 interface Props {

@@ -3,12 +3,12 @@ import styles from './../../../styles/header/header.module.scss';
 import MenuBar from '../../menuBar/MenuBar';
 import MenuHeader from '../../Header/Header';
 import { useLocation } from "react-router-dom";
-import ariaName from '../../../ariaName';
-import Aria from '../../../interfaces/form/Area';
+import areaName from '../../../areaName';
+import Area from '../../../interfaces/form/Area';
 import DBdata from '../../../interfaces/DB/DBdata';
 
 interface Props {
-  aria: Aria;
+  area: Area;
   data: DBdata[];
 }
 
@@ -17,14 +17,14 @@ const Header = (props:Props) => {
   // console.log('data', props.data);
   return ( 
     <div className={styles.header}>
-      <img src={`/img/${props.aria.searchedByForm === true ? 'image2':props.aria.name.en}.jpeg`}  className={styles.headerImage} alt='検索ページ'/>
+      <img src={`/img/${props.area.searchedByForm === true ? 'image2':props.area.name.en}.jpeg`}  className={styles.headerImage} alt='検索ページ'/>
       {/* <img src={`/img/image2.jpeg`}  className={styles.headerImage} alt='検索ページ'/> */}
       <div>
         <MenuHeader />
       </div>
-      <p className={styles.headerSentence}>{props.aria.name.ja}</p>
+      <p className={styles.headerSentence}>{props.area.name.ja}</p>
       <h2 className={styles.resultsLength}>1~{props.data.length}件を表示</h2>
-      {/* <h2 className={styles.searchAria}>{props.aria}</h2> */}
+      {/* <h2 className={styles.searcharea}>{props.area}</h2> */}
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {InputUnstyled,  InputUnstyledProps } from '@mui/core';
-import { styled } from '@mui/system';
+import { styled, width } from '@mui/system';
 
 const blue = {
   100: '#DAECFF',

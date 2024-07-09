@@ -1,6 +1,6 @@
 import React from 'react'
 import Area from './AreaInfo'
-import styles from './../../../../../styles/home/main/searcher/searcharea/searchArea.module.scss';
+import styles from './../../../../../styles/home/main/searcher/searchAria/searchArea.module.scss';
 import AREA23 from '../../../../../consts/Area23';
 
 export default function Searcharea() {
@@ -9,7 +9,7 @@ export default function Searcharea() {
   return (
     <div className = {styles.search_area}>
       <p className = {styles.search_area__sentence}>エリアから探す</p>
-      {/* <div className = {styles.search_areas}> */}
+      <div className = {styles.search_areas}>
         <div className = {styles.areas_container}>
           {Array(Math.ceil(AREA23.length / 3)).fill('').map((_, index) => {
             return (
@@ -23,7 +23,7 @@ export default function Searcharea() {
             )
           })}
         </div>
-      {/* </div> */}
+      </div>
     </div> 
   )
 }
