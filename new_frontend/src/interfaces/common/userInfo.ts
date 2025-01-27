@@ -1,11 +1,11 @@
-import FormInterface from "../form/Form";
-import Question from "./question";
+import { Form } from "../form/Form";
+import Question from "./../state/question";
 import userInfoInterface from "./userInfo";
-import recommendInterface from './recommend';
+import recommendInterface from './../state/recommend';
 
 export default interface StateInterface {
   userInfo: userInfoInterface;
-  formInfo: FormInterface;
+  formInfo: Form;
   questionInfo: Question;
   recommendInfo: recommendInterface;
 }
